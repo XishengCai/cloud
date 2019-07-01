@@ -1,0 +1,6 @@
+package: github.com/cloud
+import:
+- package: github.com/emicklei/go-restful
+  version: ^2.9.6
+- package: github.com/emicklei/go-restful-swagger12
+  version: ^1.0.1
