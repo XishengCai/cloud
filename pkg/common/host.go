@@ -1,4 +1,4 @@
-package install
+package common
 
 type Host struct {
 	ID     int    `json:"id"`

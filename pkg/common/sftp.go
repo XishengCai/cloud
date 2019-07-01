@@ -1,4 +1,4 @@
-package install
+package common
 
 import (
 	"fmt"
