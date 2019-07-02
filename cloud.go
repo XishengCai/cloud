@@ -5,15 +5,15 @@ import (
 	"log"
 	"net/http"
 
+	_ "github.com/cloud/pkg/model"
 	"github.com/emicklei/go-restful"
 	"github.com/emicklei/go-restful-swagger12"
 )
 
 type Cloud struct {
-
 }
 
-func (cloud Cloud) Register(container *restful.Container){
+func (cloud Cloud) Register(container *restful.Container) {
 	ws := new(restful.WebService)
 	ws.
 		Path("/cloud").
@@ -46,4 +46,3 @@ func main() {
 	server := &http.Server{Addr: ":8080", Handler: wsContainer}
 	log.Fatal(server.ListenAndServe())
 }
-
