@@ -34,7 +34,7 @@ func main() {
 	// Open http://localhost:8080/apidocs and enter http://localhost:8080/apidocs.json in the api input field.
 	config := swagger.Config{
 		WebServices:    restful.DefaultContainer.RegisteredWebServices(), // you control what services are visible
-		WebServicesUrl: "http://localhost:8080",
+		WebServicesUrl: "http://localhost:8081",
 		ApiPath:        "/apidocs.json",
 
 		// Optionally, specify where the UI is located
@@ -42,7 +42,7 @@ func main() {
 		SwaggerFilePath: "/Users/emicklei/xProjects/swagger-ui/dist"}
 	swagger.RegisterSwaggerService(config, restful.DefaultContainer)
 
-	log.Print("start listening on localhost:8080")
-	server := &http.Server{Addr: ":8080", Handler: wsContainer}
+	log.Print("start listening on localhost:8082")
+	server := &http.Server{Addr: ":8082", Handler: wsContainer}
 	log.Fatal(server.ListenAndServe())
 }
