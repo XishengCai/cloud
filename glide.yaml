@@ -1,6 +1,12 @@
 package: github.com/cloud
 import:
 - package: github.com/emicklei/go-restful
-  version: ^2.9.6
+  version: v2.9.6
 - package: github.com/emicklei/go-restful-swagger12
-  version: ^1.0.1
+  version: 1.0.1
+- package: github.com/golang/glog
+- package: github.com/jinzhu/gorm
+  subpackages:
+  - dialects/mysql
+- package: github.com/pkg/sftp
+- package: golang.org/x/crypto/ssh

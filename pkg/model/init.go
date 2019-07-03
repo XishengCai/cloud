@@ -5,6 +5,7 @@ import (
 	"github.com/cloud/pkg"
 	"github.com/golang/glog"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"os"
 )
 var db *gorm.DB
