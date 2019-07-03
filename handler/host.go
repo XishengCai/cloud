@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/cloud/pkg/model"
+	"github.com/cloud/model"
 	"github.com/emicklei/go-restful"
 )
 

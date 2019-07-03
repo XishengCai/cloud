@@ -1,4 +1,4 @@
-package cloud
+package constant
 
 var(
 	MYSQL_USER = "root"

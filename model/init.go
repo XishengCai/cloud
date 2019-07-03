@@ -2,7 +2,7 @@ package model
 
 import (
 	"fmt"
-	"github.com/cloud/pkg"
+	. "github.com/cloud/constant"
 	"github.com/golang/glog"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -17,9 +17,9 @@ func init(){
 
 
 func connectMysql() *gorm.DB{
-	glog.Infof("Connect to Mysql:  %s:%s ", cloud.MYSQL_HOST, cloud.MYSQL_PORT)
+	glog.Infof("Connect to Mysql:  %s:%s ", MYSQL_HOST, MYSQL_PORT)
 	mysql := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
-		cloud.MYSQL_USER, cloud.MYSQL_PASSWORD, cloud.MYSQL_HOST, cloud.MYSQL_PORT, cloud.MYSQL_DATABASE)
+		MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST, MYSQL_PORT, MYSQL_DATABASE)
 	db, err := gorm.Open("mysql", mysql)
 	if err != nil {
 		glog.Errorf("mysql connect err: %v", err)

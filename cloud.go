@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/cloud/pkg/handler"
+	"github.com/cloud/handler"
 	"log"
 	"net/http"
 
-	_ "github.com/cloud/pkg/model"
+	_ "github.com/cloud/model"
 	"github.com/emicklei/go-restful"
 	"github.com/emicklei/go-restful-swagger12"
 )
