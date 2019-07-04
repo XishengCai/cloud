@@ -8,3 +8,7 @@ var(
 	MYSQL_DATABASE = "cloud"
 )
 
+const(
+	PAGE = "page"
+	PAGE_SIZE = "page_size"
+)

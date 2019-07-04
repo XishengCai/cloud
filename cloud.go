@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/cloud/handler"
 	"log"
 	"net/http"
 
 	_ "github.com/cloud/model"
+	"github.com/cloud/handler"
 	"github.com/emicklei/go-restful"
 	"github.com/emicklei/go-restful-swagger12"
 )
@@ -13,14 +13,16 @@ import (
 type Cloud struct {
 }
 
+
 func (cloud Cloud) Register(container *restful.Container) {
+	hd := &handler.Handler{}
 	ws := new(restful.WebService)
 	ws.
 		Path("/cloud").
 		Consumes(restful.MIME_XML, restful.MIME_JSON).
 		Produces(restful.MIME_JSON, restful.MIME_XML) // you can specify this per route as well
 
-	ws.Route(ws.GET("/host").To(handler.HostList))
+	ws.Route(ws.GET("/host").To(hd.HostList))
 	container.Add(ws)
 }
 

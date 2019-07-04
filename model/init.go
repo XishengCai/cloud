@@ -6,15 +6,12 @@ import (
 	"github.com/golang/glog"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"os"
 )
 var db *gorm.DB
 
 func init(){
 	db = connectMysql()
 }
-
-
 
 func connectMysql() *gorm.DB{
 	glog.Infof("Connect to Mysql:  %s:%s ", MYSQL_HOST, MYSQL_PORT)
@@ -23,7 +20,11 @@ func connectMysql() *gorm.DB{
 	db, err := gorm.Open("mysql", mysql)
 	if err != nil {
 		glog.Errorf("mysql connect err: %v", err)
-		os.Exit(1000)
+		panic("连接数据库失败")
 	}
+
+	// 自动迁移模式
+
+	//
 	return db
 }

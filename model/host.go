@@ -11,6 +11,8 @@ func(t *Host) TableName()string{
 	return "host"
 }
 
-func GetHostList(){
-
+func GetHostList(offset int, limit int, filter string) (hosts []*Host, count int64, err error){
+	err = db.Model(&Host{}).Where("ip like ? ", filter).
+		Count(&count).Offset(offset).Limit(limit).Find(&hosts).Error
+	return
 }
