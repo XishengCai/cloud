@@ -19,11 +19,11 @@ type RespStruct struct {
 	Msg        string      `json:"msg"`
 	Uuid       string      `json:"uuid"`
 	ReturnCode int         `json:"return_code"`
-	Error      error      `json:"error"`
+	Error      error       `json:"error"`
 }
 
 func (h *Handler) Finish(request *restful.Request, response *restful.Response, resp RespStruct) {
-	if resp.Error != nil{
+	if resp.Error != nil {
 		resp.Code = 400
 	}
 	fmt.Printf("--%v", resp)
@@ -44,7 +44,7 @@ func (h Handler) InitRequestWithBody(request *restful.Request, response *restful
 		return
 	}
 	reqBytes := buf.Bytes()
-	if  len(reqBytes) > 0 {
+	if len(reqBytes) > 0 {
 		err = json.Unmarshal(reqBytes, receiveStruct)
 		if err != nil {
 			resp.Error = err
