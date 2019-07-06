@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-type BaseParm struct {
+type BaseParam struct {
 	Page      int      `json:"page"`
 	PageSize  int      `json:"page_size"`
 	Condition []string `json:"condition"`

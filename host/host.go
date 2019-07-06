@@ -10,7 +10,7 @@ type Host struct {
 	Memory int  `json:memory`
 	CPU    int  `json:cpu`
 	Disk   int  `json:disk`
-	BaseParm
+	BaseParam
 }
 
 func (host *Host) List() ([]*model.Host, int64, error){
