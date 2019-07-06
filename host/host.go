@@ -4,13 +4,19 @@ import (
 	. "github.com/cloud/common"
 	"github.com/cloud/model"
 	"github.com/golang/glog"
+	"golang.org/x/crypto/ssh"
 )
 
 type Host struct {
-	IP     string `json:"ip",default:`
-	Memory int    `json:"memory"`
-	CPU    int    `json:"cpu"`
-	Disk   int    `json:"disk"`
+	IP        string `json:"ip"`
+	Name      string  `json:"name"`
+	Password  string `json:"password"`
+	User      string  `json:"user"`
+	Port      int    `json:"port"`
+	Memory    int    `json:"memory"`
+	CPU       int    `json:"cpu"`
+	Disk      int    `json:"disk"`
+	SshClient *ssh.Client
 	BaseParam
 }
 
@@ -30,4 +36,9 @@ func (h *Host) Delete() {
 
 func (h *Host) Update() {
 
+}
+
+func (h *Host) setSshClient() (err error){
+	h.SshClient, err = GetSshClient(h.IP, "root", h.Password, h.Port)
+	return
 }

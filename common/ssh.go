@@ -32,7 +32,7 @@ func SSHExecCmd(client *ssh.Client, cmd string) ([]byte, error) {
 
 	out, err := session.CombinedOutput(cmd)
 	if err != nil {
-		return nil, fmt.Errorf("cmd fail")
+		return nil, fmt.Errorf("CombinedOutput fail %v", err)
 	}
 	return out, err
 }
@@ -57,9 +57,10 @@ func CopyByteToRemote(client *ssh.Client, byteStream []byte, remoteFilePath stri
 }
 
 //通过ssh.ClientConfig创建一个ssh连接
-func GetSshClient(host string, port int, sshConfig *ssh.ClientConfig) (*ssh.Client, error) {
+func GetSshClient(host, user, password string, port int) (*ssh.Client, error) {
+	fmt.Printf("host:%s, user:%s, password:%s, port:%d",host, user,password, port)
 	addr := fmt.Sprintf("%s:%d", host, port)
-	fmt.Println(addr)
+	sshConfig := GetSshConfigByPassword(user, password)
 	client, err := ssh.Dial("tcp", addr, sshConfig)
 	if err != nil {
 		return nil, fmt.Errorf("failed to dial:%v", err)
@@ -68,4 +69,3 @@ func GetSshClient(host string, port int, sshConfig *ssh.ClientConfig) (*ssh.Clie
 	}
 	return client, nil
 }
-
