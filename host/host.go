@@ -7,28 +7,27 @@ import (
 )
 
 type Host struct {
-	IP     string `json:"ip"`
+	IP     string `json:"ip",default:`
 	Memory int    `json:"memory"`
 	CPU    int    `json:"cpu"`
 	Disk   int    `json:"disk"`
 	BaseParam
 }
 
-func (host *Host) List() ([]*model.Host, int64, error) {
+func (h *Host) List() ([]model.Host, int64, error) {
 	glog.Info("get host list")
-	offset := host.Page * host.PageSize
-	return model.GetHostList(offset, host.PageSize, "")
+	offset := h.Page * h.PageSize
+	return model.GetHostList(offset, h.PageSize, "")
+}
+
+func (h *Host) Add() {
 
 }
 
-func (host *Host) Add() {
+func (h *Host) Delete() {
 
 }
 
-func (host *Host) Delete() {
-
-}
-
-func (hsot *Host) Update() {
+func (h *Host) Update() {
 
 }

@@ -11,6 +11,8 @@ var db *gorm.DB
 
 func init(){
 	db = connectMysql()
+
+	autoMigrate()
 }
 
 func connectMysql() *gorm.DB{
@@ -23,8 +25,12 @@ func connectMysql() *gorm.DB{
 		panic("连接数据库失败")
 	}
 
-	// 自动迁移模式
+	db.LogMode(true)
 
-	//
 	return db
+}
+
+
+func autoMigrate(){
+	db.AutoMigrate(&Host{})
 }

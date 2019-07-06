@@ -15,20 +15,14 @@ type RespStruct struct {
 	Success    bool        `json:"success"`
 	Data       interface{} `json:"data"`
 	Count      int64       `json:"count"`
-	Code       int         `json:"code"`
 	Msg        string      `json:"msg"`
 	Uuid       string      `json:"uuid"`
-	ReturnCode int         `json:"return_code"`
 	Error      error       `json:"error"`
 }
 
 func (h *Handler) Finish(request *restful.Request, response *restful.Response, resp RespStruct) {
-	if resp.Error != nil {
-		resp.Code = 400
-	}
-	fmt.Printf("--%v", resp)
-
-	response.WriteHeaderAndEntity(resp.Code, resp)
+	fmt.Printf("--resp: %+v", resp)
+	response.WriteEntity(resp)
 	glog.Infof("uuid:%s ,method:%s ,url:%s , return:%+v",
 		resp.Uuid, request.Request.Method, request.Request.URL.Path, resp)
 	return
@@ -52,5 +46,6 @@ func (h Handler) InitRequestWithBody(request *restful.Request, response *restful
 			return
 		}
 	}
+	resp.Success = true
 	return
 }
