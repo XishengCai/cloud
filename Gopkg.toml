@@ -34,10 +34,6 @@
   version = "1.0.1"
 
 [[constraint]]
-  branch = "master"
-  name = "github.com/golang/glog"
-
-[[constraint]]
   name = "github.com/jinzhu/gorm"
   version = "1.9.10"
 

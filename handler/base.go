@@ -3,9 +3,8 @@ package handler
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"github.com/emicklei/go-restful"
-	"github.com/golang/glog"
+	"github.com/labstack/gommon/log"
 )
 
 type Handler struct {
@@ -21,9 +20,8 @@ type RespStruct struct {
 }
 
 func (h *Handler) Finish(request *restful.Request, response *restful.Response, resp RespStruct) {
-	fmt.Printf("--resp: %+v", resp)
 	response.WriteEntity(resp)
-	glog.Infof("uuid:%s ,method:%s ,url:%s , return:%+v",
+	log.Infof("uuid:%s ,method:%s ,url:%s , return:%+v",
 		resp.Uuid, request.Request.Method, request.Request.URL.Path, resp)
 	return
 }
@@ -31,6 +29,8 @@ func (h *Handler) Finish(request *restful.Request, response *restful.Response, r
 // InitRequestWithBody
 func (h Handler) InitRequestWithBody(request *restful.Request, response *restful.Response, receiveStruct interface{}) (resp RespStruct) {
 	buf := new(bytes.Buffer)
+	baseInfo := request.Attribute("baseInfo").(*BaseInfo)
+	resp.Uuid = baseInfo.Uuid
 	_, err := buf.ReadFrom(request.Request.Body)
 	if err != nil {
 		resp.Error = err

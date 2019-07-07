@@ -3,7 +3,7 @@ package host
 import (
 	. "github.com/cloud/common"
 	"github.com/cloud/model"
-	"github.com/golang/glog"
+	"github.com/labstack/gommon/log"
 	"golang.org/x/crypto/ssh"
 )
 
@@ -17,12 +17,11 @@ type Host struct {
 	CPU       int    `json:"cpu"`
 	Disk      int    `json:"disk"`
 	SshClient *ssh.Client
-	BaseInfo
 	BaseParam
 }
 
 func (h *Host) List() ([]model.Host, int64, error) {
-	glog.Info("get host list")
+	log.Info("get host list")
 	offset := h.Page * h.PageSize
 	return model.GetHostList(offset, h.PageSize, "")
 }

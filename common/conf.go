@@ -25,7 +25,7 @@ type MysqlConfig struct{
 	Password string `toml:"password"`
 	User     string `toml:"user"`
 	Port     int    `toml:"port"`
-	DateBase string `toml:"data_base"`
+	DateBase string `toml:"database"`
 }
 
 func init(){
@@ -33,7 +33,7 @@ func init(){
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("-----  %+v\r", tomlConf)
+	fmt.Println("read tomlConfig: ", tomlConf)
 
 	serverConfig := tomlConf.Server[tomlConf.Env]
 	password, err := Base64Decode(tomlConf.Server[tomlConf.Env].Mysql.Password)

@@ -17,5 +17,6 @@ func registerCluster() {
 		Produces(restful.MIME_JSON, restful.MIME_XML) // you can specify this per route as well
 
 	ws.Route(ws.GET("/host").To(hd.HostList))
+
 	Register(ws)
 }

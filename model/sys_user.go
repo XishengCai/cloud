@@ -6,7 +6,6 @@ type SysUser struct {
 	Id          int       `orm:"column(id)"`
 	Username    string    `orm:"column(username);size(32)"`
 	Password    string    `orm:"column(password);size(128)"`
-	Name        string    `orm:"column(name);size(128);null"`
 	MobilePhone string    `orm:"column(mobile_phone);size(32);null"`
 	Email       string    `orm:"column(email);size(128);null"`
 	Status      string    `orm:"column(status);size(32)"`
