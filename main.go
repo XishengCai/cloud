@@ -6,34 +6,31 @@ import (
 	"runtime"
 
 	_ "github.com/cloud/common"
-	"github.com/cloud/handler"
 	_ "github.com/cloud/model"
 	"github.com/emicklei/go-restful"
 	"github.com/emicklei/go-restful-swagger12"
 )
 
-type Cloud struct {
-}
 
-func (cloud Cloud) Register(container *restful.Container) {
-	hd := &handler.Handler{}
-	ws := new(restful.WebService)
-	ws.
-		Path("/cloud").
-		Consumes(restful.MIME_XML, restful.MIME_JSON).
-		Produces(restful.MIME_JSON, restful.MIME_XML) // you can specify this per route as well
-
-	ws.Route(ws.GET("/host").To(hd.HostList))
-	container.Add(ws)
-}
 
 func main() {
 
 	runtime.GOMAXPROCS(runtime.NumCPU())
 
 	wsContainer := restful.NewContainer()
-	cloud := Cloud{}
-	cloud.Register(wsContainer)
+	cors := restful.CrossOriginResourceSharing{
+		ExposeHeaders:  []string{"X-My-Header"},
+		AllowedHeaders: []string{"Content-Type", "Accept", "x-requested-with", "Token", "token", "X-Host-Override", "Host"},
+		AllowedMethods: []string{"GET", "POST", "OPTIONS", "DELETE", "PUT"},
+		CookiesAllowed: true,
+		Container:      wsContainer}
+	wsContainer.Filter(cors.Filter)
+	// Add container filter to respond to OPTIONS
+	wsContainer.Filter(wsContainer.OPTIONSFilter)
+
+
+	ar := AllRoute{}
+	ar.AddAllWebService(wsContainer)
 
 	// You can install the Swagger Service which provides a nice Web UI on your REST API
 	// You need to download the Swagger HTML5 assets and change the FilePath location in the config below.

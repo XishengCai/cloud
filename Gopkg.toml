@@ -45,10 +45,6 @@
   name = "github.com/pkg/sftp"
   version = "1.10.0"
 
-[[constraint]]
-  branch = "release-branch.go1.11"
-  name = "golang.org/x/crypto"
-
 [prune]
   go-tests = true
   unused-packages = true

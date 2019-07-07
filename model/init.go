@@ -37,4 +37,5 @@ func connectMysql() *gorm.DB {
 
 func autoMigrate() {
 	db.AutoMigrate(&Host{})
+	db.AutoMigrate(&SysUser{})
 }

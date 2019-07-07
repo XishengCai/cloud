@@ -17,6 +17,7 @@ type Host struct {
 	CPU       int    `json:"cpu"`
 	Disk      int    `json:"disk"`
 	SshClient *ssh.Client
+	BaseInfo
 	BaseParam
 }
 
