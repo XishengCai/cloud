@@ -3,16 +3,17 @@ package main
 import (
 	"log"
 	"net/http"
+	"runtime"
 
-	_ "github.com/cloud/model"
+	_ "github.com/cloud/common"
 	"github.com/cloud/handler"
+	_ "github.com/cloud/model"
 	"github.com/emicklei/go-restful"
 	"github.com/emicklei/go-restful-swagger12"
 )
 
 type Cloud struct {
 }
-
 
 func (cloud Cloud) Register(container *restful.Container) {
 	hd := &handler.Handler{}
@@ -27,6 +28,9 @@ func (cloud Cloud) Register(container *restful.Container) {
 }
 
 func main() {
+
+	runtime.GOMAXPROCS(runtime.NumCPU())
+
 	wsContainer := restful.NewContainer()
 	cloud := Cloud{}
 	cloud.Register(wsContainer)
