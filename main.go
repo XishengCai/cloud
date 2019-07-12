@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/cloud/handler"
+	"github.com/cloud/service"
 	"github.com/labstack/gommon/log"
 	"net/http"
 	"runtime"
@@ -28,7 +28,7 @@ func main() {
 	// Add container filter to respond to OPTIONS
 	wsContainer.Filter(wsContainer.OPTIONSFilter)
 
-	ar := handler.AllRoute{}
+	ar := service.AllRoute{}
 	ar.AddAllWebService(wsContainer)
 
 	// You can install the Swagger Service which provides a nice Web UI on your REST API

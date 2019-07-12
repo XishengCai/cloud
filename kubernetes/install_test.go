@@ -10,12 +10,12 @@ func TestInstallKube(t *testing.T) {
 		Kube   KubeInstall
 		Except interface{}
 	}{
-		{KubeInstall{MasterNodes: []string{"47.99.241.217"},Version:"1.13.5",Registry:"k8s.gcr.io"}, ""},
+		{KubeInstall{MasterNode: "47.99.241.217",Version:"1.13.5",Registry:"k8s.gcr.io"}, ""},
 	}
 
 	for index, unit := range testCase {
 		t.Logf("case %d\r", index)
-		err := unit.Kube.InstallKube()
+		err := unit.Kube.Install()
 		if err != nil {
 			if unit.Except == "" {
 				t.Fatal(err)

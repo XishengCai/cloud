@@ -9,11 +9,11 @@ import (
 )
 
 // 通过用户名和密码生成一个配置文件
-func GetSshConfigByPassword(user string, passwrod string) *ssh.ClientConfig {
+func GetSshConfigByPassword(user string, password string) *ssh.ClientConfig {
 	sshConfig := &ssh.ClientConfig{
 		User: user,
 		Auth: []ssh.AuthMethod{
-			ssh.Password(passwrod),
+			ssh.Password(password),
 		},
 		HostKeyCallback: func(hostname string, remote net.Addr, key ssh.PublicKey) error {
 			return nil
