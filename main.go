@@ -41,8 +41,8 @@ func main() {
 		ApiPath:        "/swagger",
 
 		// Optionally, specify where the UI is located
-		SwaggerPath:     "/apidocs/",
-		SwaggerFilePath: "./apidocs/apidocs.yaml"}
+		SwaggerPath:     "/swaggerui/",
+		SwaggerFilePath: "./swaggerui/apidocs.yaml"}
 	swagger.RegisterSwaggerService(config, wsContainer)
 
 
