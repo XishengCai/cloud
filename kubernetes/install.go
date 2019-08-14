@@ -2,15 +2,16 @@ package kubernetes
 
 import (
 	"fmt"
-	"github.com/cloud/common"
-	"github.com/cloud/model"
 	"io/ioutil"
 	"strings"
+
+	"github.com/cloud/common"
+	"github.com/cloud/model"
 )
 
 var kubernetesMasterServer map[string]int
 
-func init(){
+func init() {
 	kubernetesMasterServer = make(map[string]int)
 	kubernetesMasterServer["api_server"] = 6443
 	kubernetesMasterServer["kubelet"] = 6443
@@ -25,7 +26,6 @@ type KubeInstall struct {
 	Registry    string   `json:"registry"`
 	Version     string   `json:"version"`
 }
-
 
 func (k *KubeInstall) Install() error {
 	/*
@@ -96,6 +96,9 @@ func (k *KubeInstall) installKube() (err error) {
 			return err
 		}
 	}
+	if err := k.saveServer(host.ID); err != nil {
+		return err
+	}
 
 	return
 }
@@ -113,15 +116,15 @@ func (k *KubeInstall) saveCluster() error {
 	return err
 }
 
-func (k *KubeInstall) saveServer(hostID, clusterID int) error {
-	for k, v := range kubernetesMasterServer{
+func (k *KubeInstall) saveServer(hostID int) error {
+	for key, v := range kubernetesMasterServer {
 		hs := &model.HostServer{
-			HostID: hostID,
-			ServerName: k,
-			Port: v,
-			ClusterID: clusterID,
+			HostID:     hostID,
+			ServerName: key,
+			Port:       v,
+			ClusterID:  k.ID,
 		}
-		if err := model.AddHostServer(hs); err != nil{
+		if err := model.AddHostServer(hs); err != nil {
 			return err
 		}
 

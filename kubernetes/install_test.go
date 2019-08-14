@@ -1,9 +1,11 @@
 package kubernetes
 
 import (
+	"os"
 	"strings"
 	"testing"
 )
+
 
 func TestInstallKube(t *testing.T) {
 	testCase := []struct {
@@ -26,4 +28,16 @@ func TestInstallKube(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
+}
+
+func TestCmd(t *testing.T){
+	file, err := os.Open("D:\\Go\\gopath\\src\\github.com\\cloud\\common\\conf.go")
+	if err!= nil{
+		t.Fatalf("open file err: %v", err)
+	}
+	defer file.Close()
+	b1 := make([]byte, 100)
+	n, err := file.Read(b1)
+	t.Log("n: ", n, "   ", string(b1))
+
 }
