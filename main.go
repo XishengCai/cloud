@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	swagger "github.com/emicklei/go-restful-swagger12"
+	"github.com/cloud/common"
+	"github.com/cloud/constant"
+	"github.com/cloud/service"
 	"net/http"
 	"runtime"
 
-	"github.com/cloud/service"
 	"github.com/labstack/gommon/log"
 
 	_ "github.com/cloud/common"
@@ -30,23 +31,15 @@ func main() {
 	wsContainer.Filter(wsContainer.OPTIONSFilter)
 
 	ar := service.AllRoute{}
-	ar.AddAllWebService(wsContainer)
+	ar.AddAllWebService(wsContainer) // 注册所有的路由
 
-	//You can install the Swagger Service which provides a nice Web UI on your REST API
-	//You need to download the Swagger HTML5 assets and change the FilePath location in the config below.
-	//Open http://localhost:8080/apidocs and enter http://localhost:8080/apidocs.json in the api input field.
-	config := swagger.Config{
-		WebServices:    restful.DefaultContainer.RegisteredWebServices(), // you control what services are visible
-		WebServicesUrl: "http://localhost:8082",
-		ApiPath:        "/swagger",
+	wsContainer.Handle("/apidocs/",
+		http.StripPrefix("/apidocs/",
+			http.FileServer(http.Dir(constant.SWAGGER_UI_DIR)))) //静态文件服务器
 
-		// Optionally, specify where the UI is located
-		SwaggerPath:     "/swaggerui/",
-		SwaggerFilePath: "./swaggerui/apidocs.yaml"}
-	swagger.RegisterSwaggerService(config, wsContainer)
+	fmt.Println("http://localhost:8080/apidocs/?url=http://localhost:8080/download/apidocs.json")
 
-
-	fmt.Println("start listening on localhost:8082")
-	server := &http.Server{Addr: ":8082", Handler: wsContainer}
+	config := common.GetConf()
+	server := &http.Server{Addr: ":" + config.Port, Handler: wsContainer}
 	log.Fatal(server.ListenAndServe())
 }

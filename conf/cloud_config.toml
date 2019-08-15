@@ -1,6 +1,6 @@
 title = "container cloud"
 env = "local"
-port = 8082
+port = "8080"
 version = "1.0"
 [server]
     [server.local]

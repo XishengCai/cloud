@@ -95,3 +95,5 @@ EOF
 systemctl daemon-reload
 systemctl restart docker
 docker info
+
+

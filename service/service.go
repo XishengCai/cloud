@@ -14,7 +14,11 @@ var gWebServiceList []*restful.WebService
 
 func Register(v *restful.WebService) {
 	fmt.Println("register route:  ", v.RootPath())
-	gWebServiceList = append(gWebServiceList, v.Filter(ContainerFilter))
+	if v.RootPath() == "/" {
+		gWebServiceList = append(gWebServiceList, v)
+	}else{
+		gWebServiceList = append(gWebServiceList, v.Filter(ContainerFilter))
+	}
 
 }
 
@@ -48,7 +52,6 @@ func (b *BaseInfo) CheckAuthentication(request *restful.Request) bool {
 	}
 	b.Username = username
 	return CheckPassword(username, password)
-
 }
 
 func (a AllRoute) AddAllWebService(container *restful.Container) {

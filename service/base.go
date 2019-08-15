@@ -19,15 +19,24 @@ type RespStruct struct {
 	Error   string      `json:"error"`
 }
 
-func (h *Handler) Finish(request *restful.Request, response *restful.Response, resp RespStruct) {
-	response.WriteEntity(resp)
-	log.Infof("uuid:%s ,method:%s ,url:%s , return:%+v",
-		resp.Uuid, request.Request.Method, request.Request.URL.Path, resp)
+func Finish(response *restful.Response, resp RespStruct) {
+	if err := response.WriteEntity(resp); err != nil {
+		log.Error("response write Entity err: ", err)
+	}
+	return
+}
+
+func WriteHtml(request *restful.Request, response *restful.Response, resp interface{}) {
+	if err := response.WriteEntity(resp); err != nil {
+		log.Error("response write Entity err: ", err)
+	}
+	//log.Infof("uuid:%s ,method:%s ,url:%s , return:%+v",
+	//	resp.Uuid, request.Request.Method, request.Request.URL.Path, resp)
 	return
 }
 
 // InitRequestWithBody
-func (h Handler) InitRequestWithBody(request *restful.Request, response *restful.Response, receiveStruct interface{}) (RespStruct, error) {
+func InitRequestWithBody(request *restful.Request, response *restful.Response, receiveStruct interface{}) (RespStruct, error) {
 	buf := new(bytes.Buffer)
 	resp := RespStruct{}
 	baseInfo := request.Attribute("baseInfo").(*BaseInfo)
@@ -35,7 +44,7 @@ func (h Handler) InitRequestWithBody(request *restful.Request, response *restful
 	_, err := buf.ReadFrom(request.Request.Body)
 	if err != nil {
 		resp.Error = err.Error()
-		h.Finish(request, response, resp)
+		Finish(response, resp)
 		return resp, err
 	}
 	reqBytes := buf.Bytes()
@@ -43,7 +52,7 @@ func (h Handler) InitRequestWithBody(request *restful.Request, response *restful
 		err = json.Unmarshal(reqBytes, receiveStruct)
 		if err != nil {
 			resp.Error = err.Error()
-			h.Finish(request, response, resp)
+			Finish(response, resp)
 			return resp, err
 		}
 	}

@@ -13,7 +13,7 @@ var tomlConf *TomlConfig
 type TomlConfig struct {
 	Title   string                  `toml:"title"`
 	Env     string                  `toml:"env"`
-	Port    int                     `toml:"port"`
+	Port    string                  `toml:"port"`
 	Version string                  `toml:"version"`
 	Server  map[string]ServerConfig `toml:"server"`
 }
@@ -51,10 +51,10 @@ func GetConf() *TomlConfig {
 func loadConfig() {
 	_, filename, _, _ := runtime.Caller(1)
 	fmt.Println("filename: ", filename)
-	paths := strings.Split(filename,"/")
-	paths = paths[0:len(paths)-2]
+	paths := strings.Split(filename, "/")
+	paths = paths[0 : len(paths)-2]
 	paths = append(paths, tomlFilePath)
-	confFileFullPath := strings.Join(paths,"/")
+	confFileFullPath := strings.Join(paths, "/")
 	fmt.Println("confFileFullPath: ", confFileFullPath)
 	_, err := toml.DecodeFile(confFileFullPath, &tomlConf)
 	if err != nil {

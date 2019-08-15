@@ -17,8 +17,8 @@ func TestSSHExecCmd(t *testing.T) {
 		Password string
 		Except   interface{}
 	}{
-		{"47.99.241.217", 22, "cai", "caicai12", ""},
-		{"47.99.241.217", 22, "notExit", "caicai12", "failed to dial"},
+		{"47.99.241.217", 22, "cai", "abcd", ""},
+		{"47.99.241.217", 22, "notExit", "abdcd", "failed to dial"},
 	}
 
 	for index, unit := range testCase {
