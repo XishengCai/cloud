@@ -1,7 +1,7 @@
 package common
 
 import (
-	"github.com/cloud/constant"
+	"cloud/constant"
 	"github.com/emicklei/go-restful"
 	"github.com/labstack/gommon/log"
 	"strconv"

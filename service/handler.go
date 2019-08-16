@@ -2,10 +2,10 @@ package service
 
 import (
 	"fmt"
-	"github.com/cloud/common"
-	"github.com/cloud/constant"
-	"github.com/cloud/host"
-	"github.com/cloud/kubernetes"
+	"cloud/common"
+	"cloud/constant"
+	"cloud/host"
+	"cloud/kubernetes"
 	"github.com/emicklei/go-restful"
 	"net/http"
 	"path"

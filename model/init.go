@@ -2,7 +2,7 @@ package model
 
 import (
 	"fmt"
-	"github.com/cloud/common"
+	"cloud/common"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/labstack/gommon/log"

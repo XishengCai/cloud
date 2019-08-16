@@ -2,8 +2,8 @@ package service
 
 import (
 	"fmt"
-	"github.com/cloud/model"
-	"github.com/cloud/util"
+	"cloud/model"
+	"cloud/util"
 	"github.com/emicklei/go-restful"
 	"github.com/labstack/gommon/log"
 	"net/http"

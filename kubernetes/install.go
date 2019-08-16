@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/cloud/common"
-	"github.com/cloud/model"
+	"cloud/common"
+	"cloud/model"
 )
 
 var kubernetesMasterServer map[string]int

@@ -2,16 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/cloud/common"
-	"github.com/cloud/constant"
-	"github.com/cloud/service"
+	"cloud/common"
+	"cloud/constant"
+	"cloud/service"
 	"net/http"
 	"runtime"
 
 	"github.com/labstack/gommon/log"
 
-	_ "github.com/cloud/common"
-	_ "github.com/cloud/model"
+	_ "cloud/common"
+	_ "cloud/model"
 	"github.com/emicklei/go-restful"
 )
 

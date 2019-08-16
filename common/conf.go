@@ -3,8 +3,6 @@ package common
 import (
 	"fmt"
 	"github.com/BurntSushi/toml"
-	"runtime"
-	"strings"
 )
 
 var tomlFilePath = "conf/cloud_config.toml"
@@ -49,14 +47,8 @@ func GetConf() *TomlConfig {
 }
 
 func loadConfig() {
-	_, filename, _, _ := runtime.Caller(1)
-	fmt.Println("filename: ", filename)
-	paths := strings.Split(filename, "/")
-	paths = paths[0 : len(paths)-2]
-	paths = append(paths, tomlFilePath)
-	confFileFullPath := strings.Join(paths, "/")
-	fmt.Println("confFileFullPath: ", confFileFullPath)
-	_, err := toml.DecodeFile(confFileFullPath, &tomlConf)
+
+	_, err := toml.DecodeFile(tomlFilePath, &tomlConf)
 	if err != nil {
 		panic(err)
 	}

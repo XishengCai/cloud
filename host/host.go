@@ -1,8 +1,8 @@
 package host
 
 import (
-	. "github.com/cloud/common"
-	"github.com/cloud/model"
+	. "cloud/common"
+	"cloud/model"
 	"github.com/labstack/gommon/log"
 	"golang.org/x/crypto/ssh"
 )

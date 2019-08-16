@@ -1,8 +1,11 @@
 from alpine:latest
-ADD ./bin/cloud /opt/
 
-RUN  chmod +x /opt/cloud
+RUN  mkdir /opt/cloud
+ADD ./bin/cloud /opt/cloud
+ADD ./conf /opt/cloud
 
-WORKDIR /opt/
+RUN  chmod +x /opt/cloud/cloud
 
-cmd [".cloud"]
+WORKDIR /opt/cloud
+
+cmd ["./cloud"]
