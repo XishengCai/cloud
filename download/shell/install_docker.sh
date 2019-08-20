@@ -25,20 +25,19 @@ rpm -ih docker-ce-cli-18.09.8-3.el7.x86_64.rpm
 rpm -ih docker-ce-18.09.8-3.el7.x86_64.rpm
 
 echo "config docker daemon"
-mkdir /etc/docker
+mkdir -p /etc/docker
 cat > /etc/docker/daemon.json <<EOF
 {
-    "data-root": "/data/docker-data",
+    "data-root": "/data/docker",
     "storage-driver": "overlay2",
     "exec-opts": [
         "native.cgroupdriver=systemd"
-    ]
-    "live-restore": true,       # 保证 docker daemon重启，但容器不重启
+    ],
+    "live-restore": true,
     "log-driver":"json-file",
     "log-opts":{
-        "max-size":"100m",
-         "
-    },
+        "max-size":"100m"
+    }
 }
 EOF
 

@@ -61,4 +61,5 @@ func loadConfig() {
 	}
 	serverConfig.Mysql.Password = string(password)
 	tomlConf.Server[tomlConf.Env] = serverConfig
+
 }
