@@ -55,8 +55,8 @@ rm  -rf /root/.kube
 mkdir /root/.kube
 mv -f /etc/kubernetes/admin.conf /root/.kube/config
 
-#echo "install flannel"
-#kubectl create -f  ../yaml/flannel/kube-flannel.yml
+echo "install flannel"
+kubectl create -f  ../yaml/flannel/kube-flannel.yml
 
 # 因为是测试环境机器不够，所以去掉 NoSchedule 污点
 kubectl taint nodes k8s-master  node-role.kubernetes.io/master-
