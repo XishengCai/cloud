@@ -7,11 +7,13 @@ RUN apk --no-cache add tzdata zeromq \
     && echo '$TZ' > /etc/timezone
 
 RUN  mkdir /opt/cloud
-COPY ./bin/linux/cloud /opt/cloud
-COPY ./conf /opt/cloud/
-
-RUN  chmod +x /opt/cloud/cloud
+COPY . /opt/cloud
 
 WORKDIR /opt/cloud
 
-CMD ["./cloud", "./conf/cloud_config.toml"]
+RUN  chmod +x /opt/cloud/bin/linux/cloud && \
+     mkdir /etc/cloud
+     cp /opt/cloud/bin/linux/cloud /usr/local/bin && \
+     cp ./conf/cloud_config.toml /etc/cloud/
+
+CMD ["cloud", "/etc/cloud/cloud_config.toml"]
