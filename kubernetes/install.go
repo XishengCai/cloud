@@ -29,13 +29,13 @@ type KubeInstall struct {
 
 func (k *KubeInstall) Install() error {
 	/*
-	{
-		"master_node": "47.244.229.251",
-		"version":"1.14.0",
-		"network_plug":"flannel",
-		"registry":"k8s.gcr.io",
-		"name": "hongkong"
-	}
+		{
+			"master_node": "47.244.229.251",
+			"version":"1.14.0",
+			"network_plug":"flannel",
+			"registry":"k8s.gcr.io",
+			"name": "hongkong"
+		}
 	*/
 
 	if err := k.installCheckArguments(); err != nil {

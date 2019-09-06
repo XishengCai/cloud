@@ -25,7 +25,7 @@ func TestSSHExecCmd(t *testing.T) {
 		t.Logf("case %d\r", index)
 		sshClient, err := GetSshClient(unit.Host, unit.User, unit.Password, unit.Port)
 		if err != nil {
-			if unit.Except == ""{
+			if unit.Except == "" {
 				t.Fatal(err)
 			}
 			if strings.Contains(err.Error(), unit.Except.(string)) {
@@ -33,7 +33,7 @@ func TestSSHExecCmd(t *testing.T) {
 			}
 			t.Fatal(err)
 		}
-		cmd :="pwd"
+		cmd := "pwd"
 		resp, err := SSHExecCmd(sshClient, cmd)
 		if err != nil {
 			t.Fatal(err)

@@ -21,6 +21,7 @@ require (
 	github.com/rs/xid v1.2.1
 	github.com/sdboyer/constext v0.0.0-20170321163424-836a14457353 // indirect
 	github.com/tools/godep v0.0.0-20180126220526-ce0bfadeb516 // indirect
+	github.com/urfave/cli v1.21.0
 	golang.org/x/crypto v0.0.0-20190820162420-60c769a6c586
 	golang.org/x/tools v0.0.0-20190829210313-340205e581e5 // indirect
 )

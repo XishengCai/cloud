@@ -1,19 +1,22 @@
 package common
 
 import (
-	"fmt"
+	"cloud/util"
 	"github.com/BurntSushi/toml"
+	"github.com/labstack/gommon/log"
+	"os"
 )
 
 var tomlFilePath = "conf/cloud_config.toml"
 var tomlConf *TomlConfig
 
 type TomlConfig struct {
-	Title   string                  `toml:"title"`
-	Env     string                  `toml:"env"`
-	Port    string                  `toml:"port"`
-	Version string                  `toml:"version"`
-	Server  map[string]ServerConfig `toml:"server"`
+	Title      string                  `toml:"title"`
+	Env        string                  `toml:"env"`
+	Port       string                  `toml:"port"`
+	Version    string                  `toml:"version"`
+	Server     map[string]ServerConfig `toml:"server"`
+	ConfigPath string                  `toml:"string"`
 }
 
 type ServerConfig struct {
@@ -28,21 +31,16 @@ type MysqlConfig struct {
 	DateBase string `toml:"database"`
 }
 
-func init() {
-	loadConfig()
-	//s := make(chan os.Signal, 1)
-	//signal.Notify(s, syscall.SIGUSR1)
-	//go func() {
-	//	for {
-	//		<-s
-	//		log.Info("Reloaded config")
-	//		loadConfig()
-	//	}
-	//}()
-}
-
 //GetConf get toml conf
-func GetConf() *TomlConfig {
+func GetConf(config string) *TomlConfig {
+	if config != "" {
+		tomlFilePath = config
+	}
+	if !util.IsFile(config){
+		log.Errorf("toml config  file:%s not exits", config)
+		os.Exit(1)
+	}
+	loadConfig()
 	return tomlConf
 }
 
@@ -52,7 +50,7 @@ func loadConfig() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("read tomlConfig: ", tomlConf)
+	log.Infof("read tomlConfig: %s", tomlFilePath)
 
 	serverConfig := tomlConf.Server[tomlConf.Env]
 	password, err := Base64Decode(tomlConf.Server[tomlConf.Env].Mysql.Password)

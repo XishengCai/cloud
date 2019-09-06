@@ -6,7 +6,6 @@ import (
 	"testing"
 )
 
-
 func TestInstallKube(t *testing.T) {
 	testCase := []struct {
 		Kube   KubeInstall
@@ -14,9 +13,9 @@ func TestInstallKube(t *testing.T) {
 	}{
 		{KubeInstall{
 			MasterNode: "47.99.241.217",
-			Version:"1.13.5",
-			Registry:"k8s.gcr.io",
-			Name: "test"},
+			Version:    "1.13.5",
+			Registry:   "k8s.gcr.io",
+			Name:       "test"},
 			""},
 	}
 
@@ -35,9 +34,9 @@ func TestInstallKube(t *testing.T) {
 	}
 }
 
-func TestCmd(t *testing.T){
+func TestCmd(t *testing.T) {
 	file, err := os.Open("D:\\Go\\gopath\\src\\github.com\\cloud\\common\\conf.go")
-	if err!= nil{
+	if err != nil {
 		t.Fatalf("open file err: %v", err)
 	}
 	defer file.Close()

@@ -1,9 +1,9 @@
 package service
 
 import (
-	"fmt"
 	"cloud/model"
 	"cloud/util"
+	"fmt"
 	"github.com/emicklei/go-restful"
 	"github.com/labstack/gommon/log"
 	"net/http"
@@ -11,16 +11,6 @@ import (
 )
 
 var gWebServiceList []*restful.WebService
-
-func Register(v *restful.WebService) {
-	fmt.Println("register route:  ", v.RootPath())
-	if v.RootPath() == "/" {
-		gWebServiceList = append(gWebServiceList, v)
-	}else{
-		gWebServiceList = append(gWebServiceList, v.Filter(ContainerFilter))
-	}
-
-}
 
 type AllRoute struct {
 }
@@ -56,7 +46,7 @@ func (b *BaseInfo) CheckAuthentication(request *restful.Request) bool {
 
 func (a AllRoute) AddAllWebService(container *restful.Container) {
 	for _, ws := range gWebServiceList {
-		fmt.Println("Add WebService ", ws.RootPath())
+		fmt.Println("Add WebService to container ", ws.RootPath())
 		container.Add(ws)
 	}
 
@@ -109,4 +99,14 @@ func GetTokenFromRedis(token string) (username string) {
 		username = "token_test"
 	}
 	return
+}
+
+func Register(v *restful.WebService) {
+	fmt.Println("register web service:  ", v.RootPath())
+	if v.RootPath() == "/" {
+		gWebServiceList = append(gWebServiceList, v)
+	} else {
+		gWebServiceList = append(gWebServiceList, v.Filter(ContainerFilter))
+	}
+
 }

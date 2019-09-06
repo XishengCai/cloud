@@ -1,10 +1,9 @@
 package kubernetes
 
-
-func InstallMaster(){
+func InstallMaster() {
 	/*
-	{
-		host:
-	}
-	 */
+		{
+			host:
+		}
+	*/
 }

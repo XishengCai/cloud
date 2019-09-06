@@ -4,11 +4,8 @@ import (
 	"github.com/emicklei/go-restful"
 )
 
-func init(){
-	registerStatic()
-}
 
-func registerStatic() {
+func RegisterStatic() {
 	ws := new(restful.WebService)
 	ws.
 		Path("/")

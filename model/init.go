@@ -1,8 +1,8 @@
 package model
 
 import (
-	"fmt"
 	"cloud/common"
+	"fmt"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/labstack/gommon/log"
@@ -10,14 +10,13 @@ import (
 
 var db *gorm.DB
 
-func init() {
-	db = connectMysql()
-
+func InitDB(config *common.TomlConfig) {
+	fmt.Println("init mysql")
+	db = connectMysql(config)
 	autoMigrate()
 }
 
-func connectMysql() *gorm.DB {
-	config := common.GetConf()
+func connectMysql(config *common.TomlConfig) *gorm.DB {
 	mysql := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local",
 		config.Server[config.Env].Mysql.User,
 		config.Server[config.Env].Mysql.Password,

@@ -58,7 +58,7 @@ func CopyByteToRemote(client *ssh.Client, byteStream []byte, remoteFilePath stri
 
 //通过ssh.ClientConfig创建一个ssh连接
 func GetSshClient(host, user, password string, port int) (*ssh.Client, error) {
-	fmt.Printf("host:%s, user:%s, password:%s, port:%d",host, user,password, port)
+	fmt.Printf("host:%s, user:%s, password:%s, port:%d", host, user, password, port)
 	addr := fmt.Sprintf("%s:%d", host, port)
 	sshConfig := GetSshConfigByPassword(user, password)
 	client, err := ssh.Dial("tcp", addr, sshConfig)

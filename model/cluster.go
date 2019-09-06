@@ -14,7 +14,7 @@ func (c *Cluster) TableName() string {
 	return "cluster"
 }
 
-func AddCluster(c *Cluster) (int, error){
+func AddCluster(c *Cluster) (int, error) {
 	err := db.Save(c).Error
 	return c.ID, err
 }

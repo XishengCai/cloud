@@ -14,8 +14,6 @@ type BaseParam struct {
 	Condition []string `json:"condition"`
 }
 
-
-
 func GatePage(request *restful.Request) (page int, pageSize int, err error) {
 	pageT := strings.TrimSpace(request.QueryParameter(constant.PAGE))
 	pageSizeT := strings.TrimSpace(request.QueryParameter(constant.PAGE_SIZE))
@@ -40,5 +38,3 @@ func GatePage(request *restful.Request) (page int, pageSize int, err error) {
 	}
 	return
 }
-
-

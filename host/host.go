@@ -9,9 +9,9 @@ import (
 
 type Host struct {
 	IP        string `json:"ip"`
-	Name      string  `json:"name"`
+	Name      string `json:"name"`
 	Password  string `json:"password"`
-	User      string  `json:"user"`
+	User      string `json:"user"`
 	Port      int    `json:"port"`
 	Memory    int    `json:"memory"`
 	CPU       int    `json:"cpu"`
@@ -38,7 +38,7 @@ func (h *Host) Update() {
 
 }
 
-func (h *Host) setSshClient() (err error){
+func (h *Host) setSshClient() (err error) {
 	h.SshClient, err = GetSshClient(h.IP, "root", h.Password, h.Port)
 	return
 }

@@ -1,24 +1,52 @@
 package main
 
 import (
-	"fmt"
 	"cloud/common"
 	"cloud/constant"
+	"cloud/model"
 	"cloud/service"
+	"fmt"
+	"github.com/urfave/cli"
 	"net/http"
+	"os"
 	"runtime"
 
-	"github.com/labstack/gommon/log"
-
-	_ "cloud/common"
-	_ "cloud/model"
 	"github.com/emicklei/go-restful"
+	"github.com/labstack/gommon/log"
 )
+
+
 
 func main() {
 
 	runtime.GOMAXPROCS(runtime.NumCPU())
+	app := cli.NewApp()
+	app.Version = "0.0.1"
+	app.Name = "xixi cloud"
+	var config string
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:        "config",
+			Usage:       "set config path",
+			Value:       "",
+			Destination: &config,
+		},
+	}
 
+	app.Action = func(c *cli.Context) error {
+		Run(config)
+		return nil
+	}
+	err := app.Run(os.Args)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+}
+
+func Run(config string) {
+	cf := common.GetConf(config)
+	model.InitDB(cf)
 	wsContainer := restful.NewContainer()
 	cors := restful.CrossOriginResourceSharing{
 		ExposeHeaders:  []string{"X-My-Header"},
@@ -30,6 +58,12 @@ func main() {
 	// Add container filter to respond to OPTIONS
 	wsContainer.Filter(wsContainer.OPTIONSFilter)
 
+
+	// webservice register to global webservice list
+	service.RegisterCluster()
+	service.RegisterStatic()
+
+	// webservice add to webservice container
 	ar := service.AllRoute{}
 	ar.AddAllWebService(wsContainer) // 注册所有的路由
 
@@ -39,7 +73,6 @@ func main() {
 
 	fmt.Println("http://localhost:8080/apidocs/?url=http://localhost:8080/download/apidocs.json")
 
-	config := common.GetConf()
-	server := &http.Server{Addr: ":" + config.Port, Handler: wsContainer}
+	server := &http.Server{Addr: ":" + cf.Port, Handler: wsContainer}
 	log.Fatal(server.ListenAndServe())
 }
