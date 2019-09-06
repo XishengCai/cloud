@@ -4,7 +4,6 @@ import (
 	"github.com/emicklei/go-restful"
 )
 
-
 func RegisterStatic() {
 	ws := new(restful.WebService)
 	ws.

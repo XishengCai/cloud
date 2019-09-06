@@ -4,7 +4,6 @@ import (
 	"github.com/emicklei/go-restful"
 )
 
-
 func RegisterCluster() {
 	hd := &Handler{}
 	ws := new(restful.WebService)

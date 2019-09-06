@@ -36,7 +36,7 @@ func GetConf(config string) *TomlConfig {
 	if config != "" {
 		tomlFilePath = config
 	}
-	if !util.IsFile(config){
+	if !util.IsFile(config) {
 		log.Errorf("toml config  file:%s not exits", config)
 		os.Exit(1)
 	}

@@ -15,8 +15,6 @@ import (
 	"github.com/labstack/gommon/log"
 )
 
-
-
 func main() {
 
 	runtime.GOMAXPROCS(runtime.NumCPU())
@@ -58,18 +56,18 @@ func Run(config string) {
 	// Add container filter to respond to OPTIONS
 	wsContainer.Filter(wsContainer.OPTIONSFilter)
 
-
 	// webservice register to global webservice list
 	service.RegisterCluster()
 	service.RegisterStatic()
 
 	// webservice add to webservice container
 	ar := service.AllRoute{}
-	ar.AddAllWebService(wsContainer) // 注册所有的路由
+	ar.AddAllWebService(wsContainer)
 
+	// start static server
 	wsContainer.Handle("/apidocs/",
 		http.StripPrefix("/apidocs/",
-			http.FileServer(http.Dir(constant.SWAGGER_UI_DIR)))) //静态文件服务器
+			http.FileServer(http.Dir(constant.SWAGGER_UI_DIR))))
 
 	fmt.Println("http://localhost:8080/apidocs/?url=http://localhost:8080/download/apidocs.json")
 
