@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: prometheus-disk-ssd
+  namespace: prometheus
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: alicloud-disk-ssd
+  resources:
+    requests:
+      storage: 20Gi

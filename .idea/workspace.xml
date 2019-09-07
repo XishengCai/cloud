@@ -4,20 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/common/conf.go" line="10" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0efe874d-f559-41ea-b648-cd6c1a4a7e00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/dashboard/cluster_role.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/es-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/es-statefulset.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/fluentd-ds.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/fluentd-es-configmap.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/kibana-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/kibana-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/grafana/grafana-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/grafana/k8s-deployment.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0efe874d-f559-41ea-b648-cd6c1a4a7e00" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +21,8 @@
         <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="489">
-                <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
+              <first_editor relative-caret-position="520">
+                <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
               </first_editor>
               <second_editor />
             </state>
@@ -54,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" column="17" lean-forward="true" selection-end-line="278" />
+            <state relative-caret-position="-5450">
+              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -265,14 +252,14 @@
               <item name="cloud" type="462c0819:PsiDirectoryNode" />
               <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
               <item name="yaml" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="grafana" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="462c0819:PsiDirectoryNode" />
               <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
               <item name="yaml" type="462c0819:PsiDirectoryNode" />
-              <item name="ingress" type="462c0819:PsiDirectoryNode" />
+              <item name="prometheus" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
@@ -454,7 +441,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.3809524" visible="true" weight="0.20095949" />
       <window_info id="Structure" order="1" sideWeight="0.61904764" side_tool="true" weight="0.20196672" />
@@ -470,7 +456,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49546143" visible="true" weight="0.03253796" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49546143" visible="true" weight="0.18872017" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5045386" side_tool="true" weight="0.447541" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -913,6 +899,16 @@
     <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-svc.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/flannel/flannel.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#1488#3320#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kubernetes/yaml/ingress/ingress-deployment.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -928,20 +924,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/flannel/flannel.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#1488#3320#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="17" lean-forward="true" selection-end-line="278" />
+        <state relative-caret-position="-5450">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -955,8 +941,8 @@
     <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="489">
-            <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
+          <first_editor relative-caret-position="520">
+            <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           </first_editor>
           <second_editor />
         </state>

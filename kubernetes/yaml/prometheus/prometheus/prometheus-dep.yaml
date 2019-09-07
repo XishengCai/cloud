@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+# for versions before 1.6.0 use extensions/v1beta1
+# Kubernetes versions after 1.9.0 should use apps/v1
+# Kubernetes versions before 1.8.0 should use apps/v1beta1 or extensions/v1beta1
+# addon-resizer描述：https://github.com/kubernetes/autoscaler/tree/master/addon-resizer
+kind: Deployment
+metadata:
+  name: prometheus-dep
+  namespace: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-dep
+  template:
+    metadata:
+      labels:
+        app: prometheus-dep
+    spec:
+      initContainers:
+        - name: "init-chown-data"
+          image: "busybox:latest"
+          imagePullPolicy: "IfNotPresent"
+          command: ["chown", "-R", "65534:65534", "/data"]
+          volumeMounts:
+            - name: data
+              mountPath: /data
+              subPath: ""
+      containers:
+      - image: prom/prometheus:v2.3.2
+        name: prometheus
+        command:
+        - "/bin/prometheus"
+        args:
+        - "--config.file=/etc/prometheus/prometheus.yml"
+        - "--storage.tsdb.path=/prometheus"
+        - "--storage.tsdb.retention=1d"
+        ports:
+        - containerPort: 9090
+          protocol: TCP
+        volumeMounts:
+        - mountPath: "/prometheus"
+          name: data
+        - mountPath: "/etc/prometheus"
+          name: config-volume
+        resources:
+          requests:
+            cpu: 200m
+            memory: 500Mi
+          limits:
+            cpu: 1000m
+            memory: 3000Mi
+      serviceAccountName: prometheus
+      volumes:
+      - name: data
+        storage-class: alicloud-disk-ssd
+      - name: config-volume
+        configMap:
+          name: prometheus-config

@@ -1,0 +1,28 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: prometheus-svc
+  namespace: prometheus
+spec:
+  type: ClusterIP
+  ports:
+  - port: 9090
+    targetPort: 9090
+  selector:
+    app: prometheus-dep
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prometheus-ingress
+  namespace: prometheus
+spec:
+  rules:
+  - host: zt.prometheus.io
+    http:
+      paths:
+      - backend:
+          serviceName: prometheus-svc
+          servicePort: 9090
+        path: /
+
