@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0efe874d-f559-41ea-b648-cd6c1a4a7e00" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/dashboard/cluster_role.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/es-service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/es-statefulset.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/fluentd-ds.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/fluentd-es-configmap.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/kibana-deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/kibana-service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/grafana/grafana-deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/yaml/grafana/k8s-deployment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,198 +31,92 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.go">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="489">
+                <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/cluster_role.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="9" column="17" lean-forward="true" selection-end-line="278" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-rbac.yaml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-deployment.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-172" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-config.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-780" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-svc.yaml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/ingress/ingress-deployment.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
-              <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
               <folding>
-                <element signature="e#14#220#0" expanded="true" />
+                <element signature="e#48#187#0" />
+                <element signature="e#188#1991#0" />
+                <element signature="e#2025#2156#0" />
+                <element signature="e#2157#2529#0" />
+                <element signature="e#2579#2610#0" />
+                <element signature="e#2611#2891#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dockerfile">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/flannel/flannel.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/doc/go-restful.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/download/apidocs.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="44" column="14" lean-forward="true" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+            <state relative-caret-position="286">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
-                <element signature="n#!!block;n#info#0;n#!!top" />
-                <element signature="n#!!block;n#contact#0;n#!!block;n#info#0;n#!!top" />
-                <element signature="n#!!block;n#license#0;n#!!block;n#info#0;n#!!top" />
-                <element signature="e#414#899#0" />
-                <element signature="e#420#606#0" />
-                <element signature="e#516#600#0" />
-                <element signature="e#612#691#0" />
-                <element signature="e#697#895#0" />
-                <element signature="e#789#889#0" />
-                <element signature="e#914#943#0" />
-                <element signature="n#!!block;n#post#0;n#!!block;n#/user#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#default#0;n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#post#0;n#!!block;n#/user/createWithArray#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user/createWithArray#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#default#0;n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user/createWithArray#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#post#0;n#!!block;n#/user/createWithList#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user/createWithList#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#default#0;n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user/createWithList#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#schema#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#headers#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#X-Rate-Limit#0;n#!!block;n#headers#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#X-Expires-After#0;n#!!block;n#headers#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#400#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#/user/logout#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#get#0;n#!!block;n#/user/logout#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/logout#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#default#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/logout#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#schema#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#400#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#404#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#put#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#responses#0;n#!!block;n#put#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#400#0;n#!!block;n#responses#0;n#!!block;n#put#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#404#0;n#!!block;n#responses#0;n#!!block;n#put#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#delete#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#responses#0;n#!!block;n#delete#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#400#0;n#!!block;n#responses#0;n#!!block;n#delete#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#404#0;n#!!block;n#responses#0;n#!!block;n#delete#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-                <element signature="n#!!block;n#petstore_auth#0;n#!!block;n#securityDefinitions#0;n#!!top" />
-                <element signature="n#!!block;n#scopes#0;n#!!block;n#petstore_auth#0;n#!!block;n#securityDefinitions#0;n#!!top" />
-                <element signature="n#!!block;n#api_key#0;n#!!block;n#securityDefinitions#0;n#!!top" />
-                <element signature="n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#petId#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#quantity#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#shipDate#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#status#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#complete#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#xml#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#properties#0;n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#name#0;n#!!block;n#properties#0;n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#xml#0;n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#username#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#firstName#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#lastName#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#email#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#password#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#phone#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#userStatus#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#xml#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#properties#0;n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#name#0;n#!!block;n#properties#0;n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#xml#0;n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#category#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#name#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#photoUrls#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#xml#0;n#!!block;n#photoUrls#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#items#0;n#!!block;n#photoUrls#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#tags#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#xml#0;n#!!block;n#tags#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#items#0;n#!!block;n#tags#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#status#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#xml#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#properties#0;n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#code#0;n#!!block;n#properties#0;n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#type#0;n#!!block;n#properties#0;n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#message#0;n#!!block;n#properties#0;n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-                <element signature="n#!!block;n#externalDocs#0;n#!!top" />
+                <element signature="e#1488#3320#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/cloud_config.toml">
+        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/grafana/k8s-deployment.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/conf.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-              <folding>
-                <element signature="e#16#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/static_server.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="14" column="37" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="37" />
-              <folding>
-                <element signature="e#17#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/handler.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="71" column="11" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
-            </state>
+            <state relative-caret-position="-1872" />
           </provider>
         </entry>
       </file>
@@ -219,7 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>serverH</find>
       <find>init</find>
       <find>ServeH</find>
       <find>ServeHTTP</find>
@@ -247,9 +151,14 @@
       <find>cloud//</find>
       <find>filename</find>
       <find>Add WebService</find>
+      <find>dev</find>
+      <find>dev-ns-admin</find>
+      <find>-n dev</find>
     </findStrings>
     <replaceStrings>
       <replace>cloud/</replace>
+      <replace>$NS</replace>
+      <replace>$ADMIN</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Go\src</dir>
@@ -266,9 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/common/encryption.go" />
-        <option value="$PROJECT_DIR$/service.go" />
-        <option value="$PROJECT_DIR$/model/sys_user.go" />
         <option value="$PROJECT_DIR$/handler/cluster_route.go" />
         <option value="$PROJECT_DIR$/handler/service.go" />
         <option value="$PROJECT_DIR$/Gopkg.toml" />
@@ -317,6 +223,9 @@
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/build.sh" />
         <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml" />
+        <option value="$PROJECT_DIR$/kubernetes/yaml/dashboard/cluster_role.yaml" />
+        <option value="$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md" />
       </list>
     </option>
   </component>
@@ -343,22 +252,38 @@
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="download" type="462c0819:PsiDirectoryNode" />
+              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
+              <item name="yaml" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
+              <item name="yaml" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
+              <item name="yaml" type="462c0819:PsiDirectoryNode" />
+              <item name="ingress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="operator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="operator" type="462c0819:PsiDirectoryNode" />
+              <item name="yaml" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -377,26 +302,26 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bvip_php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/kubernetes/yaml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Go\gopath\src\cloud\kubernetes\yaml" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\bin" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\handler" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\kubernetes" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\constant" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\gopath\src\cloud\kubernetes\yaml" />
       <recent name="D:\Go\gopath\src\github.com\cloud\download" />
       <recent name="D:\Go\gopath\src\github.com\cloud\doc" />
       <recent name="D:\Go\gopath\src\github.com\cloud" />
       <recent name="D:\Go\gopath\src\github.com\cloud\service\test" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\gopath\src\cloud\operator\yaml" />
+      <recent name="D:\Go\gopath\src\cloud\kubernetes\yaml" />
+      <recent name="D:\Go\gopath\src\github.com\cloud\bin" />
+      <recent name="D:\Go\gopath\src\github.com\cloud\handler" />
+      <recent name="D:\Go\gopath\src\github.com\cloud\kubernetes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -531,7 +456,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.3809524" visible="true" weight="0.14392324" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.3809524" visible="true" weight="0.20095949" />
       <window_info id="Structure" order="1" sideWeight="0.61904764" side_tool="true" weight="0.20196672" />
       <window_info id="Favorites" order="2" sideWeight="0.50340134" side_tool="true" weight="0.24281392" />
       <window_info anchor="bottom" id="REST Client" weight="0.3394794" />
@@ -545,7 +470,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49546143" visible="true" weight="0.21258135" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49546143" visible="true" weight="0.03253796" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5045386" side_tool="true" weight="0.447541" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -561,21 +486,6 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Go/src/net/http/server.go" />
-    <entry file="file://$PROJECT_DIR$/apidocs.json" />
-    <entry file="file://F:/20.26.28.57/k8s-autoscale/core/writechannel.go" />
-    <entry file="file://$PROJECT_DIR$/bin/jenkins-build.sh" />
-    <entry file="file://$PROJECT_DIR$/Gopkg.toml" />
-    <entry file="file://$PROJECT_DIR$/conf/README.MD">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="147">
-            <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kubernetes/master.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -595,11 +505,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/download/shell/lvs-keepalived.sh">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-config.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1386" />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kubernetes/install_test.go">
       <provider selected="true" editor-type-id="text-editor">
@@ -626,13 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/flannel/flannel.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2912">
-          <caret line="112" column="23" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kubernetes/shell/install_docker.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1508">
@@ -640,23 +538,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-deployment.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-svc.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-rbac.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/gateway.yaml" />
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/ingress/ingress-deployment.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/ssh_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -688,20 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/go.mod">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/go.sum">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -849,7 +717,7 @@
     <entry file="file://$PROJECT_DIR$/service/static_server.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="37" />
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="37" />
           <folding>
             <element signature="e#17#61#0" expanded="true" />
           </folding>
@@ -863,27 +731,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doc/go-restful.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/download/apidocs.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
-          <caret line="44" column="14" lean-forward="true" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
           <folding>
             <element signature="n#!!block;n#info#0;n#!!top" />
             <element signature="n#!!block;n#contact#0;n#!!block;n#info#0;n#!!top" />
@@ -988,13 +842,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/go.sum">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1352">
+          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
           <folding>
             <element signature="e#14#220#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operator/yaml/es-operator/controller.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/grafana/grafana-deployment.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1554" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/grafana/k8s-deployment.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1872" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-rbac.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-deployment.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-172" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-config.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-780" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-svc.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/ingress/ingress-deployment.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#48#187#0" />
+            <element signature="e#188#1991#0" />
+            <element signature="e#2025#2156#0" />
+            <element signature="e#2157#2529#0" />
+            <element signature="e#2579#2610#0" />
+            <element signature="e#2611#2891#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/flannel/flannel.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#1488#3320#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="17" lean-forward="true" selection-end-line="278" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/cluster_role.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="489">
+            <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

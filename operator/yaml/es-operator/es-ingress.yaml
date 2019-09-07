@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: es-ingress
+  namespace: prometheus
+spec:
+  rules:
+    - host: zt.kibana.io
+      http:
+        paths:
+          - backend:
+              serviceName: kibana-svc
+              servicePort: 9090
+            path: /
