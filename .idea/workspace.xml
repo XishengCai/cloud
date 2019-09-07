@@ -5,9 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0efe874d-f559-41ea-b648-cd6c1a4a7e00" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/install.go" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/install.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/install_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/install_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/dashboard/cluster_role.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/dashboard/cluster_role.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/dashboard/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/dashboard/role.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/flannel/flannel.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/flannel/flannel.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/es-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/es-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/es-statefulset.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/es-statefulset.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/fluentd-ds.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/fluentd-ds.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/fluentd-es-configmap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/fluentd-es-configmap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/kibana-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/kibana-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/kibana-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/kibana-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/grafana/grafana-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/grafana/grafana-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/grafana/k8s-deployment.json" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/grafana/k8s-deployment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/ingress/ingress-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/ingress/ingress-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role-binding.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role-binding.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-service-account.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-service-account.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/node-export/node-export-ds.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/node-export/node-export-ds.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/node-export/node-export-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/node-export/node-export-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-namespace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus-namespace.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-config-configmap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-config-configmap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-dep.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-dep.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-rbac.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-rbac.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-svc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-svc.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/pvc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/pvc.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/host.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/host.go" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -22,20 +49,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kubernetes/install.go">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+            <state relative-caret-position="216">
+              <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
+              <folding>
+                <element signature="e#14#220#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kubernetes/install_test.go">
+        <entry file="file://$PROJECT_DIR$/kubernetes/install.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="900">
+              <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -63,17 +93,24 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="340">
+              <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml">
+        <entry file="file://$PROJECT_DIR$/download/yaml/grafana/k8s-deployment.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2340" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/role.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="522">
               <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
@@ -82,11 +119,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md">
+        <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="26">
-                <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" selection-end-column="128" />
+                <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="128" />
               </first_editor>
               <second_editor />
             </state>
@@ -98,15 +135,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
               <caret line="464" selection-start-line="464" selection-end-line="464" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://F:/go/src/testing/testing.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="829" selection-start-line="829" selection-end-line="829" />
             </state>
           </provider>
         </entry>
@@ -243,6 +271,11 @@
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="download" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
               <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -250,24 +283,6 @@
               <item name="cloud" type="462c0819:PsiDirectoryNode" />
               <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
               <item name="shell" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
-              <item name="yaml" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
-              <item name="yaml" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
@@ -306,11 +321,11 @@
       <recent name="D:\Go\gopath\src\github.com\cloud\service\test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\gopath\src\cloud\download" />
       <recent name="F:\gopath\src\cloud\operator\yaml" />
       <recent name="D:\Go\gopath\src\cloud\kubernetes\yaml" />
       <recent name="D:\Go\gopath\src\github.com\cloud\bin" />
       <recent name="D:\Go\gopath\src\github.com\cloud\handler" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\kubernetes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -443,9 +458,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.3809524" visible="true" weight="0.2489339" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3809524" visible="true" weight="0.2489339" />
       <window_info id="Structure" order="1" sideWeight="0.61904764" side_tool="true" weight="0.20196672" />
       <window_info id="Favorites" order="2" sideWeight="0.50340134" side_tool="true" weight="0.24281392" />
       <window_info anchor="bottom" id="REST Client" weight="0.3394794" />
@@ -459,7 +473,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49546143" visible="true" weight="0.34924078" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49546143" visible="true" weight="0.34924078" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5045386" side_tool="true" weight="0.447541" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -723,11 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/grafana/k8s-deployment.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1872" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-rbac.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -744,7 +753,7 @@
     <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-svc.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/flannel/flannel.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/flannel/flannel.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="38" selection-start-line="38" selection-end-line="38" />
@@ -754,35 +763,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-deployment.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-deployment.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-312" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-service.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-service.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-namespace.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus-namespace.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-svc.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-svc.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-rbac.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-rbac.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-config-configmap.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-config-configmap.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/pvc.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/pvc.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-dep.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-dep.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-992" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/ingress/ingress-deployment.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/ingress/ingress-deployment.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="65" selection-start-line="65" selection-end-line="65" />
@@ -797,35 +806,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/es-service.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/es-service.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/cluster_role.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/cluster_role.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/grafana/grafana-deployment.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/grafana/grafana-deployment.yaml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
-          <folding>
-            <element signature="e#14#220#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/service/service.go">
       <provider selected="true" editor-type-id="text-editor">
@@ -878,7 +877,7 @@
     <entry file="file://$PROJECT_DIR$/kubernetes/install.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
-          <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+          <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -892,18 +891,18 @@
     <entry file="file://$PROJECT_DIR$/kubernetes/shell/install_docker.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml">
+    <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/role.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md">
+    <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="26">
-            <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" selection-end-column="128" />
+            <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="128" />
           </first_editor>
           <second_editor />
         </state>
@@ -911,8 +910,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="340">
+          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/download/yaml/grafana/k8s-deployment.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2340" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
+          <folding>
+            <element signature="e#14#220#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

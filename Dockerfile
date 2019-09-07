@@ -12,7 +12,7 @@ COPY . /opt/cloud
 WORKDIR /opt/cloud
 
 RUN  chmod +x /opt/cloud/bin/linux/cloud && \
-     mkdir /etc/cloud
+     mkdir /etc/cloud && \
      cp /opt/cloud/bin/linux/cloud /usr/local/bin && \
      cp ./conf/cloud_config.toml /etc/cloud/
 
