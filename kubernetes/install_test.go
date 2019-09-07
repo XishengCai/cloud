@@ -12,7 +12,7 @@ func TestInstallKube(t *testing.T) {
 		Except interface{}
 	}{
 		{KubeInstall{
-			MasterNode: "47.99.241.217",
+			MasterNode: "47.244.229.251",
 			Version:    "1.13.5",
 			Registry:   "k8s.gcr.io",
 			Name:       "test"},

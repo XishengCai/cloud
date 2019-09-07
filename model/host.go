@@ -22,3 +22,8 @@ func GetHostList(offset int, limit int, filter string) (hosts []Host, count int6
 		Count(&count).Offset(offset).Limit(limit).Find(&hosts).Error
 	return
 }
+
+func GetHost(ip string) (host Host, err error) {
+	err = db.Model(&Host{}).Where("ip = ? ", ip).First(&host).Error
+	return
+}

@@ -70,11 +70,10 @@ func (k *KubeInstall) installProxy() {
 func (k *KubeInstall) installKube() (err error) {
 	// TODO: 当前脚本只支持单个master
 
-	hosts, _, err := model.GetHostList(0, 1, k.MasterNode)
+	host, err := model.GetHost(k.MasterNode)
 	if err != nil {
 		return err
 	}
-	host := hosts[0]
 	sshClient, err := common.GetSshClient(host.IP, host.User, host.Password, host.Port)
 	if err != nil {
 		return err
