@@ -1,3 +1,9 @@
 .idea/
+.vscode
+
 trace.out
+
+Dockerfile
+
 ./bin
+

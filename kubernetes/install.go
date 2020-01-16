@@ -1,12 +1,17 @@
 package kubernetes
 
 import (
+	"bytes"
+	"errors"
 	"fmt"
+	"golang.org/x/crypto/ssh"
 	"io/ioutil"
 	"strings"
+	"text/template"
 
 	"cloud/common"
 	"cloud/model"
+	"k8s.io/klog"
 )
 
 var kubernetesMasterServer map[string]int
@@ -17,37 +22,65 @@ func init() {
 	kubernetesMasterServer["kubelet"] = 6443
 }
 
+const (
+	INSTALL_K8S_MASTER_SCRIPT = "/root/install_k8s_master.sh"
+	CalicoYaml                = "/root/calico.yaml"
+)
+
 type KubeInstall struct {
-	ID          int      `json:"id"`
-	Name        string   `json:"name"`
-	MasterNode  string   `json:"master_node,omitempty"`
-	SlaveNodes  []string `json:"slave_nodes,omitempty"`
-	NetWorkPlug string   `json:"network_plug"`
-	Registry    string   `json:"registry"`
-	Version     string   `json:"version"`
+	ID           int      `json:"id"`
+	ClusterName  string   `json:"cluster_name"`
+	MasterNode   []string `json:"master_node,omitempty"`
+	SlaveNodes   []string `json:"slave_nodes,omitempty"`
+	NetWorkPlug  string   `json:"network_plug"`
+	Registry     string   `json:"registry"`
+	Version      string   `json:"version"`
+	ControlPlane string   `json:"control_plane"`
+	PodCidr      string   `json:"pod_cidr"`
+	ServiceCidr  string   `json:"service_cidr"`
+}
+
+type InstallK8sTemp struct {
+	Registry     string `json:"registry"`
+	Version      string `json:"version"`
+	ControlPlane string `json:"control_plane"`
+	PodCidr      string `json:"pod_cidr"`
+	ServiceCidr  string `json:"service_cidr"`
+	Name         string `json:"name"`
+	InternalIP   string `json:"internal_ip"`
 }
 
 func (k *KubeInstall) Install() error {
-	/*
-		{
-			"master_node": "47.244.229.251",
-			"version":"1.14.0",
-			"network_plug":"flannel",
-			"registry":"k8s.gcr.io",
-			"name": "hongkong"
-		}
-	*/
 
+	// 数据校验
 	if err := k.installCheckArguments(); err != nil {
 		return err
 	}
+
+	// 数据存储
 	if err := k.saveCluster(); err != nil {
 		return err
 	}
 
-	if err := k.installKube(); err != nil {
+	hosts, err := model.GetHosts(k.MasterNode)
+	if err != nil {
 		return err
 	}
+
+	//安装docker
+	if len(hosts) != len(k.MasterNode) {
+		return errors.New("not found hosts in mysql")
+	}
+
+	if err := k.installDocker(hosts); err != nil {
+		return err
+	}
+
+	// 安装kubernetes
+	if err := k.installK8s(hosts); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -55,67 +88,110 @@ func (k *KubeInstall) installMaster() {
 
 }
 
+func (k *KubeInstall) installSlave() {
+
+}
+
 func (k *KubeInstall) checkEnv() {
 
 }
 
-func (k *KubeInstall) installDocker() {
+func (k *KubeInstall) installDocker(hosts []model.Host) error {
 
+	for _, host := range hosts {
+
+		sshClient, err := common.GetSshClient(host.IP, host.User, host.Password, host.Port)
+		if err != nil {
+			return err
+		}
+
+		if err := scpFile("../kubernetes/template/install_docker.sh",
+			"/root/install_docker.sh", sshClient); err != nil {
+			return err
+		}
+
+		commands := []string{
+			fmt.Sprintf(`sh /root/install_docker.sh`),
+		}
+		for _, cmd := range commands {
+			b, err := common.SSHExecCmd(sshClient, cmd)
+			fmt.Printf("%s , resp: \r\n %s", cmd, string(b))
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return nil
 }
 
 func (k *KubeInstall) installProxy() {
 
 }
 
-func (k *KubeInstall) installKube() (err error) {
-	// TODO: 当前脚本只支持单个master
+func (k *KubeInstall) installK8s(hosts []model.Host) (err error) {
 
-	host, err := model.GetHost(k.MasterNode)
-	if err != nil {
-		return err
-	}
-	sshClient, err := common.GetSshClient(host.IP, host.User, host.Password, host.Port)
-	if err != nil {
-		return err
-	}
-	b, err := ioutil.ReadFile("./kubernetes/shell/install_k8s_master.sh")
-	if err != nil {
-		return err
-	}
-	cmdList := strings.Replace(string(b), "{version}", k.Version, -1)
-	cmdList = strings.Replace(cmdList, "{registry}", k.Registry, -1)
-	cmdList = strings.Replace(cmdList, "{node_name}", host.Name, -1)
-	kubeScriptFilePath := "/root/kube.sh"
-	err = common.CopyByteToRemote(sshClient, []byte(cmdList), "/root/kube.sh")
-	if err != nil {
-		return fmt.Errorf("copy byte err: %v", err)
-	}
-	cmds := []string{
-		fmt.Sprintf("chmod +x %s", kubeScriptFilePath),
-		fmt.Sprintf(`echo -e "y"| sh %s`, kubeScriptFilePath),
-	}
-	for _, cmd := range cmds {
-		b, err := common.SSHExecCmd(sshClient, cmd)
-		fmt.Printf("%s , resp: \r\n %s", cmd, string(b))
+	for _, host := range hosts {
+		sshClient, err := common.GetSshClient(host.IP, host.User, host.Password, host.Port)
+
+		t, err := template.ParseFiles("../kubernetes/template/install_k8s_master.sh")
+		t2, err := template.ParseFiles("../kubernetes/template/calico.yaml")
 		if err != nil {
 			return err
 		}
-	}
-	if err := k.saveServer(host.ID); err != nil {
-		return err
-	}
 
+		buff := new(bytes.Buffer)
+		buff2 := new(bytes.Buffer)
+
+		temStruct := InstallK8sTemp{
+			Version:     k.Version,
+			Registry:    k.Registry,
+			PodCidr:     k.PodCidr,
+			ServiceCidr: k.ServiceCidr,
+			Name:        host.Name,
+			InternalIP:  host.InternalIP,
+		}
+		err = t.Execute(buff, temStruct)
+		if err != nil {
+			return err
+		}
+
+		err = t2.Execute(buff2, temStruct)
+		if err != nil {
+			return err
+		}
+
+		err = common.CopyByteToRemote(sshClient, buff.Bytes(), INSTALL_K8S_MASTER_SCRIPT)
+		err = common.CopyByteToRemote(sshClient, buff2.Bytes(), CalicoYaml)
+
+		if err != nil {
+			return fmt.Errorf("copy byte err: %v", err)
+		}
+		commands := []string{
+			fmt.Sprintf(`sh %s`, INSTALL_K8S_MASTER_SCRIPT),
+			fmt.Sprintf(`kubectl create -f %s`, CalicoYaml),
+		}
+		for _, cmd := range commands {
+			b, err := common.SSHExecCmd(sshClient, cmd)
+			fmt.Printf("%s , resp: \r\n %s", cmd, string(b))
+			if err != nil {
+				return err
+			}
+		}
+		if err := k.saveServer(host.ID); err != nil {
+			return err
+		}
+	}
 	return
 }
 
 func (k *KubeInstall) saveCluster() error {
 	cluster := &model.Cluster{
-		Name:        k.Name,
+		ClusterName: k.ClusterName,
 		Registry:    k.Registry,
 		Version:     k.Version,
 		NetWorkPlug: k.NetWorkPlug,
 	}
-
+	klog.Infof("cluster: %+v", cluster)
 	id, err := model.AddCluster(cluster)
 	k.ID = id
 	return err
@@ -138,12 +214,24 @@ func (k *KubeInstall) saveServer(hostID int) error {
 }
 
 func (k KubeInstall) installCheckArguments() error {
-	if strings.TrimSpace(k.Name) == "" {
+	if strings.TrimSpace(k.ClusterName) == "" {
 		return fmt.Errorf("name can't be null")
 	}
 
 	if len(k.MasterNode) == 0 {
 		return fmt.Errorf("MasterNodes can't be null")
+	}
+	return nil
+}
+
+func scpFile(path, dest string, client *ssh.Client) error {
+	b, err := ioutil.ReadFile(path)
+	if err != nil {
+		return err
+	}
+	err = common.CopyByteToRemote(client, b, dest)
+	if err != nil {
+		return fmt.Errorf("copy byte err: %v", err)
 	}
 	return nil
 }

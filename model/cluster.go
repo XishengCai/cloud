@@ -1,13 +1,16 @@
 package model
 
 type Cluster struct {
-	ID          int    `orm:"column(id);"`
-	Name        string `orm:"column(name);"`
-	API         string `orm:"column(api);"`
-	Registry    string `orm:"column(registry)"`
-	Version     string `orm:"column(version)"`
-	NetWorkPlug string `orm:"column(network_plug)"`
-	ETCD        string `orm:"column(etcd)"`
+	ID           int    `orm:"column(id);"`
+	ClusterName  string `orm:"column(cluster_name);"`
+	API          string `orm:"column(api);"`
+	Registry     string `orm:"column(registry)"`
+	Version      string `orm:"column(version)"`
+	NetWorkPlug  string `orm:"column(network_plug)"`
+	ETCD         string `orm:"column(etcd)"`
+	ControlPlane string `orm:"column(control_plane)"`
+	PodDir       string `orm:"column(pod_dir)"`
+	ServiceCidr  string `orm:"column(service_cidr)"`
 }
 
 func (c *Cluster) TableName() string {
@@ -15,6 +18,9 @@ func (c *Cluster) TableName() string {
 }
 
 func AddCluster(c *Cluster) (int, error) {
-	err := db.Save(c).Error
+	err := db.Table("cluster").Save(c).Error
+	if err != nil {
+		return 0, err
+	}
 	return c.ID, err
 }

@@ -2,62 +2,101 @@ package common
 
 import (
 	"cloud/util"
-	"github.com/BurntSushi/toml"
-	"github.com/labstack/gommon/log"
+	"fmt"
+	"gopkg.in/yaml.v2"
+	"io/ioutil"
+	"k8s.io/klog"
 	"os"
+	"sync"
 )
 
-var tomlFilePath = "conf/cloud_config.toml"
-var tomlConf *TomlConfig
+var configFilePaths = [3]string{"conf/config.yaml", "../conf/config.yaml", "../../conf/config.yaml"}
+var envConfig *EnvConfig
+var once sync.Once
 
-type TomlConfig struct {
-	Title      string                  `toml:"title"`
-	Env        string                  `toml:"env"`
-	Port       string                  `toml:"port"`
-	Version    string                  `toml:"version"`
-	Server     map[string]ServerConfig `toml:"server"`
-	ConfigPath string                  `toml:"string"`
+type EnvConfig struct {
+	Title      string                  `yaml:"title"`
+	Env        string                  `yaml:"env"`
+	Port       string                  `yaml:"port"`
+	Version    string                  `yaml:"version"`
+	Server     map[string]ServerConfig `yaml:"server"`
+	ConfigPath string                  `yaml:"string"`
 }
 
 type ServerConfig struct {
-	Mysql MysqlConfig `toml:"mysql"`
+	Mysql
+	MongoDB
+}
+type Mysql struct {
+	IP       string `yaml:"ip"`
+	Password string `yaml:"password"`
+	User     string `yaml:"user"`
+	Port     string `yaml:"port"`
+	DateBase string `yaml:"database"`
 }
 
-type MysqlConfig struct {
-	IP       string `toml:"ip"`
-	Password string `toml:"password"`
-	User     string `toml:"user"`
-	Port     int    `toml:"port"`
-	DateBase string `toml:"database"`
+type MongoDB struct {
+	Addresses string `yaml:"addresses"`
+	Timeout   int    `yaml:"timeout"`
+	Password  string `yaml:"password"`
+	User      string `yaml:"user"`
+	DateBase  string `yaml:"database"`
 }
 
 //GetConf get toml conf
-func GetConf(config string) *TomlConfig {
-	if config != "" {
-		tomlFilePath = config
+func GetConf(path string) *EnvConfig {
+	if envConfig != nil {
+		return envConfig
 	}
-	if !util.IsFile(config) {
-		log.Errorf("toml config  file:%s not exits", config)
-		os.Exit(1)
-	}
-	loadConfig()
-	return tomlConf
+	once.Do(func() {
+		LoadConfig(path)
+	})
+	return envConfig
 }
 
-func loadConfig() {
+func LoadConfig(path string) {
+	if path != "" {
+		// 根据传参初始化环境配置
+		if !util.FileExists(path) {
+			panic(fmt.Errorf("config file path: %s not exists", path))
+		}
 
-	_, err := toml.DecodeFile(tomlFilePath, &tomlConf)
+		loadConfigWithPath(path)
+		return
+	}
+	for _, configPath := range configFilePaths {
+		//从不同的层级目录初始化环境配置，直到有一次初始化成功后退出
+		currentDir, _ := os.Getwd()
+		klog.Infof("current directory: %s, load config: %s", currentDir, configPath)
+		if !util.FileExists(configPath) {
+			continue
+		}
+		loadConfigWithPath(configPath)
+		break
+	}
+	if envConfig == nil {
+		panic("envConfig init fail")
+	}
+}
+
+func loadConfigWithPath(configPath string) {
+	config, err := ioutil.ReadFile(configPath)
+	if err != nil {
+		klog.Error("read config file err: ", err)
+		panic(err)
+	}
+	err = yaml.Unmarshal(config, &envConfig)
 	if err != nil {
 		panic(err)
 	}
-	log.Infof("read tomlConfig: %s", tomlFilePath)
+	klog.Infof("read Config: %s", configPath)
 
-	serverConfig := tomlConf.Server[tomlConf.Env]
-	password, err := Base64Decode(tomlConf.Server[tomlConf.Env].Mysql.Password)
+	releaseEnv := envConfig.Env
+	serverConfig := envConfig.Server[releaseEnv]
+	password, err := Base64Decode(serverConfig.Mysql.Password)
 	if err != nil {
 		panic(err)
 	}
 	serverConfig.Mysql.Password = string(password)
-	tomlConf.Server[tomlConf.Env] = serverConfig
-
+	envConfig.Server[releaseEnv] = serverConfig
 }

@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"github.com/pkg/sftp"
 	"golang.org/x/crypto/ssh"
+	"io"
 	"log"
 	"net"
+	"strings"
 )
 
 // 通过用户名和密码生成一个配置文件
@@ -35,6 +37,27 @@ func SSHExecCmd(client *ssh.Client, cmd string) ([]byte, error) {
 		return nil, fmt.Errorf("CombinedOutput fail %v", err)
 	}
 	return out, err
+}
+
+func asyncLog(reader io.Reader) error {
+	cache := "" //缓存不足一行的日志信息
+	buf := make([]byte, 1024)
+	for {
+		num, err := reader.Read(buf)
+		if err != nil && err != io.EOF {
+			return err
+		}
+		if num > 0 {
+			b := buf[:num]
+			s := strings.Split(string(b), "\n")
+			line := strings.Join(s[:len(s)-1], "\n") //取出整行的日志
+			fmt.Printf("%s%s\n", cache, line)
+			cache = s[len(s)-1]
+		} else {
+			break
+		}
+	}
+	return nil
 }
 
 // 复制字节数组到远程服务器上

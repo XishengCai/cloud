@@ -10,28 +10,29 @@ import (
 
 var db *gorm.DB
 
-func InitDB(config *common.TomlConfig) {
+func init() {
 	fmt.Println("init mysql")
+	config := common.GetConf("")
 	db = connectMysql(config)
 	autoMigrate()
 }
 
-func connectMysql(config *common.TomlConfig) *gorm.DB {
-	mysql := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local",
+func connectMysql(config *common.EnvConfig) *gorm.DB {
+	mysql := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		config.Server[config.Env].Mysql.User,
 		config.Server[config.Env].Mysql.Password,
 		config.Server[config.Env].Mysql.IP,
 		config.Server[config.Env].Mysql.Port,
 		config.Server[config.Env].Mysql.DateBase)
-	db, err := gorm.Open("mysql", mysql)
+	mysqlDB, err := gorm.Open("mysql", mysql)
 	if err != nil {
 		log.Errorf("mysql connect err: %v", err)
 		panic("连接数据库失败")
 	}
 
-	db.LogMode(true)
+	mysqlDB.LogMode(true)
 
-	return db
+	return mysqlDB
 }
 
 func autoMigrate() {

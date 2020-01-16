@@ -1,0 +1,14 @@
+title: "container cloud"
+env: "local"
+port: "8080"
+version: "1.0"
+server:
+  local:
+    mysql:
+      ip: "localhost"
+      port: "3306"
+      user: "root"
+      password: "D4LSD4LSPWO="
+      database: "cloud"
+
+

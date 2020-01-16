@@ -1,44 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/common/conf.go" line="10" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="0efe874d-f559-41ea-b648-cd6c1a4a7e00" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/common/init.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conf/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/template/calico.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/template/install_docker.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/template/kubeadm-config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/template/run_mysql.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/template/tem.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/host_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/ssh.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/ssh.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/cloud_config.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/install.go" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/install.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/install_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/install_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/dashboard/cluster_role.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/dashboard/cluster_role.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/dashboard/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/dashboard/role.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/flannel/flannel.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/flannel/flannel.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/es-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/es-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/es-statefulset.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/es-statefulset.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/fluentd-ds.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/fluentd-ds.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/fluentd-es-configmap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/fluentd-es-configmap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/kibana-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/kibana-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/fluentd-elasticsearch/kibana-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/kibana-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/grafana/grafana-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/grafana/grafana-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/grafana/k8s-deployment.json" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/grafana/k8s-deployment.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/ingress/ingress-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/ingress/ingress-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role-binding.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role-binding.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-service-account.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-service-account.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/kube-state-metrics/kube-state-metrics-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/node-export/node-export-ds.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/node-export/node-export-ds.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/node-export/node-export-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/node-export/node-export-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-namespace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus-namespace.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-config-configmap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-config-configmap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-dep.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-dep.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-rbac.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-rbac.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/prometheus-svc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-svc.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus/pvc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/download/yaml/prometheus/prometheus/pvc.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/shell/install_docker.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/template/install_k8s_master.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/shell/lvs-keepalived.sh" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/template/lvs-keepalived.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/cluster.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/host.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/host.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/tools.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/tools.go" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,143 +37,14 @@
   <component name="FavoritesManager">
     <favorites_list name="cloud" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
-              <folding>
-                <element signature="e#14#220#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kubernetes/install.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/cluster.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/host.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kubernetes/shell/install_docker.sh">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/download/yaml/grafana/k8s-deployment.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2340" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/role.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/readme.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="26">
-                <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="128" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/jinzhu/gorm@v1.9.10/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="464" selection-start-line="464" selection-end-line="464" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>init</find>
-      <find>ServeH</find>
-      <find>ServeHTTP</find>
-      <find>sh serverHa</find>
-      <find>[]string</find>
-      <find>cycle</find>
-      <find>crypto</find>
-      <find>common</find>
-      <find>log</find>
-      <find>FMT</find>
-      <find>--resp</find>
-      <find>glog</find>
-      <find>20.26.28.56</find>
-      <find>storageClassName</find>
-      <find>dcos</find>
-      <find>range</find>
-      <find>watch/pods</find>
-      <find>name can't be null</find>
-      <find>swagger.json</find>
-      <find>read tomlConfig</find>
-      <find>port</find>
-      <find>build</find>
-      <find>github.com/cloud/</find>
-      <find>github.com/cloud</find>
-      <find>cloud//</find>
-      <find>filename</find>
-      <find>Add WebService</find>
-      <find>dev</find>
-      <find>dev-ns-admin</find>
-      <find>-n dev</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>cloud/</replace>
-      <replace>$NS</replace>
-      <replace>$ADMIN</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\Go\src</dir>
-    </dirStrings>
-  </component>
-  <component name="GOROOT" path="F:\Go" />
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -191,111 +52,16 @@
     <integration-enabled>true</integration-enabled>
     <exec-path>D:\Go\gopath\bin\dep.exe</exec-path>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/handler/service.go" />
-        <option value="$PROJECT_DIR$/Gopkg.toml" />
-        <option value="$PROJECT_DIR$/Gopkg.lock" />
-        <option value="$PROJECT_DIR$/handler/base.go" />
-        <option value="$PROJECT_DIR$/common/ssh.go" />
-        <option value="$PROJECT_DIR$/conf/README.MD" />
-        <option value="$PROJECT_DIR$/operator/yaml/influxdb_operator/influxdb-operator.yaml" />
-        <option value="$PROJECT_DIR$/handler/handler.go" />
-        <option value="$PROJECT_DIR$/model/cluster.go" />
-        <option value="$PROJECT_DIR$/model/host_used.go" />
-        <option value="$PROJECT_DIR$/conf/yaml/prometheus/prometheus-deployment.yaml" />
-        <option value="$PROJECT_DIR$/conf/yaml/prometheus/prometheus-svc.yaml" />
-        <option value="$PROJECT_DIR$/trace.out" />
-        <option value="$PROJECT_DIR$/kubernetes/shell/lvs-keepalived.sh" />
-        <option value="$PROJECT_DIR$/compile.sh" />
-        <option value="$PROJECT_DIR$/apidocs/swagger.json" />
-        <option value="$PROJECT_DIR$/service/base.go" />
-        <option value="$PROJECT_DIR$/service/test/swagger.json" />
-        <option value="$PROJECT_DIR$/service/test/apidocs.json" />
-        <option value="$PROJECT_DIR$/service/test/open.go" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/kubernetes/shell/install_docker.sh" />
-        <option value="$PROJECT_DIR$/download/docker-arg.md" />
-        <option value="$PROJECT_DIR$/download/apidocs.json" />
-        <option value="$PROJECT_DIR$/constant/constant.go" />
-        <option value="$PROJECT_DIR$/service/handler.go" />
-        <option value="$PROJECT_DIR$/common/common.go" />
-        <option value="$PROJECT_DIR$/download/shell/install_k8s_master.sh" />
-        <option value="$PROJECT_DIR$/common/ssh_test.go" />
-        <option value="$PROJECT_DIR$/kubernetes/yaml/ingress/ingress-deployment.yaml" />
-        <option value="$PROJECT_DIR$/gateway.yaml" />
-        <option value="$PROJECT_DIR$/conf/cloud_config.toml" />
-        <option value="$PROJECT_DIR$/download/shell/install_docker.sh" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/host/host.go" />
-        <option value="$PROJECT_DIR$/model/init.go" />
-        <option value="$PROJECT_DIR$/service/service.go" />
-        <option value="$PROJECT_DIR$/service/static_server.go" />
-        <option value="$PROJECT_DIR$/service/cluster_route.go" />
-        <option value="$PROJECT_DIR$/util/tools.go" />
-        <option value="$PROJECT_DIR$/common/conf.go" />
-        <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/build.sh" />
-        <option value="$PROJECT_DIR$/main.go" />
-        <option value="$PROJECT_DIR$/kubernetes/yaml/dashboard/role.yaml" />
-        <option value="$PROJECT_DIR$/kubernetes/yaml/dashboard/cluster_role.yaml" />
-        <option value="$PROJECT_DIR$/kubernetes/yaml/dashboard/readme.md" />
-        <option value="$PROJECT_DIR$/kubernetes/install_test.go" />
-        <option value="$PROJECT_DIR$/model/host.go" />
-        <option value="$PROJECT_DIR$/kubernetes/install.go" />
-        <option value="$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="724" />
-    <option name="y" value="183" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
-  </component>
+  <component name="ProjectId" id="1VF6ngMdkJe9uBj0mskdzIRv47o" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="download" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
-              <item name="shell" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
@@ -306,41 +72,38 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../k8s-learn" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/kubernetes/template" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/kubernetes/template" />
+      <recent name="$PROJECT_DIR$/model" />
+      <recent name="$PROJECT_DIR$/kubernetes" />
       <recent name="F:\gopath\src\cloud\kubernetes\yaml" />
       <recent name="D:\Go\gopath\src\github.com\cloud\download" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\doc" />
-      <recent name="D:\Go\gopath\src\github.com\cloud" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\service\test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common" />
       <recent name="F:\gopath\src\cloud\download" />
       <recent name="F:\gopath\src\cloud\operator\yaml" />
       <recent name="D:\Go\gopath\src\cloud\kubernetes\yaml" />
       <recent name="D:\Go\gopath\src\github.com\cloud\bin" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\handler" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Go Test.TestInstallKube in cloud/kubernetes">
+    <configuration name="go build cloud/kubernetes/template" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="cloud" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/kubernetes/template/tem.go" />
+      <package value="cloud/kubernetes/template" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="cloud" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -350,15 +113,15 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-    <configuration name="TestCmd in github.com/cloud/kubernetes" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestGetHost in cloud/model" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="cloud" />
-      <working_directory value="$PROJECT_DIR$/kubernetes" />
+      <working_directory value="$PROJECT_DIR$/model" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/cloud/kubernetes" />
+      <package value="cloud/model" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestCmd$" />
+      <pattern value="^TestGetHost$" />
       <method v="2" />
     </configuration>
     <configuration name="TestInstallKube in cloud/kubernetes" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -367,17 +130,6 @@
       <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="cloud/kubernetes" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestInstallKube$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestInstallKube in github.com/cloud/kubernetes" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="cloud" />
-      <working_directory value="$PROJECT_DIR$/kubernetes" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/cloud/kubernetes" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
       <pattern value="^TestInstallKube$" />
@@ -396,56 +148,36 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.go build main.go" />
-      <item itemvalue="Go Test.TestInstallKube in github.com/cloud/kubernetes" />
-      <item itemvalue="Go Test.TestCmd in github.com/cloud/kubernetes" />
+      <item itemvalue="Go Build.go build cloud/kubernetes/template" />
       <item itemvalue="Go Test.TestInstallKube in cloud/kubernetes" />
       <item itemvalue="Go Test.TestSSHExecCmd in cloud/common" />
+      <item itemvalue="Go Test.TestGetHost in cloud/model" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Test.TestInstallKube in cloud/kubernetes" />
+        <item itemvalue="Go Build.go build cloud/kubernetes/template" />
+        <item itemvalue="Go Test.TestGetHost in cloud/model" />
         <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Test.TestSSHExecCmd in cloud/common" />
-        <item itemvalue="Go Test.TestCmd in github.com/cloud/kubernetes" />
-        <item itemvalue="Go Test.TestInstallKube in github.com/cloud/kubernetes" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
     <option name="myConnectionType" value="NONE" />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="TestCmd_in_github_com_cloud_kubernetes - 2019.07.27 at 14h 29m 12s.xml">
-      <configuration name="TestCmd in github.com/cloud/kubernetes" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestInstallKube_in_cloud_kubernetes - 2019.08.21 at 08h 04m 13s.xml">
-      <configuration name="TestInstallKube in cloud/kubernetes" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestInstallKube_in_cloud_kubernetes - 2019.08.21 at 08h 05m 05s.xml">
-      <configuration name="TestInstallKube in cloud/kubernetes" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestInstallKube_in_cloud_kubernetes - 2019.08.21 at 08h 06m 24s.xml">
-      <configuration name="TestInstallKube in cloud/kubernetes" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestSSHExecCmd_in_cloud_common - 2019.08.21 at 08h 30m 36s.xml">
-      <configuration name="TestSSHExecCmd in cloud/common" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestSSHExecCmd_in_cloud_common - 2019.08.21 at 13h 02m 58s.xml">
-      <configuration name="TestSSHExecCmd in cloud/common" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestSSHExecCmd_in_cloud_common - 2019.08.21 at 13h 03m 10s.xml">
-      <configuration name="TestSSHExecCmd in cloud/common" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestSSHExecCmd_in_cloud_common - 2019.08.21 at 13h 03m 38s.xml">
-      <configuration name="TestSSHExecCmd in cloud/common" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestSSHExecCmd_in_cloud_common - 2019.08.21 at 13h 03m 51s.xml">
-      <configuration name="TestSSHExecCmd in cloud/common" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestInstallKube_in_cloud_kubernetes - 2019.09.07 at 16h 33m 33s.xml">
-      <configuration name="TestInstallKube in cloud/kubernetes" configurationId="GoTestRunConfiguration" />
-    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -456,479 +188,56 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3809524" visible="true" weight="0.2489339" />
-      <window_info id="Structure" order="1" sideWeight="0.61904764" side_tool="true" weight="0.20196672" />
-      <window_info id="Favorites" order="2" sideWeight="0.50340134" side_tool="true" weight="0.24281392" />
-      <window_info anchor="bottom" id="REST Client" weight="0.3394794" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37744033" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286334" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49546143" visible="true" weight="0.34924078" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5045386" side_tool="true" weight="0.447541" />
-      <window_info anchor="bottom" id="Messages" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/constant/constant.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/common.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="14" />
-          <folding>
-            <element signature="e#16#134#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/host/host.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/ssh.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/init.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#15#151#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/emicklei/go-restful@v2.9.6+incompatible/container.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/cluster_route.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <element signature="e#17#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/tools.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="34" column="11" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="11" />
-          <folding>
-            <element signature="e#14#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/conf.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="e#16#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/cloud_config.toml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/static_server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="37" />
-          <folding>
-            <element signature="e#17#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/go-restful.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/apidocs.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
-          <folding>
-            <element signature="n#!!block;n#info#0;n#!!top" />
-            <element signature="n#!!block;n#contact#0;n#!!block;n#info#0;n#!!top" />
-            <element signature="n#!!block;n#license#0;n#!!block;n#info#0;n#!!top" />
-            <element signature="e#414#899#0" />
-            <element signature="e#420#606#0" />
-            <element signature="e#516#600#0" />
-            <element signature="e#612#691#0" />
-            <element signature="e#697#895#0" />
-            <element signature="e#789#889#0" />
-            <element signature="e#914#943#0" />
-            <element signature="n#!!block;n#post#0;n#!!block;n#/user#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#default#0;n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#post#0;n#!!block;n#/user/createWithArray#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user/createWithArray#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#default#0;n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user/createWithArray#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#post#0;n#!!block;n#/user/createWithList#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user/createWithList#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#default#0;n#!!block;n#responses#0;n#!!block;n#post#0;n#!!block;n#/user/createWithList#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#schema#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#headers#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#X-Rate-Limit#0;n#!!block;n#headers#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#X-Expires-After#0;n#!!block;n#headers#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#400#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/login#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#/user/logout#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#get#0;n#!!block;n#/user/logout#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/logout#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#default#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/logout#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#schema#0;n#!!block;n#200#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#400#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#404#0;n#!!block;n#responses#0;n#!!block;n#get#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#put#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#responses#0;n#!!block;n#put#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#400#0;n#!!block;n#responses#0;n#!!block;n#put#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#404#0;n#!!block;n#responses#0;n#!!block;n#put#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#delete#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#responses#0;n#!!block;n#delete#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#400#0;n#!!block;n#responses#0;n#!!block;n#delete#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#404#0;n#!!block;n#responses#0;n#!!block;n#delete#0;n#!!block;n#/user/{username}#0;n#!!block;n#paths#0;n#!!top" />
-            <element signature="n#!!block;n#petstore_auth#0;n#!!block;n#securityDefinitions#0;n#!!top" />
-            <element signature="n#!!block;n#scopes#0;n#!!block;n#petstore_auth#0;n#!!block;n#securityDefinitions#0;n#!!top" />
-            <element signature="n#!!block;n#api_key#0;n#!!block;n#securityDefinitions#0;n#!!top" />
-            <element signature="n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#petId#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#quantity#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#shipDate#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#status#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#complete#0;n#!!block;n#properties#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#xml#0;n#!!block;n#Order#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#properties#0;n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#name#0;n#!!block;n#properties#0;n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#xml#0;n#!!block;n#Category#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#username#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#firstName#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#lastName#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#email#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#password#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#phone#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#userStatus#0;n#!!block;n#properties#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#xml#0;n#!!block;n#User#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#properties#0;n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#name#0;n#!!block;n#properties#0;n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#xml#0;n#!!block;n#Tag#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#id#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#category#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#name#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#photoUrls#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#xml#0;n#!!block;n#photoUrls#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#items#0;n#!!block;n#photoUrls#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#tags#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#xml#0;n#!!block;n#tags#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#items#0;n#!!block;n#tags#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#status#0;n#!!block;n#properties#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#xml#0;n#!!block;n#Pet#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#properties#0;n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#code#0;n#!!block;n#properties#0;n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#type#0;n#!!block;n#properties#0;n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#message#0;n#!!block;n#properties#0;n#!!block;n#ApiResponse#0;n#!!block;n#definitions#0;n#!!top" />
-            <element signature="n#!!block;n#externalDocs#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/go.sum">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/go.mod">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/operator/yaml/es-operator/controller.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-rbac.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-deployment.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-config.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/yaml/prometheus/prometheus-svc.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/flannel/flannel.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#1488#3320#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-deployment.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-312" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-service.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus-namespace.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-svc.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-rbac.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-config-configmap.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/pvc.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/prometheus/prometheus-dep.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-992" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/ingress/ingress-deployment.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="e#48#187#0" />
-            <element signature="e#188#1991#0" />
-            <element signature="e#2025#2156#0" />
-            <element signature="e#2157#2529#0" />
-            <element signature="e#2579#2610#0" />
-            <element signature="e#2611#2891#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/prometheus/kube-state-metrics/kube-state-metrics-cluster-role.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/fluentd-elasticsearch/es-service.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/cluster_role.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/grafana/grafana-deployment.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/service.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!block;n#CheckAuthentication#0" />
-            <element signature="n#!!block;n#ContainerFilter#0" />
-            <element signature="n#!!block;n#CheckPassword#0" />
-            <element signature="n#!!block;n#GetTokenFromRedis#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/handler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="58" column="19" lean-forward="true" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/go/src/testing/testing.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="829" selection-start-line="829" selection-end-line="829" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/install_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/jinzhu/gorm@v1.9.10/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="464" selection-start-line="464" selection-end-line="464" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/cluster.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/install.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/host.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/shell/install_docker.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/role.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/dashboard/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="26">
-            <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="128" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download/yaml/grafana/k8s-deployment.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2340" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
-          <folding>
-            <element signature="e#14#220#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="559" y="168" key="#GOROOT" timestamp="1576848955630">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="559" y="168" key="#GOROOT/0.0.1920.1026@0.0.1920.1026" timestamp="1576848955630" />
+    <state x="586" y="286" key="EditFileWatcherDialog" timestamp="1578649712108">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="586" y="286" key="EditFileWatcherDialog/0.0.1920.1026@0.0.1920.1026" timestamp="1578649712108" />
+    <state x="747" y="265" key="FileChooserDialogImpl" timestamp="1578625902712">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="747" y="265" key="FileChooserDialogImpl/0.0.1920.1026@0.0.1920.1026" timestamp="1578625902712" />
+    <state width="1874" height="332" key="GridCell.Tab.0.bottom" timestamp="1579178811466">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state width="1874" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1026@0.0.1920.1026" timestamp="1579178811466" />
+    <state width="1874" height="332" key="GridCell.Tab.0.center" timestamp="1579178811465">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state width="1874" height="332" key="GridCell.Tab.0.center/0.0.1920.1026@0.0.1920.1026" timestamp="1579178811465" />
+    <state width="1874" height="332" key="GridCell.Tab.0.left" timestamp="1579178811465">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state width="1874" height="332" key="GridCell.Tab.0.left/0.0.1920.1026@0.0.1920.1026" timestamp="1579178811465" />
+    <state width="1874" height="332" key="GridCell.Tab.0.right" timestamp="1579178811466">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state width="1874" height="332" key="GridCell.Tab.0.right/0.0.1920.1026@0.0.1920.1026" timestamp="1579178811466" />
+    <state x="498" y="142" key="SettingsEditor" timestamp="1578649712937">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="498" y="142" key="SettingsEditor/0.0.1920.1026@0.0.1920.1026" timestamp="1578649712937" />
+    <state x="439" y="105" width="1033" height="827" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579172698951">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="439" y="105" width="1033" height="827" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1026@0.0.1920.1026" timestamp="1579172698951" />
+    <state x="735" y="427" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579143501853">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="735" y="427" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1026@0.0.1920.1026" timestamp="1579143501853" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1579146670386">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1026@0.0.1920.1026" timestamp="1579146670386" />
   </component>
 </project>

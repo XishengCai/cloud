@@ -2,36 +2,31 @@ package kubernetes
 
 import (
 	"os"
-	"strings"
 	"testing"
 )
 
 func TestInstallKube(t *testing.T) {
-	testCase := []struct {
-		Kube   KubeInstall
-		Except interface{}
-	}{
-		{KubeInstall{
-			MasterNode: "47.244.229.251",
-			Version:    "1.13.5",
-			Registry:   "k8s.gcr.io",
-			Name:       "test"},
-			""},
+	testCase := []KubeInstall{
+		{
+			MasterNode:   []string{"47.52.20.128"},
+			Version:      "1.15.3",
+			Registry:     "k8s.gcr.io",
+			ClusterName:  "master",
+			NetWorkPlug:  "flannel",
+			PodCidr:      "10.200.0.0/16",
+			ServiceCidr:  "10.96.0.0/12",
+			ControlPlane: "47.52.20.128:6443",
+		},
 	}
 
 	for index, unit := range testCase {
 		t.Logf("case %d\r", index)
-		err := unit.Kube.Install()
+		err := unit.Install()
 		if err != nil {
-			if unit.Except == "" {
-				t.Fatal(err)
-			}
-			if strings.Contains(err.Error(), unit.Except.(string)) {
-				continue
-			}
 			t.Fatal(err)
 		}
 	}
+
 }
 
 func TestCmd(t *testing.T) {
