@@ -23,8 +23,8 @@ func init() {
 }
 
 const (
-	INSTALL_K8S_MASTER_SCRIPT = "/root/install_k8s_master.sh"
-	CalicoYaml                = "/root/calico.yaml"
+	InstallK8sMasterScript = "/root/install_k8s_master.sh"
+	CalicoYaml             = "/root/calico.yaml"
 )
 
 type KubeInstall struct {
@@ -58,7 +58,7 @@ func (k *KubeInstall) Install() error {
 	}
 
 	// 数据存储
-	if err := k.saveCluster(); err != nil {
+	if err := k.saveCluster("installing"); err != nil {
 		return err
 	}
 
@@ -84,15 +84,7 @@ func (k *KubeInstall) Install() error {
 	return nil
 }
 
-func (k *KubeInstall) installMaster() {
-
-}
-
 func (k *KubeInstall) installSlave() {
-
-}
-
-func (k *KubeInstall) checkEnv() {
 
 }
 
@@ -160,15 +152,16 @@ func (k *KubeInstall) installK8s(hosts []model.Host) (err error) {
 			return err
 		}
 
-		err = common.CopyByteToRemote(sshClient, buff.Bytes(), INSTALL_K8S_MASTER_SCRIPT)
+		err = common.CopyByteToRemote(sshClient, buff.Bytes(), InstallK8sMasterScript)
 		err = common.CopyByteToRemote(sshClient, buff2.Bytes(), CalicoYaml)
 
 		if err != nil {
 			return fmt.Errorf("copy byte err: %v", err)
 		}
 		commands := []string{
-			fmt.Sprintf(`sh %s`, INSTALL_K8S_MASTER_SCRIPT),
+			fmt.Sprintf(`sh %s`, InstallK8sMasterScript),
 			fmt.Sprintf(`kubectl create -f %s`, CalicoYaml),
+			fmt.Sprintf(`cat %s`, "/root/.kube/config"),
 		}
 		for _, cmd := range commands {
 			b, err := common.SSHExecCmd(sshClient, cmd)
@@ -184,17 +177,21 @@ func (k *KubeInstall) installK8s(hosts []model.Host) (err error) {
 	return
 }
 
-func (k *KubeInstall) saveCluster() error {
+func (k *KubeInstall) saveCluster(action string) error {
 	cluster := &model.Cluster{
 		ClusterName: k.ClusterName,
 		Registry:    k.Registry,
 		Version:     k.Version,
 		NetWorkPlug: k.NetWorkPlug,
+		Status:      action,
 	}
 	klog.Infof("cluster: %+v", cluster)
 	id, err := model.AddCluster(cluster)
+	if err != nil {
+		return err
+	}
 	k.ID = id
-	return err
+	return nil
 }
 
 func (k *KubeInstall) saveServer(hostID int) error {

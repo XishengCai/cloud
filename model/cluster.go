@@ -11,6 +11,7 @@ type Cluster struct {
 	ControlPlane string `orm:"column(control_plane)"`
 	PodDir       string `orm:"column(pod_dir)"`
 	ServiceCidr  string `orm:"column(service_cidr)"`
+	Status       string `orm:"column(status)"`
 }
 
 func (c *Cluster) TableName() string {

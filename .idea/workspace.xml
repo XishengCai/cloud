@@ -2,32 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0efe874d-f559-41ea-b648-cd6c1a4a7e00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/init.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/template/calico.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/template/install_docker.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/template/kubeadm-config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/template/run_mysql.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/template/tem.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/host_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CHANGELOG.MD" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/ssh.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/ssh.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/cloud_config.toml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/host/host.go" beforeDir="false" afterPath="$PROJECT_DIR$/host/host.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/install.go" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/install.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/install_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/install_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/shell/install_docker.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/shell/install_k8s_master.sh" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/template/install_k8s_master.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/shell/lvs-keepalived.sh" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/template/lvs-keepalived.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/cluster.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/host.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/host.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/tools.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/tools.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,22 +190,22 @@
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
     <state x="747" y="265" key="FileChooserDialogImpl/0.0.1920.1026@0.0.1920.1026" timestamp="1578625902712" />
-    <state width="1874" height="332" key="GridCell.Tab.0.bottom" timestamp="1579178811466">
+    <state width="1874" height="332" key="GridCell.Tab.0.bottom" timestamp="1579180180095">
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1026@0.0.1920.1026" timestamp="1579178811466" />
-    <state width="1874" height="332" key="GridCell.Tab.0.center" timestamp="1579178811465">
+    <state width="1874" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1026@0.0.1920.1026" timestamp="1579180180095" />
+    <state width="1874" height="332" key="GridCell.Tab.0.center" timestamp="1579180180094">
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.center/0.0.1920.1026@0.0.1920.1026" timestamp="1579178811465" />
-    <state width="1874" height="332" key="GridCell.Tab.0.left" timestamp="1579178811465">
+    <state width="1874" height="332" key="GridCell.Tab.0.center/0.0.1920.1026@0.0.1920.1026" timestamp="1579180180094" />
+    <state width="1874" height="332" key="GridCell.Tab.0.left" timestamp="1579180180094">
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.left/0.0.1920.1026@0.0.1920.1026" timestamp="1579178811465" />
-    <state width="1874" height="332" key="GridCell.Tab.0.right" timestamp="1579178811466">
+    <state width="1874" height="332" key="GridCell.Tab.0.left/0.0.1920.1026@0.0.1920.1026" timestamp="1579180180094" />
+    <state width="1874" height="332" key="GridCell.Tab.0.right" timestamp="1579180180095">
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.right/0.0.1920.1026@0.0.1920.1026" timestamp="1579178811466" />
+    <state width="1874" height="332" key="GridCell.Tab.0.right/0.0.1920.1026@0.0.1920.1026" timestamp="1579180180095" />
     <state x="498" y="142" key="SettingsEditor" timestamp="1578649712937">
       <screen x="0" y="0" width="1920" height="1026" />
     </state>

@@ -8,15 +8,16 @@ import (
 )
 
 type Host struct {
-	IP        string `json:"ip"`
-	Name      string `json:"name"`
-	Password  string `json:"password"`
-	User      string `json:"user"`
-	Port      int    `json:"port"`
-	Memory    int    `json:"memory"`
-	CPU       int    `json:"cpu"`
-	Disk      int    `json:"disk"`
-	SshClient *ssh.Client
+	IP         string `json:"ip"`
+	Name       string `json:"name"`
+	Password   string `json:"password"`
+	User       string `json:"user"`
+	Port       int    `json:"port"`
+	Memory     int    `json:"memory"`
+	CPU        int    `json:"cpu"`
+	Disk       int    `json:"disk"`
+	InternalIP string `json:"internal_ip"`
+	SshClient  *ssh.Client
 	BaseParam
 }
 

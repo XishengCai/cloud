@@ -3,7 +3,6 @@ package main
 import (
 	"cloud/common"
 	"cloud/constant"
-	"cloud/model"
 	"cloud/service"
 	"fmt"
 	"github.com/urfave/cli"
@@ -44,7 +43,6 @@ func main() {
 
 func Run(config string) {
 	cf := common.GetConf(config)
-	model.InitDB(cf)
 	wsContainer := restful.NewContainer()
 	cors := restful.CrossOriginResourceSharing{
 		ExposeHeaders:  []string{"X-My-Header"},
