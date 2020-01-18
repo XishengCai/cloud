@@ -2,15 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0efe874d-f559-41ea-b648-cd6c1a4a7e00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CHANGELOG.MD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deploy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/download/apidocs.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plan.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/host/host.go" beforeDir="false" afterPath="$PROJECT_DIR$/host/host.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/download/apidocs.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/install.go" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/install.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/template/calico.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template/calico.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/template/install_docker.sh" beforeDir="false" afterPath="$PROJECT_DIR$/template/install_docker.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/template/install_k8s_master.sh" beforeDir="false" afterPath="$PROJECT_DIR$/template/install_k8s_master.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/template/kubeadm-config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/template/lvs-keepalived.sh" beforeDir="false" afterPath="$PROJECT_DIR$/hack/lvs-keepalived.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/template/run_mysql.sh" beforeDir="false" afterPath="$PROJECT_DIR$/hack/run_mysql.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/template/tem.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/cluster.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/cluster_route.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/cluster_route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +69,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/kubernetes/template" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../k8s.io/kubernetes" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -63,18 +77,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/kubernetes/template" />
       <recent name="$PROJECT_DIR$/model" />
       <recent name="$PROJECT_DIR$/kubernetes" />
       <recent name="F:\gopath\src\cloud\kubernetes\yaml" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\download" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/hack" />
+      <recent name="$PROJECT_DIR$/template" />
       <recent name="$PROJECT_DIR$/common" />
       <recent name="F:\gopath\src\cloud\download" />
       <recent name="F:\gopath\src\cloud\operator\yaml" />
-      <recent name="D:\Go\gopath\src\cloud\kubernetes\yaml" />
-      <recent name="D:\Go\gopath\src\github.com\cloud\bin" />
     </key>
   </component>
   <component name="RunManager" selected="Go Test.TestInstallKube in cloud/kubernetes">
@@ -186,10 +200,10 @@
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
     <state x="586" y="286" key="EditFileWatcherDialog/0.0.1920.1026@0.0.1920.1026" timestamp="1578649712108" />
-    <state x="747" y="265" key="FileChooserDialogImpl" timestamp="1578625902712">
+    <state x="747" y="265" key="FileChooserDialogImpl" timestamp="1579254877451">
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
-    <state x="747" y="265" key="FileChooserDialogImpl/0.0.1920.1026@0.0.1920.1026" timestamp="1578625902712" />
+    <state x="747" y="265" key="FileChooserDialogImpl/0.0.1920.1026@0.0.1920.1026" timestamp="1579254877451" />
     <state width="1874" height="332" key="GridCell.Tab.0.bottom" timestamp="1579180180095">
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
@@ -218,9 +232,9 @@
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
     <state x="735" y="427" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1026@0.0.1920.1026" timestamp="1579143501853" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1579146670386">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1579311110883">
       <screen x="0" y="0" width="1920" height="1026" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1026@0.0.1920.1026" timestamp="1579146670386" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1026@0.0.1920.1026" timestamp="1579311110883" />
   </component>
 </project>

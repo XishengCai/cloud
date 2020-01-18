@@ -14,7 +14,7 @@ func RegisterCluster() {
 
 	ws.Route(ws.GET("/host").To(hd.HostList))
 
-	ws.Route(ws.POST("/install").To(hd.InstallCluster))
+	ws.Route(ws.POST("/create").To(hd.InstallCluster))
 
 	Register(ws)
 }

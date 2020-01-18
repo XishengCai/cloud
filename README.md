@@ -11,9 +11,3 @@
 - https://swagger.io/blog/api-development/integrating-with-the-swaggerhub-api/
 - https://sourcegraph.com/github.com/emicklei/go-restful@master/-/blob/examples/restful-swagger.go#L34
 - https://github.com/emicklei/go-restful-swagger12
-
-### need to do
-- shell script use template
-- web shell
-- front web
-- swagger doc

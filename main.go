@@ -67,7 +67,7 @@ func Run(config string) {
 		http.StripPrefix("/apidocs/",
 			http.FileServer(http.Dir(constant.SWAGGER_UI_DIR))))
 
-	fmt.Println("http://localhost:8080/apidocs/?url=http://localhost:8080/download/apidocs.json")
+	fmt.Println("http://localhost:8080/apidocs/?url=http://localhost:8080/download/apidocs.yaml")
 
 	server := &http.Server{Addr: ":" + cf.Port, Handler: wsContainer}
 	log.Fatal(server.ListenAndServe())

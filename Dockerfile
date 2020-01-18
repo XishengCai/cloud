@@ -2,18 +2,14 @@ FROM alpine:latest
 
 MAINTAINER xishengcai <cc710917049@163.com>
 
-RUN apk --no-cache add tzdata zeromq \
-    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
-    && echo '$TZ' > /etc/timezone
+COPY ./bin/cloud /usr/local/bin
+COPY ./download /opt/download
+COPY ./template /opt/template
+COPY ./swaggerui /opt/swaggerui
+COPY ./conf   /opt/conf
 
-RUN  mkdir /opt/cloud
-COPY . /opt/cloud
+RUN chmod +x /usr/local/bin/cloud
 
-WORKDIR /opt/cloud
+WORKDIR /opt
 
-RUN  chmod +x /opt/cloud/bin/linux/cloud && \
-     mkdir /etc/cloud && \
-     cp /opt/cloud/bin/linux/cloud /usr/local/bin && \
-     cp ./conf/cloud_config.toml /etc/cloud/
-
-CMD ["cloud", "/etc/cloud/cloud_config.toml"]
+CMD ["cloud"]

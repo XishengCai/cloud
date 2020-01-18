@@ -24,7 +24,11 @@ func init() {
 
 const (
 	InstallK8sMasterScript = "/root/install_k8s_master.sh"
+	InstallDockerScript = "/root/install_docker.sh"
 	CalicoYaml             = "/root/calico.yaml"
+	InstallDockerScriptTpl = "./template/install_docker.sh"
+	InstallK8sMasterScriptTpl = "./template/install_k8s_master.sh"
+	CalicoYamlTpl             = "./template/calico.yaml"
 )
 
 type KubeInstall struct {
@@ -51,7 +55,20 @@ type InstallK8sTemp struct {
 }
 
 func (k *KubeInstall) Install() error {
-
+	/* request body
+	{
+	  "master_node": [
+	    "47.91.246.23"
+	  ],
+	  "version": "1.15.3",
+	  "registry": "k8s.gcr.io",
+	  "cluster_name": "master",
+	  "network_plug": "flannel",
+	  "pod_cidr": "10.200.0.0/16 ",
+	  "service_cidr": "10.96.0.0/12",
+	  "control_plan": "47.91.246.23:6443"
+	}
+	 */
 	// 数据校验
 	if err := k.installCheckArguments(); err != nil {
 		return err
@@ -97,8 +114,8 @@ func (k *KubeInstall) installDocker(hosts []model.Host) error {
 			return err
 		}
 
-		if err := scpFile("../kubernetes/template/install_docker.sh",
-			"/root/install_docker.sh", sshClient); err != nil {
+		if err := scpFile(InstallDockerScriptTpl,
+			InstallDockerScript, sshClient); err != nil {
 			return err
 		}
 
@@ -125,8 +142,8 @@ func (k *KubeInstall) installK8s(hosts []model.Host) (err error) {
 	for _, host := range hosts {
 		sshClient, err := common.GetSshClient(host.IP, host.User, host.Password, host.Port)
 
-		t, err := template.ParseFiles("../kubernetes/template/install_k8s_master.sh")
-		t2, err := template.ParseFiles("../kubernetes/template/calico.yaml")
+		t, err := template.ParseFiles(InstallK8sMasterScriptTpl)
+		t2, err := template.ParseFiles(CalicoYamlTpl)
 		if err != nil {
 			return err
 		}

@@ -1,0 +1,81 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/instance: cloud
+    app.kubernetes.io/name: cloud
+  name: cloud
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: cloud
+      app.kubernetes.io/name: cloud
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: cloud
+        app.kubernetes.io/name: cloud
+    spec:
+      containers:
+        - image: registry.cn-hongkong.aliyuncs.com/xisheng/cloud:v1
+          imagePullPolicy: Always
+          name: cloud
+          resources:
+            limits:
+              cpu: 500m
+              memory: 500Mi
+            requests:
+              cpu: 200m
+              memory: 200Mi
+          volumeMounts:
+            - mountPath: /opt/conf/config.yaml
+              name: config
+              subPath: config.yaml
+      volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+              - key: config.yaml
+                path: config.yaml
+            name: cloud
+          name: config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud
+data:
+  config.yaml: |-
+    title: "container cloud"
+    env: "local"
+    port: "80"
+    version: "1.0"
+    server:
+      local:
+        mysql:
+          ip: "mysql-svc"
+          port: "3306"
+          user: "root"
+          password: "D4LSD4LSPWO="
+          database: "cloud"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud
+  namespace: default
+spec:
+  ports:
+    - name:
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: cloud
+    app.kubernetes.io/name: cloud
+  sessionAffinity: None
+  type: NodePort
