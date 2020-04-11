@@ -56,12 +56,11 @@ data:
     server:
       local:
         mysql:
-          ip: "mysql-svc"
+          ip: "mysql"
           port: "3306"
           user: "root"
-          password: "D4LSD4LSPWO="
+          password: "123456"
           database: "cloud"
-
 ---
 apiVersion: v1
 kind: Service

@@ -3,11 +3,12 @@ package common
 import (
 	"cloud/util"
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
-	"k8s.io/klog"
 	"os"
 	"sync"
+
+	"gopkg.in/yaml.v2"
+	"k8s.io/klog"
 )
 
 var configFilePaths = [3]string{"conf/config.yaml", "../conf/config.yaml", "../../conf/config.yaml"}
@@ -93,10 +94,10 @@ func loadConfigWithPath(configPath string) {
 
 	releaseEnv := envConfig.Env
 	serverConfig := envConfig.Server[releaseEnv]
-	password, err := Base64Decode(serverConfig.Mysql.Password)
-	if err != nil {
-		panic(err)
-	}
-	serverConfig.Mysql.Password = string(password)
+	// password, err := Base64Decode(serverConfig.Mysql.Password)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// serverConfig.Mysql.Password = string(password)
 	envConfig.Server[releaseEnv] = serverConfig
 }

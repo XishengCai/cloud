@@ -5,10 +5,10 @@ version: "1.0"
 server:
   local:
     mysql:
-      ip: "localhost"
-      port: "3306"
+      ip: xisheng.mysql.com
+      port: "32404"
       user: "root"
-      password: "D4LSD4LSPWO="
+      password: "123456"
       database: "cloud"
 
 

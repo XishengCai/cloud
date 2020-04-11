@@ -3,7 +3,9 @@
 
 trace.out
 
-Dockerfile
 
 ./bin
 
+
+# config
+conf
