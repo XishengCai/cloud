@@ -1,200 +1,54 @@
-# cloud.google.com/go v0.37.4
-cloud.google.com/go
-# github.com/BurntSushi/toml v0.3.1
-github.com/BurntSushi/toml
-# github.com/Shopify/sarama v1.19.0
-github.com/Shopify/sarama
-# github.com/Shopify/toxiproxy v2.1.4+incompatible
-github.com/Shopify/toxiproxy
-# github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc
-github.com/alecthomas/template
-# github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf
-github.com/alecthomas/units
-# github.com/apache/thrift v0.12.0
-github.com/apache/thrift
-# github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973
-github.com/beorn7/perks
-# github.com/client9/misspell v0.3.4
-github.com/client9/misspell
-# github.com/davecgh/go-spew v1.1.1
-github.com/davecgh/go-spew
-# github.com/denisenkom/go-mssqldb v0.0.0-20190515213511-eb9f6a1743f3
-github.com/denisenkom/go-mssqldb
-# github.com/eapache/go-resiliency v1.1.0
-github.com/eapache/go-resiliency
-# github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21
-github.com/eapache/go-xerial-snappy
-# github.com/eapache/queue v1.1.0
-github.com/eapache/queue
 # github.com/emicklei/go-restful v2.9.6+incompatible
 github.com/emicklei/go-restful
-# github.com/erikstmartin/go-testdb v0.0.0-20160219214506-8d10e4a1bae5
-github.com/erikstmartin/go-testdb
-# github.com/fsnotify/fsnotify v1.4.7
-github.com/fsnotify/fsnotify
-# github.com/go-kit/kit v0.8.0
-github.com/go-kit/kit
-# github.com/go-logfmt/logfmt v0.3.0
-github.com/go-logfmt/logfmt
-# github.com/go-logr/logr v0.1.0
-github.com/go-logr/logr
+github.com/emicklei/go-restful/log
 # github.com/go-sql-driver/mysql v1.4.1
 github.com/go-sql-driver/mysql
-# github.com/go-stack/stack v1.8.0
-github.com/go-stack/stack
-# github.com/gogo/protobuf v1.2.0
-github.com/gogo/protobuf
-# github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
-github.com/golang/glog
-# github.com/golang/mock v1.2.0
-github.com/golang/mock
-# github.com/golang/protobuf v1.2.0
-github.com/golang/protobuf
-# github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db
-github.com/golang/snappy
-# github.com/google/btree v0.0.0-20180813153112-4030bb1f1f0c
-github.com/google/btree
-# github.com/google/go-cmp v0.2.0
-github.com/google/go-cmp
-# github.com/google/gofuzz v1.0.0
-github.com/google/gofuzz
-# github.com/google/martian v2.1.0+incompatible
-github.com/google/martian
-# github.com/google/pprof v0.0.0-20181206194817-3ea8567a2e57
-github.com/google/pprof
-# github.com/googleapis/gax-go/v2 v2.0.4
-github.com/googleapis/gax-go/v2
-# github.com/gorilla/context v1.1.1
-github.com/gorilla/context
-# github.com/gorilla/mux v1.6.2
-github.com/gorilla/mux
-# github.com/hashicorp/golang-lru v0.5.0
-github.com/hashicorp/golang-lru
-# github.com/hpcloud/tail v1.0.0
-github.com/hpcloud/tail
 # github.com/jinzhu/gorm v1.9.10
 github.com/jinzhu/gorm
+github.com/jinzhu/gorm/dialects/mysql
 # github.com/jinzhu/inflection v1.0.0
 github.com/jinzhu/inflection
-# github.com/jinzhu/now v1.0.1
-github.com/jinzhu/now
 # github.com/json-iterator/go v1.1.9
 github.com/json-iterator/go
-# github.com/jstemmer/go-junit-report v0.0.0-20190106144839-af01ea7f8024
-github.com/jstemmer/go-junit-report
-# github.com/julienschmidt/httprouter v1.2.0
-github.com/julienschmidt/httprouter
-# github.com/kisielk/gotool v1.0.0
-github.com/kisielk/gotool
-# github.com/konsorten/go-windows-terminal-sequences v1.0.1
-github.com/konsorten/go-windows-terminal-sequences
 # github.com/kr/fs v0.1.0
 github.com/kr/fs
-# github.com/kr/logfmt v0.0.0-20140226030751-b84e30acd515
-github.com/kr/logfmt
-# github.com/kr/pretty v0.1.0
-github.com/kr/pretty
-# github.com/kr/pty v1.1.1
-github.com/kr/pty
-# github.com/kr/text v0.1.0
-github.com/kr/text
 # github.com/labstack/gommon v0.3.0
-github.com/labstack/gommon
-# github.com/lib/pq v1.1.1
-github.com/lib/pq
+github.com/labstack/gommon/color
+github.com/labstack/gommon/log
 # github.com/mattn/go-colorable v0.1.2
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.9
 github.com/mattn/go-isatty
-# github.com/mattn/go-sqlite3 v1.10.0
-github.com/mattn/go-sqlite3
-# github.com/matttproud/golang_protobuf_extensions v1.0.1
-github.com/matttproud/golang_protobuf_extensions
 # github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421
 github.com/modern-go/concurrent
 # github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742
 github.com/modern-go/reflect2
-# github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223
-github.com/mwitkow/go-conntrack
-# github.com/onsi/ginkgo v1.7.0
-github.com/onsi/ginkgo
-# github.com/onsi/gomega v1.4.3
-github.com/onsi/gomega
-# github.com/openzipkin/zipkin-go v0.1.6
-github.com/openzipkin/zipkin-go
-# github.com/pierrec/lz4 v2.0.5+incompatible
-github.com/pierrec/lz4
 # github.com/pkg/errors v0.8.1
 github.com/pkg/errors
 # github.com/pkg/sftp v1.10.1
 github.com/pkg/sftp
-# github.com/pmezard/go-difflib v1.0.0
-github.com/pmezard/go-difflib
-# github.com/prometheus/client_golang v0.9.3-0.20190127221311-3c4408c8b829
-github.com/prometheus/client_golang
-# github.com/prometheus/client_model v0.0.0-20190115171406-56726106282f
-github.com/prometheus/client_model
-# github.com/prometheus/common v0.2.0
-github.com/prometheus/common
-# github.com/prometheus/procfs v0.0.0-20190117184657-bf6a532e95b1
-github.com/prometheus/procfs
-# github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a
-github.com/rcrowley/go-metrics
 # github.com/rs/xid v1.2.1
 github.com/rs/xid
-# github.com/sirupsen/logrus v1.2.0
-github.com/sirupsen/logrus
-# github.com/stretchr/objx v0.1.1
-github.com/stretchr/objx
-# github.com/stretchr/testify v1.4.0
-github.com/stretchr/testify
 # github.com/urfave/cli v1.21.0
 github.com/urfave/cli
 # github.com/valyala/bytebufferpool v1.0.0
 github.com/valyala/bytebufferpool
 # github.com/valyala/fasttemplate v1.0.1
 github.com/valyala/fasttemplate
-# go.opencensus.io v0.20.1
-go.opencensus.io
 # golang.org/x/crypto v0.0.0-20190820162420-60c769a6c586
-golang.org/x/crypto
-# golang.org/x/exp v0.0.0-20190121172915-509febef88a4
-golang.org/x/exp
-# golang.org/x/lint v0.0.0-20190301231843-5614ed5bae6f
-golang.org/x/lint
-# golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3
-golang.org/x/net
-# golang.org/x/oauth2 v0.0.0-20190226205417-e64efc72b421
-golang.org/x/oauth2
-# golang.org/x/sync v0.0.0-20190227155943-e225da77a7e6
-golang.org/x/sync
+golang.org/x/crypto/curve25519
+golang.org/x/crypto/ed25519
+golang.org/x/crypto/ed25519/internal/edwards25519
+golang.org/x/crypto/internal/chacha20
+golang.org/x/crypto/internal/subtle
+golang.org/x/crypto/poly1305
+golang.org/x/crypto/ssh
 # golang.org/x/sys v0.0.0-20190813064441-fde4db37ae7a
-golang.org/x/sys
-# golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2
-golang.org/x/text
-# golang.org/x/time v0.0.0-20181108054448-85acf8d2951c
-golang.org/x/time
-# golang.org/x/tools v0.0.0-20190312170243-e65039ee4138
-golang.org/x/tools
-# google.golang.org/api v0.3.1
-google.golang.org/api
+golang.org/x/sys/cpu
+golang.org/x/sys/unix
 # google.golang.org/appengine v1.4.0
-google.golang.org/appengine
-# google.golang.org/genproto v0.0.0-20190404172233-64821d5d2107
-google.golang.org/genproto
-# google.golang.org/grpc v1.19.0
-google.golang.org/grpc
-# gopkg.in/alecthomas/kingpin.v2 v2.2.6
-gopkg.in/alecthomas/kingpin.v2
-# gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127
-gopkg.in/check.v1
-# gopkg.in/fsnotify.v1 v1.4.7
-gopkg.in/fsnotify.v1
-# gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
-gopkg.in/tomb.v1
+google.golang.org/appengine/cloudsql
 # gopkg.in/yaml.v2 v2.2.2
 gopkg.in/yaml.v2
-# honnef.co/go/tools v0.0.0-20190106161140-3f1c8253044a
-honnef.co/go/tools
 # k8s.io/klog v1.0.0
 k8s.io/klog

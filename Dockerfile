@@ -1,13 +1,12 @@
+############# builder c #############
+FROM golang:1.13.0 as builder
+
+WORKDIR /go/src/cloud
+COPY . .
+RUN GO111MODULE=off CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go install 
+
+
+############# cloud controller manager #############
 FROM alpine:latest
-
-COPY ./bin/cloud /usr/local/bin
-COPY ./download /opt/download
-COPY ./template /opt/template
-COPY ./swaggerui /opt/swaggerui
-COPY ./conf   /opt/conf
-
-RUN chmod +x /usr/local/bin/cloud
-
-WORKDIR /opt
-
-CMD ["cloud"]
+COPY --from=builder /go/bin/cloud /cloud
+ENTRYPOINT  ["/cloud"]
