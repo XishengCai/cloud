@@ -1,0 +1,137 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/instance: cloud
+    app.kubernetes.io/name: cloud
+  name: cloud
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: cloud
+      app.kubernetes.io/name: cloud
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: cloud
+        app.kubernetes.io/name: cloud
+    spec:
+      containers:
+        - image: registry.cn-hongkong.aliyuncs.com/launcher/cloud:latest
+          imagePullPolicy: Always
+          name: cloud
+          resources:
+            limits:
+              cpu: 500m
+              memory: 500Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
+          volumeMounts:
+            - mountPath: /conf/config.yaml
+              name: config
+              subPath: config.yaml
+      volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+              - key: config.yaml
+                path: config.yaml
+            name: cloud
+          name: config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: default
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  selector:
+    matchLabels:
+      run: mysql
+  template:
+    metadata:
+      labels:
+        run: mysql
+    spec:
+      containers:
+        - env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: "123456"
+          image: registry.cn-hangzhou.aliyuncs.com/launcher/mysql
+          imagePullPolicy: IfNotPresent
+          name: mysql
+          ports:
+          - containerPort: 3306
+            name: tcp
+            protocol: TCP
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: mysql
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - hostPath:
+            path: /var/lib/mysql-cloud
+            type: DirectoryOrCreate
+          name: mysql  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: default
+spec:
+  ports:
+  - port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    run: mysql
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud
+data:
+  config.yaml: |-
+    title: "container cloud"
+    env: "local"
+    port: "80"
+    version: "1.0"
+    server:
+      local:
+        mysql:
+          ip: "mysql"
+          port: "3306"
+          user: "root"
+          password: "123456"
+          database: "cloud"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud
+  namespace: default
+spec:
+  ports:
+    - name:
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: cloud
+    app.kubernetes.io/name: cloud
+  sessionAffinity: None
+  type: NodePort

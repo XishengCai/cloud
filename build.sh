@@ -39,3 +39,13 @@ EOF
 docker build -t xishengcai/${IMAGE_NAME}:${VERSION} ./
 docker push xishengcai/${IMAGE_NAME}:${VERSION}
 docker rmi xishengcai/${IMAGE_NAME}:${VERSION}
+
+
+
+
+#########  kaniko  #############
+
+# docker run -ti --rm -v `pwd`:/workspace \
+# -v /root/.docker/config.json:/kaniko/.docker/config.json:ro gcr.io/kaniko-project/executor:latest \
+# --dockerfile=Dockerfile \
+# --destination=registry.cn-hongkong.aliyuncs.com/launcher/cloud:latest

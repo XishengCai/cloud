@@ -1,0 +1,19 @@
+{
+	"auths": {
+		"docker.io": {
+			"auth": "eGlzaGVuZ2NhaTpDYWlDYWlAMTI="
+		},
+		"hub.lstack.cloud:4430": {
+			"auth": "YWRtaW46cm9vdHJvb3Q="
+		},
+		"registry.cn-hangzhou.aliyuncs.com": {
+			"auth": "d3VqaWFuZ2ZhQHhsYXVuY2hlcjp3amZ3amYyMS4="
+		},
+		"registry.cn-hangzhou.lstack.com.cn": {
+			"auth": "YWRtaW46cm9vdHJvb3Q="
+		}
+	},
+	"HttpHeaders": {
+		"User-Agent": "Docker-Client/19.03.2 (linux)"
+	}
+}
