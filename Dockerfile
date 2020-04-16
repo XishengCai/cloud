@@ -7,5 +7,8 @@ RUN GO111MODULE=off CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go install
 
 ############# cloud controller manager #############
 FROM alpine:latest
-COPY --from=builder /go/bin/cloud /cloud
-ENTRYPOINT  ["/cloud"]
+COPY --from=builder /go/bin/cloud /usr/bin/cloud
+WORKDIR /opt
+COPY download .
+
+ENTRYPOINT  ["cloud"]
