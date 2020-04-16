@@ -10,5 +10,5 @@ FROM alpine:latest
 COPY --from=builder /go/bin/cloud /usr/bin/cloud
 WORKDIR /opt
 COPY download .
-
+COPY swaggerui .
 ENTRYPOINT  ["cloud"]
