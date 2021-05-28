@@ -1,0 +1,172 @@
+basePath: /api
+definitions:
+  app.Response:
+    properties:
+      data:
+        type: object
+      resMsg:
+        description: 根据Accept-Language指定 语言类型，返回详细错误信息中英文，或success
+        type: object
+      status:
+        description: 0 或 对应事件错误码
+        type: integer
+    type: object
+  models.Host:
+    properties:
+      ip:
+        type: string
+      password:
+        type: string
+      port:
+        type: integer
+      user:
+        type: string
+    required:
+    - ip
+    - password
+    - port
+    - user
+    type: object
+  models.InstallKubernetesParameter:
+    properties:
+      backendMasters:
+        items:
+          $ref: '#/definitions/models.Host'
+        type: array
+      clusterName:
+        type: string
+      controlPlaneEndpoint:
+        type: string
+      id:
+        type: integer
+      joinMasterCommand:
+        type: string
+      netWorkPlug:
+        type: string
+      podCidr:
+        type: string
+      primaryMaster:
+        $ref: '#/definitions/models.Host'
+        type: object
+      registry:
+        type: string
+      serviceCidr:
+        type: string
+      version:
+        type: string
+    required:
+    - clusterName
+    - controlPlaneEndpoint
+    - primaryMaster
+    type: object
+  models.InstallSlaveParam:
+    properties:
+      joinSlaveCommand:
+        type: string
+      master:
+        $ref: '#/definitions/models.Host'
+        type: object
+      nodes:
+        items:
+          $ref: '#/definitions/models.Host'
+        type: array
+      version:
+        type: string
+    type: object
+host: xisheng.vip:8081
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server celler server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "2.0"
+paths:
+  /kubernetes/v1/masters:
+    post:
+      consumes:
+      - application/json
+      description: install kubernetes master
+      parameters:
+      - description: install kubernetes master
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/models.InstallKubernetesParameter'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: install kubernets
+      tags:
+      - install kubernetes master
+  /kubernetes/v1/slaves:
+    post:
+      consumes:
+      - application/json
+      description: install kubernetes slave
+      parameters:
+      - description: install kubernetes slave
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/models.InstallSlaveParam'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: install kubernets slave
+      tags:
+      - install kubernetes slave
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+  BasicAuth:
+    type: basic
+  OAuth2AccessCode:
+    authorizationUrl: https://example.com/oauth/authorize
+    flow: accessCode
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
+  OAuth2Application:
+    flow: application
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+      write: ' Grants write access'
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
+  OAuth2Implicit:
+    authorizationUrl: https://example.com/oauth/authorize
+    flow: implicit
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+      write: ' Grants write access'
+    type: oauth2
+  OAuth2Password:
+    flow: password
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+      read: ' Grants read access'
+      write: ' Grants write access'
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
+swagger: "2.0"
+x-extension-openapi:
+  example: value on a json format

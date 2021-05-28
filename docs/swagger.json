@@ -1,0 +1,249 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server celler server.",
+        "title": "Swagger Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "2.0"
+    },
+    "host": "xisheng.vip:8081",
+    "basePath": "/api",
+    "paths": {
+        "/kubernetes/v1/masters": {
+            "post": {
+                "description": "install kubernetes master",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "install kubernetes master"
+                ],
+                "summary": "install kubernets",
+                "parameters": [
+                    {
+                        "description": "install kubernetes master",
+                        "name": "cluster",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.InstallKubernetesParameter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/app.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/kubernetes/v1/slaves": {
+            "post": {
+                "description": "install kubernetes slave",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "install kubernetes slave"
+                ],
+                "summary": "install kubernets slave",
+                "parameters": [
+                    {
+                        "description": "install kubernetes slave",
+                        "name": "cluster",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.InstallSlaveParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/app.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "app.Response": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object"
+                },
+                "resMsg": {
+                    "description": "根据Accept-Language指定 语言类型，返回详细错误信息中英文，或success",
+                    "type": "object"
+                },
+                "status": {
+                    "description": "0 或 对应事件错误码",
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Host": {
+            "type": "object",
+            "required": [
+                "ip",
+                "password",
+                "port",
+                "user"
+            ],
+            "properties": {
+                "ip": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "user": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.InstallKubernetesParameter": {
+            "type": "object",
+            "required": [
+                "clusterName",
+                "controlPlaneEndpoint",
+                "primaryMaster"
+            ],
+            "properties": {
+                "backendMasters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Host"
+                    }
+                },
+                "clusterName": {
+                    "type": "string"
+                },
+                "controlPlaneEndpoint": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "joinMasterCommand": {
+                    "type": "string"
+                },
+                "netWorkPlug": {
+                    "type": "string"
+                },
+                "podCidr": {
+                    "type": "string"
+                },
+                "primaryMaster": {
+                    "type": "object",
+                    "$ref": "#/definitions/models.Host"
+                },
+                "registry": {
+                    "type": "string"
+                },
+                "serviceCidr": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.InstallSlaveParam": {
+            "type": "object",
+            "properties": {
+                "joinSlaveCommand": {
+                    "type": "string"
+                },
+                "master": {
+                    "type": "object",
+                    "$ref": "#/definitions/models.Host"
+                },
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Host"
+                    }
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        },
+        "BasicAuth": {
+            "type": "basic"
+        },
+        "OAuth2AccessCode": {
+            "type": "oauth2",
+            "flow": "accessCode",
+            "authorizationUrl": "https://example.com/oauth/authorize",
+            "tokenUrl": "https://example.com/oauth/token",
+            "scopes": {
+                "admin": " Grants read and write access to administrative information"
+            }
+        },
+        "OAuth2Application": {
+            "type": "oauth2",
+            "flow": "application",
+            "tokenUrl": "https://example.com/oauth/token",
+            "scopes": {
+                "admin": " Grants read and write access to administrative information",
+                "write": " Grants write access"
+            }
+        },
+        "OAuth2Implicit": {
+            "type": "oauth2",
+            "flow": "implicit",
+            "authorizationUrl": "https://example.com/oauth/authorize",
+            "scopes": {
+                "admin": " Grants read and write access to administrative information",
+                "write": " Grants write access"
+            }
+        },
+        "OAuth2Password": {
+            "type": "oauth2",
+            "flow": "password",
+            "tokenUrl": "https://example.com/oauth/token",
+            "scopes": {
+                "admin": " Grants read and write access to administrative information",
+                "read": " Grants read access",
+                "write": " Grants write access"
+            }
+        }
+    },
+    "x-extension-openapi": {
+        "example": "value on a json format"
+    }
+}

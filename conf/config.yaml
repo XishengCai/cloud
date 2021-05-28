@@ -1,0 +1,20 @@
+title: cloud
+releaseEnv: local
+version: "1.0"
+server:
+  local:
+    mongoDB:
+      addresses: localhost:27017
+      timeout: 5
+      user: root
+      password: 123456
+    httpSetting:
+      httpPort: 80
+      readTimeout:  60
+      writeTimeout: 60
+      runMode: debug
+    redis:
+      address: localhost
+      timeout: 5
+      user: root
+      password: 123456

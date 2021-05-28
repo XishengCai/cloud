@@ -1,0 +1,89 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/instance: cloud
+    app.kubernetes.io/name: cloud
+  name: cloud
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: cloud
+      app.kubernetes.io/name: cloud
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: cloud
+        app.kubernetes.io/name: cloud
+    spec:
+      containers:
+        - image: xishengcai/cloud:v1
+          imagePullPolicy: Always
+          name: cloud
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+              name: http
+          resources:
+            limits:
+              cpu: 500m
+              memory: 500Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
+          volumeMounts:
+            - mountPath: /opt/conf/config.yaml
+              name: config
+              subPath: config.yaml
+      volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+              - key: config.yaml
+                path: config.yaml
+            name: cloud
+          name: config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud
+data:
+  config.yaml: |-
+    title: cloud
+    releaseEnv: local
+    version: "1.0"
+    server:
+      local:
+        mongoDB:
+          addresses: localhost:27017
+          timeout: 5
+          user: root
+          password: 123456
+        httpSetting:
+          httpPort: 80
+          readTimeout:  60
+          writeTimeout: 60
+          runMode: debug
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: cloud
+  name: cloud
+  namespace: default
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: cloud
+    app.kubernetes.io/name: cloud
+  sessionAffinity: None
+  type: NodePort
