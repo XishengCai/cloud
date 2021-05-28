@@ -18,7 +18,7 @@ var (
 			return redis.Dial("tcp", ":6379")
 		},
 	}
-	installK8sQueue = work.NewEnqueuer(InstallK8sJobNamespace, RedisPool)
+	installK8sQueue      = work.NewEnqueuer(InstallK8sJobNamespace, RedisPool)
 	installK8sSlaveQueue = work.NewEnqueuer(InstallK8sSlaveJobNamespace, RedisPool)
 )
 

@@ -4,8 +4,6 @@
 #chec user
 [[ $UID -ne 0 ]] && { echo "Must run in root user !";exit; }
 
-set -e
-
 echo "添加kubernetes国内yum源"
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -57,7 +55,12 @@ yum install ipset ipvsadm -y
 rm -rf /var/lib/cni/
 rm -rf /var/lib/etcd/
 rm -rf /etc/kubernetes
+rm -rf /var/lib/kubelet
+rm -rf /var/lib/dockershim
+rm -rf /etc/cni/net.d
 
+# if this node is ready, you want reJoin, maybe occure device busy
+kubeadm reset -y
 
 yum -y  remove kubeadm kubectl kubelet
 yum -y install kubelet-{{.Version}} kubeadm-{{.Version}} kubectl-{{.Version}} --setopt=obsoletes=0

@@ -27,10 +27,12 @@ const (
 type InstallKuber struct {
 	*models.Kubernetes
 	slave  *models.KubernetesSlave
+	status []*status
 }
+
 // ConsumeJob worker will call
 func (i InstallKuber) ConsumeJob(job *work.Job) error {
-	if job.Args == nil{
+	if job.Args == nil {
 		klog.Errorf("jobID:%s, job.Arg is nil", job.ID)
 		return nil
 	}
@@ -47,11 +49,9 @@ func (i InstallKuber) Export(job *work.Job) error {
 }
 
 func (i InstallKuber) Log(job *work.Job, next work.NextMiddlewareFunc) error {
-	klog.Infof("Starting job:%s, jobID: %s, install k8s master ",job.Name, job.ID)
+	klog.Infof("Starting job:%s, jobID: %s, install k8s master ", job.Name, job.ID)
 	return next()
 }
-
-
 
 // Install export to API interface
 func (i InstallKuber) Install() error {
@@ -60,7 +60,7 @@ func (i InstallKuber) Install() error {
 		return err
 	}
 	// Enqueue a job named "install_k8s" with the specified parameters.
-	job, err := installK8sQueue.Enqueue(installMaster, arg)
+	job, err := installK8sQueue.EnqueueUnique(installMaster, arg)
 	klog.Infof("enqueue job: %v", job)
 	return err
 }
@@ -90,10 +90,12 @@ func (i *InstallKuber) install() error {
 	klog.Infof("joinMasterCommand: %s", i.JoinMasterCommand)
 	var errs []error
 	for _, item := range i.BackendMasters {
-		err = joinNode(item, i.Version, i.JoinMasterCommand)
+		s := NewStatus(item.IP)
+		err = s.joinNode(item, i.Version, i.JoinMasterCommand)
 		if err != nil {
 			errs = append(errs, err)
 		}
+		i.status = append(i.status, s)
 	}
 	return e.MergeError(errs)
 }
