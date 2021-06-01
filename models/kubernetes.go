@@ -8,7 +8,7 @@ type Kubernetes struct {
 	BackendMasters       []Host `form:"backendMasters"`
 	NetWorkPlug          string `form:"networkPlug,default=calico"`
 	Registry             string `form:"registry,default=k8s.gcr.io"`
-	Version              string `form:"version,default=1.17.4"`
+	Version              string `form:"version,default=1.17.2"`
 	ControlPlaneEndpoint string `form:"controlPlaneEndpoint" binding:"required"`
 	PodCidr              string `form:"podCidr,default=10.244.0.0/16"`
 	ServiceCidr          string `form:"serviceCidr,default=10.96.0.0/16"`
@@ -20,4 +20,9 @@ type KubernetesSlave struct {
 	Nodes            []Host `form:"nodes"`
 	Master           Host   `form:"master"`
 	JoinSlaveCommand string `form:"joinSlaveCommand"`
+}
+
+
+type Version struct{
+	Version string `form:"version,default=1.17.2"`
 }

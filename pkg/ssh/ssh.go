@@ -3,11 +3,8 @@ package ssh
 import (
 	"cloud/models"
 	"fmt"
-	"io"
-	"net"
-	"strings"
-
 	"k8s.io/klog"
+	"net"
 
 	"github.com/pkg/sftp"
 	"golang.org/x/crypto/ssh"
@@ -30,6 +27,9 @@ func GetSshConfigByPassword(user string, password string) *ssh.ClientConfig {
 // SSHExecCmd 通过*ssh.Client 执行命令
 func SSHExecCmd(client *ssh.Client, cmd string) ([]byte, error) {
 	session, err := client.NewSession()
+	if err != nil{
+		return nil, err
+	}
 	defer session.Close()
 	if err != nil {
 		return nil, fmt.Errorf("failed to create session: %v", err)
@@ -39,26 +39,6 @@ func SSHExecCmd(client *ssh.Client, cmd string) ([]byte, error) {
 	return out, err
 }
 
-func asyncLog(reader io.Reader) error {
-	cache := "" //缓存不足一行的日志信息
-	buf := make([]byte, 1024)
-	for {
-		num, err := reader.Read(buf)
-		if err != nil && err != io.EOF {
-			return err
-		}
-		if num > 0 {
-			b := buf[:num]
-			s := strings.Split(string(b), "\n")
-			line := strings.Join(s[:len(s)-1], "\n") //取出整行的日志
-			fmt.Printf("%s%s\n", cache, line)
-			cache = s[len(s)-1]
-		} else {
-			break
-		}
-	}
-	return nil
-}
 
 // CopyByteToRemote 复制字节数组到远程服务器上
 func CopyByteToRemote(client *ssh.Client, byteStream []byte, remoteFilePath string) error {
@@ -74,7 +54,7 @@ func CopyByteToRemote(client *ssh.Client, byteStream []byte, remoteFilePath stri
 		return err
 	}
 	defer dstFile.Close()
-	dstFile.Write(byteStream)
+	_,_ = dstFile.Write(byteStream)
 	klog.Info("copy byteStream to remote server finished!")
 	return nil
 }

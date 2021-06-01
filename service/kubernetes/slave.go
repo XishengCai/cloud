@@ -2,7 +2,6 @@ package kubernetes
 
 import (
 	"cloud/models"
-	"cloud/pkg/common"
 	"cloud/pkg/e"
 	"cloud/pkg/ssh"
 	"cloud/service/docker"
@@ -13,11 +12,6 @@ import (
 	"github.com/gocraft/work"
 
 	"k8s.io/klog"
-)
-
-const (
-	InstallKubeadmTpl    = "./template/install_kubeadm.sh"
-	InstallKubeadmScript = "/root/install_kubeadm.sh"
 )
 
 type status struct {
@@ -116,42 +110,22 @@ func (s *status) joinNode(host models.Host, version, joinCmd string) (err error)
 	if err != nil {
 		return
 	}
-	err = docker.InstallDocker(host, client)
+	err = docker.InstallDocker(host)
 	if err != nil {
 		return err
 	}
 
-	buf, err := common.ParserTemplate(InstallKubeadmTpl,
-		struct {
-			Version string
-		}{
-			Version: version,
-		})
-
-	if err != nil {
-		return
+	if err := scpData(client, models.Version{Version: version}, []string{installKubeletTpl}); err != nil{
+		return err
 	}
 
-	err = ssh.CopyByteToRemote(client, buf, InstallKubeadmScript)
-	if err != nil {
-		return
-	}
 	commands := []string{
-		fmt.Sprintf(`sh %s`, InstallKubeadmScript),
+		fmt.Sprintf(`sh %s`, targetFile(installKubeletTpl)),
 		joinCmd,
 	}
-	for _, cmd := range commands {
-		klog.Infof("exec cmd %s", cmd)
-		b, err := ssh.SSHExecCmd(client, cmd)
-		if err != nil {
-			return err
-		}
-		klog.Infof("resp:  %s", string(b))
-		klog.Infof("exec cmd: %s success", cmd)
-		s.stage = cmd
-		s.event = append(s.event, cmd)
-		s.LogRaw = append(s.LogRaw, b...)
+	if err := executeCmd(client, commands); err !=nil{
+		return err
 	}
-	klog.Infof("install kubernetes slave node:%s success", host.IP)
+	klog.Infof("join node:%s success", host.IP)
 	return nil
 }

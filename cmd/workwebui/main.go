@@ -3,8 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
-	"os/signal"
 	"strconv"
 	"time"
 
@@ -39,14 +37,13 @@ func main() {
 	server := webui.NewServer(*redisNamespace, pool, *webHostPort)
 	server.Start()
 
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, os.Interrupt, os.Kill)
-
-	<-c
-
-	server.Stop()
-
-	fmt.Println("\nQuitting...")
+	//c := make(chan os.Signal, 1)
+	//signal.Notify(c, os.Interrupt, os.Kill)
+	//<-c
+	//
+	//server.Stop()
+	//
+	//fmt.Println("\nQuitting...")
 }
 
 func newPool(addr string, database int) *redis.Pool {

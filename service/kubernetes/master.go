@@ -8,6 +8,7 @@ import (
 	"cloud/service/docker"
 	"encoding/json"
 	"fmt"
+	"strings"
 	"text/template"
 
 	"github.com/gocraft/work"
@@ -16,8 +17,7 @@ import (
 )
 
 const (
-	installK8sMasterScript    = "/root/install_k8s_master.sh"
-	calicoYaml                = "/root/calico.yaml"
+	installKubeletTpl         = "./template/install_kubeadm.sh"
 	installK8sMasterScriptTpl = "./template/install_k8s_master.sh"
 	calicoYamlTpl             = "./template/calico.yaml"
 )
@@ -26,7 +26,6 @@ const (
 // ssh to nodes, run shell script
 type InstallKuber struct {
 	*models.Kubernetes
-	slave  *models.KubernetesSlave
 	status []*status
 }
 
@@ -68,7 +67,10 @@ func (i InstallKuber) Install() error {
 // InstallMaster install k8s master
 func (i *InstallKuber) install() error {
 	client, err := ssh.GetSshClient(i.PrimaryMaster)
-	err = docker.InstallDocker(i.PrimaryMaster, client)
+	if err != nil {
+		return err
+	}
+	err = docker.InstallDocker(i.PrimaryMaster)
 	if err != nil {
 		klog.Errorf("install docker failed: %v", err)
 		return fmt.Errorf("install docker failed: %v", err)
@@ -100,64 +102,26 @@ func (i *InstallKuber) install() error {
 	return e.MergeError(errs)
 }
 
+// installMaster kube init by kubeadm_config, or join k8s as master role
 func (i *InstallKuber) installMaster(host models.Host) (err error) {
 	client, err := ssh.GetSshClient(host)
-
-	t1, err := template.ParseFiles(installK8sMasterScriptTpl)
 	if err != nil {
-		klog.Errorf("%s template parser failed, %v", installK8sMasterScriptTpl, err)
 		return err
 	}
 
-	t2, err := template.ParseFiles(calicoYamlTpl)
-	if err != nil {
-		klog.Errorf("%s template parser failed, %v", calicoYaml, err)
-		return
+	if err := scpData(client, i, []string{installKubeletTpl, installK8sMasterScriptTpl, calicoYamlTpl}); err != nil {
+		return err
 	}
 
-	buff1 := new(bytes.Buffer)
-	buff2 := new(bytes.Buffer)
-
-	err = t1.Execute(buff1, i)
-	if err != nil {
-		klog.Errorf("execute template failed, %v", err)
-		return
-	}
-
-	err = t2.Execute(buff2, i)
-	if err != nil {
-		klog.Errorf("execute template failed, %v", err)
-		return
-	}
-
-	err = ssh.CopyByteToRemote(client, buff1.Bytes(), installK8sMasterScript)
-	if err != nil {
-		klog.Errorf("copy byte err: %v", err)
-		return
-	}
-
-	err = ssh.CopyByteToRemote(client, buff2.Bytes(), calicoYaml)
-	if err != nil {
-		klog.Errorf("copy byte err: %v", err)
-		return
-	}
 	commands := []string{
-		fmt.Sprintf(`sh %s`, installK8sMasterScript),
-		fmt.Sprintf(`kubectl create -f %s`, calicoYaml),
+		fmt.Sprintf(`sh %s`, targetFile(installKubeletTpl)),
+		fmt.Sprintf(`sh %s`, targetFile(installK8sMasterScriptTpl)),
+		fmt.Sprintf(`kubectl create -f %s`, targetFile(calicoYamlTpl)),
 		fmt.Sprintf(`cat %s`, "/root/.kube/config"),
 	}
-	for _, cmd := range commands {
-		klog.Infof("exec cmd %s", cmd)
-		b, err := ssh.SSHExecCmd(client, cmd)
-		if err != nil {
-			klog.Errorf("SSHExecCmd failed, %v", err)
-			return err
-		}
-		klog.Infof("resp:  %s", string(b))
-		klog.Infof("exec cmd: %s success", cmd)
-
+	if err := executeCmd(client, commands); err != nil {
+		return err
 	}
-	klog.Infof("install kubernetes master node:%s success", host.IP)
 	return
 }
 
@@ -174,4 +138,54 @@ func getJoinMasterCommand(client *ssh2.Client) (string, error) {
 
 	return handCommandResult(jointNodeCmd) + " --control-plane --certificate-key  " + certificateKey, nil
 
+}
+
+func parserTemplate(scriptTpl string, data interface{}) ([]byte, error) {
+	t1, err := template.ParseFiles(scriptTpl)
+	if err != nil {
+		klog.Errorf("%s template parser failed, %v", scriptTpl, err)
+		return nil, err
+	}
+	buff1 := new(bytes.Buffer)
+
+	// 结构体数据映射到模版中
+	err = t1.Execute(buff1, data)
+	if err != nil {
+		klog.Errorf("execute template failed, %v", err)
+		return nil, err
+	}
+	return buff1.Bytes(), nil
+}
+
+func scpData(client *ssh2.Client, data interface{}, temp []string) error {
+	for _, t := range temp {
+		scriptBytes, err := parserTemplate(t, data)
+		if err != nil {
+			return err
+		}
+		if err := ssh.CopyByteToRemote(client, scriptBytes, targetFile(t)); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func executeCmd(client *ssh2.Client, commands []string) error {
+	for _, cmd := range commands {
+		klog.Infof("exec cmd %s", cmd)
+		b, err := ssh.SSHExecCmd(client, cmd)
+		if err != nil {
+			klog.Errorf("SSHExecCmd failed, %v", err)
+			return err
+		}
+		klog.Infof("resp:  %s", string(b))
+		klog.Infof("exec cmd: %s success", cmd)
+
+	}
+	return nil
+}
+
+func targetFile(tmp string) string {
+	t := strings.Split(tmp, "/")
+	return "/root/" + t[len(t)-1]
 }

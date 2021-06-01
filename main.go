@@ -5,16 +5,10 @@ import (
 	"cloud/pkg/setting"
 	"cloud/routers"
 	"cloud/service/kubernetes"
-	"context"
 	"fmt"
-	"log"
-	"net/http"
-	"os"
-	"os/signal"
-	"time"
-
 	"github.com/gin-gonic/gin"
 	"k8s.io/klog"
+	"net/http"
 )
 
 func init() {
@@ -85,37 +79,7 @@ func main() {
 		MaxHeaderBytes: maxHeaderBytes,
 	}
 
-	go func() {
-		if err := server.ListenAndServe(); err != nil {
-			klog.Error(err)
-		}
-	}()
-
-	// Wait for interrupt signal to gracefully shutdown the server with
-	// a timeout of 5 seconds.
-	quit := make(chan os.Signal)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
-	klog.Info("Shutdown Server ...")
-
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-	if err := server.Shutdown(ctx); err != nil {
-		log.Fatal("Server Shutdown:", err)
+	if err := server.ListenAndServe(); err != nil {
+		klog.Error(err)
 	}
-	klog.Info("Server exiting")
-
-	// If you want Graceful Restart, you need a Unix system and download github.com/fvbock/endless
-	//endless.DefaultReadTimeOut = readTimeout
-	//endless.DefaultWriteTimeOut = writeTimeout
-	//endless.DefaultMaxHeaderBytes = maxHeaderBytes
-	//server := endless.NewServer(endPoint, routersInit)
-	//server.BeforeBegin = func(add string) {
-	//	log.Printf("Actual pid is %d", syscall.Getpid())
-	//}
-	//
-	//err := server.ListenAndServe()
-	//if err != nil {
-	//	log.Printf("Server err: %v", err)
-	//}
 }

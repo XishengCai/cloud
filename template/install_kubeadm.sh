@@ -4,6 +4,8 @@
 #chec user
 [[ $UID -ne 0 ]] && { echo "Must run in root user !";exit; }
 
+set -e
+
 echo "添加kubernetes国内yum源"
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -16,19 +18,7 @@ gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
        http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 EOF
 
-#cat <<EOF > /etc/yum.repos.d/kubernetes.repo
-#[kubernetes]
-#name=Kubernetes
-#baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
-#enabled=1
-#gpgcheck=1
-#repo_gpgcheck=1
-#gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-#exclude=kubelet kubeadm kubectl
-#EOF
-
 # Set SELinux in permissive mode (effectively disabling it)
-
 cat <<EOF >  /etc/sysctl.d/k8s.conf
 net.ipv4.ip_forward = 1
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -39,7 +29,7 @@ EOF
 sysctl --system
 swapoff -a
 
-cat > /etc/sysconfig/modules/ipvs.modules <<EOF
+cat <<EOF > /etc/sysconfig/modules/ipvs.modules
 #!/bin/bash
 modprobe -- ip_vs
 modprobe -- ip_vs_rr
@@ -52,15 +42,17 @@ chmod 755 /etc/sysconfig/modules/ipvs.modules && bash /etc/sysconfig/modules/ipv
 yum install ipset ipvsadm -y
 
 
+# if this node is ready, you want reJoin, maybe occure device busy
+set +e
+kubeadm reset --force
+
+set -e
 rm -rf /var/lib/cni/
 rm -rf /var/lib/etcd/
 rm -rf /etc/kubernetes
 rm -rf /var/lib/kubelet
 rm -rf /var/lib/dockershim
 rm -rf /etc/cni/net.d
-
-# if this node is ready, you want reJoin, maybe occure device busy
-kubeadm reset -y
 
 yum -y  remove kubeadm kubectl kubelet
 yum -y install kubelet-{{.Version}} kubeadm-{{.Version}} kubectl-{{.Version}} --setopt=obsoletes=0

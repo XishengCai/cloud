@@ -68,7 +68,7 @@ func CopyFileToRemote(sftpClient *sftp.Client, localFilePath string, remoteFileP
 		if n == 0 {
 			break
 		}
-		dstFile.Write(buf)
+		_,_ = dstFile.Write(buf)
 	}
 
 	fmt.Println("copy file to remote server finished!")

@@ -5,12 +5,10 @@ import (
 	"github.com/gocraft/work"
 	"github.com/gomodule/redigo/redis"
 	"k8s.io/klog"
-	"os"
-	"os/signal"
 )
 
 var (
-	RedisPool = &redis.Pool{
+	redisPool = &redis.Pool{
 		MaxActive: 5,
 		MaxIdle:   5,
 		Wait:      true,
@@ -18,16 +16,16 @@ var (
 			return redis.Dial("tcp", ":6379")
 		},
 	}
-	installK8sQueue      = work.NewEnqueuer(InstallK8sJobNamespace, RedisPool)
-	installK8sSlaveQueue = work.NewEnqueuer(InstallK8sSlaveJobNamespace, RedisPool)
+	installK8sQueue      = work.NewEnqueuer(installK8sJobNamespace, redisPool)
+	installK8sSlaveQueue = work.NewEnqueuer(installK8sSlaveJobNamespace, redisPool)
 )
 
 const (
 	installMaster = "install_master"
 	installSlave  = "install_slave"
 
-	InstallK8sJobNamespace      = "install_k8s_master"
-	InstallK8sSlaveJobNamespace = "install_k8s_slave"
+	installK8sJobNamespace      = "install_k8s_master"
+	installK8sSlaveJobNamespace = "install_k8s_slave"
 )
 
 // ConvertJobArg convert to work.Q
@@ -43,8 +41,8 @@ func ConvertJobArg(i interface{}) (work.Q, error) {
 
 // SetUpJob start job server
 func SetUpJob() {
-	go registerJob(InstallK8sJobNamespace, installMaster, InstallKuber{})
-	go registerJob(InstallK8sSlaveJobNamespace, installSlave, InstallSlave{})
+	go registerJob(installK8sJobNamespace, installMaster, InstallKuber{})
+	go registerJob(installK8sSlaveJobNamespace, installSlave, InstallSlave{})
 }
 
 type job interface {
@@ -53,10 +51,8 @@ type job interface {
 	Export(job *work.Job) error
 }
 
-type Context struct{}
-
 func registerJob(namespace, jobName string, j job) {
-	pool := work.NewWorkerPool(j, 10, namespace, RedisPool)
+	pool := work.NewWorkerPool(j, 10, namespace, redisPool)
 
 	pool.Job(jobName, j.ConsumeJob)
 	pool.Middleware(j.Log)
@@ -65,9 +61,10 @@ func registerJob(namespace, jobName string, j job) {
 
 	klog.Info("register job ", jobName)
 	// Wait for a signal to quit:
-	signalChan := make(chan os.Signal, 1)
-	signal.Notify(signalChan, os.Interrupt, os.Kill)
-	<-signalChan
+	//signalChan := make(chan os.Signal, 1)
+	//signal.Notify(signalChan, os.Interrupt, os.Kill)
+	//<-signalChan
+
 	// Stop the pool
-	pool.Stop()
+	//pool.Stop()
 }
