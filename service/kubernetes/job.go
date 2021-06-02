@@ -53,10 +53,9 @@ type job interface {
 
 func registerJob(namespace, jobName string, j job) {
 	pool := work.NewWorkerPool(j, 10, namespace, redisPool)
-
-	pool.Job(jobName, j.ConsumeJob)
+	pool.JobWithOptions(jobName, work.JobOptions{Priority: 1, MaxFails: 1}, j.ConsumeJob)
 	pool.Middleware(j.Log)
-	pool.JobWithOptions("export", work.JobOptions{Priority: 10, MaxFails: 1}, j.Export)
+	//pool.JobWithOptions(jobName, work.JobOptions{Priority: 10, MaxFails: 1}, j.Export)
 	pool.Start()
 
 	klog.Info("register job ", jobName)

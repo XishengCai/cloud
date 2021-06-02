@@ -54,3 +54,4 @@ if $isOuter; then
   ./get_helm.sh
 fi
 
+# kubectl taint  nodes --all node-role.kubernetes.io/master-

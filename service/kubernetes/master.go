@@ -20,6 +20,20 @@ const (
 	installKubeletTpl         = "./template/install_kubeadm.sh"
 	installK8sMasterScriptTpl = "./template/install_k8s_master.sh"
 	calicoYamlTpl             = "./template/calico.yaml"
+	ciliumLinuxTpl               = "./template/cilium_linux.sh"
+)
+
+const(
+	calico = "calico"
+	cilium = "cilium"
+	flannel = "flannel"
+)
+
+var (
+	networkPlugin = map[string]string{
+		calico: calicoYamlTpl,
+		cilium: ciliumLinuxTpl,
+	}
 )
 
 // InstallKuber implement install k8s master and slave
@@ -43,13 +57,21 @@ func (i InstallKuber) ConsumeJob(job *work.Job) error {
 }
 
 func (i InstallKuber) Export(job *work.Job) error {
-	klog.Infof("export install k8s master job: %v", job)
+	klog.Infof("export install k8s master job: %v", job.Name)
 	return nil
 }
 
 func (i InstallKuber) Log(job *work.Job, next work.NextMiddlewareFunc) error {
 	klog.Infof("Starting job:%s, jobID: %s, install k8s master ", job.Name, job.ID)
 	return next()
+}
+
+func (i InstallKuber) checkInfo() error{
+	if i.NetWorkPlug != cilium && i.NetWorkPlug != calico {
+		return fmt.Errorf("networkPlugin only can calico or cilium")
+	}
+
+	return nil
 }
 
 // Install export to API interface
@@ -108,16 +130,17 @@ func (i *InstallKuber) installMaster(host models.Host) (err error) {
 	if err != nil {
 		return err
 	}
-
-	if err := scpData(client, i, []string{installKubeletTpl, installK8sMasterScriptTpl, calicoYamlTpl}); err != nil {
+	networkPluginTpl := networkPlugin[i.NetWorkPlug]
+	if err := scpData(client, i, []string{installKubeletTpl, installK8sMasterScriptTpl,networkPluginTpl}); err != nil {
 		return err
 	}
 
 	commands := []string{
 		fmt.Sprintf(`sh %s`, targetFile(installKubeletTpl)),
 		fmt.Sprintf(`sh %s`, targetFile(installK8sMasterScriptTpl)),
-		fmt.Sprintf(`kubectl create -f %s`, targetFile(calicoYamlTpl)),
+		//fmt.Sprintf(`kubectl create -f %s`, targetFile(calicoYamlTpl)),
 		fmt.Sprintf(`cat %s`, "/root/.kube/config"),
+		fmt.Sprintf(`sh %s`, targetFile(networkPluginTpl)),
 	}
 	if err := executeCmd(client, commands); err != nil {
 		return err

@@ -2,11 +2,13 @@ package kubernetes
 
 import (
 	"cloud/models"
+	"cloud/pkg/app"
 	"cloud/pkg/e"
 	"cloud/pkg/ssh"
 	"cloud/service/docker"
 	"encoding/json"
 	"fmt"
+	"net/http"
 	"strings"
 
 	"github.com/gocraft/work"
@@ -58,7 +60,24 @@ func (i InstallSlave) ConsumeJob(job *work.Job) error {
 	return k.joinNodes()
 }
 
-func (i InstallSlave) Install() (err error) {
+func (i *InstallSlave) Install() app.ServiceResponse {
+	err := i.install()
+	return app.ServiceResponse{
+		Error:  err,
+		Data:   i,
+		Status: http.StatusCreated,
+	}
+}
+
+func (i *InstallSlave) install() error {
+	if err := i.getVersion(i.Master); err != nil {
+		return err
+	}
+
+	if err := i.setJoinCommand();err != nil{
+		return err
+	}
+
 	arg, err := ConvertJobArg(i)
 	if err != nil {
 		return err
@@ -77,17 +96,42 @@ func handCommandResult(result []byte) string {
 	return command
 }
 
-func (i *InstallSlave) joinNodes() (err error) {
+func (i *InstallSlave) getVersion(host models.Host) error {
+	client, err := ssh.GetSshClient(host)
+	if err != nil {
+		return err
+	}
+	b, err := ssh.SSHExecCmd(client, "kubectl version --short |grep Server")
+	if err != nil {
+		return err
+	}
+	if len(b) == 0 {
+		return fmt.Errorf("not find k8s version from master")
+	}
+	version := strings.Split(string(b), " ")[2]
+	version = strings.Trim(version, "\n")
+	version = strings.Trim(version,"v")
+	klog.Info("find master version is ", version)
+	i.Version = version
+	return nil
+}
+
+func (i *InstallSlave) setJoinCommand() error{
 	joinCommand, err := getJoinNodeCommand(i.Master)
 	if err != nil {
 		return err
 	}
-	klog.Infof("joinCommand: %s", joinCommand)
 
+	cmdResp := string(joinCommand)
+	i.JoinSlaveCommand = cmdResp[strings.Index(cmdResp, "kubeadm join"):]
+	return nil
+}
+
+func (i *InstallSlave) joinNodes() (err error) {
 	var errorList []error
 	for _, item := range i.Nodes {
 		s := NewStatus(item.IP)
-		err := s.joinNode(item, i.Version, string(joinCommand))
+		err := s.joinNode(item, i.Version, i.JoinSlaveCommand)
 		if err != nil {
 			errorList = append(errorList, err)
 		}
@@ -115,7 +159,7 @@ func (s *status) joinNode(host models.Host, version, joinCmd string) (err error)
 		return err
 	}
 
-	if err := scpData(client, models.Version{Version: version}, []string{installKubeletTpl}); err != nil{
+	if err := scpData(client, models.Version{Version: version}, []string{installKubeletTpl}); err != nil {
 		return err
 	}
 
@@ -123,7 +167,7 @@ func (s *status) joinNode(host models.Host, version, joinCmd string) (err error)
 		fmt.Sprintf(`sh %s`, targetFile(installKubeletTpl)),
 		joinCmd,
 	}
-	if err := executeCmd(client, commands); err !=nil{
+	if err := executeCmd(client, commands); err != nil {
 		return err
 	}
 	klog.Infof("join node:%s success", host.IP)

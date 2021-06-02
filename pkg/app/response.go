@@ -14,6 +14,31 @@ const (
 	RequestResList string = "requestResList"
 )
 
+type ServiceResponser interface {
+	checkError() error
+	getResp() interface{}
+	httpStatus() int
+}
+
+type ServiceResponse struct {
+	Error  error
+	Data   interface{}
+	Code   int
+	Status int
+}
+
+func (r ServiceResponse) checkError() error{
+	return r.Error
+}
+
+func (r ServiceResponse) getResp() interface{}{
+	return r.Data
+}
+
+func (r ServiceResponse) httpStatus() int{
+	return r.Status
+}
+
 type Response struct {
 	Status int         `json:"status"`
 	ResMsg interface{} `json:"resMsg"`
@@ -107,12 +132,12 @@ func HandleError(ctx *gin.Context, errCode int, err error) {
 }
 
 // HandleDataAndError 失败事件code
-func HandleDataAndError(ctx *gin.Context, eventCode int, data interface{}, err error) {
-	if err != nil {
-		ctx.JSON(http.StatusOK, NewResponseWithStatus(err, eventCode))
+func HandleDataAndError(ctx *gin.Context, eventCode int, resp ServiceResponser) {
+	if resp.checkError() != nil {
+		ctx.JSON(http.StatusOK, NewResponseWithStatus(resp.checkError(), eventCode))
 		return
 	}
-	ctx.JSON(http.StatusOK, NewResponse(data))
+	ctx.JSON(resp.httpStatus(), NewResponse(resp.getResp()))
 }
 
 func HandleDataItemAndError(ctx *gin.Context, eventCode int, data interface{}, err error) {

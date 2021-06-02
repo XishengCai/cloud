@@ -5,13 +5,14 @@ import (
 	"fmt"
 	"k8s.io/klog"
 	"net"
+	"time"
 
 	"github.com/pkg/sftp"
 	"golang.org/x/crypto/ssh"
 )
 
 // GetSshConfigByPassword 通过用户名和密码生成一个配置文件
-func GetSshConfigByPassword(user string, password string) *ssh.ClientConfig {
+func GetSshConfigByPassword(user string, password string, timeout time.Duration) *ssh.ClientConfig {
 	sshConfig := &ssh.ClientConfig{
 		User: user,
 		Auth: []ssh.AuthMethod{
@@ -20,6 +21,7 @@ func GetSshConfigByPassword(user string, password string) *ssh.ClientConfig {
 		HostKeyCallback: func(hostname string, remote net.Addr, key ssh.PublicKey) error {
 			return nil
 		},
+		Timeout: timeout,
 	}
 	return sshConfig
 }
@@ -31,10 +33,6 @@ func SSHExecCmd(client *ssh.Client, cmd string) ([]byte, error) {
 		return nil, err
 	}
 	defer session.Close()
-	if err != nil {
-		return nil, fmt.Errorf("failed to create session: %v", err)
-	}
-
 	out, err := session.CombinedOutput(cmd)
 	return out, err
 }
@@ -44,32 +42,33 @@ func SSHExecCmd(client *ssh.Client, cmd string) ([]byte, error) {
 func CopyByteToRemote(client *ssh.Client, byteStream []byte, remoteFilePath string) error {
 	sftpClient, err := sftp.NewClient(client)
 	if err != nil {
-		klog.Errorf("sftp.NewClient  err %s", err)
 		return err
 	}
 	defer sftpClient.Close()
 	dstFile, err := sftpClient.Create(remoteFilePath) //创建文件夹
 	if err != nil {
-		klog.Error(err)
 		return err
 	}
 	defer dstFile.Close()
-	_,_ = dstFile.Write(byteStream)
+	_,err = dstFile.Write(byteStream)
+	if err !=nil{
+		return err
+	}
 	klog.Info("copy byteStream to remote server finished!")
 	return nil
 }
 
 // GetSshClient 通过ssh.ClientConfig创建一个ssh连接
 func GetSshClient(host models.Host) (*ssh.Client, error) {
-	fmt.Printf("host:%s, user:%s, password:%s, port:%d",
+	klog.Infof("host:%s, user:%s, password:%s, port:%d",
 		host.IP, host.User, host.Password, host.Port)
 	addr := fmt.Sprintf("%s:%d", host.IP, host.Port)
-	sshConfig := GetSshConfigByPassword(host.User, host.Password)
+	sshConfig := GetSshConfigByPassword(host.User, host.Password, time.Second*5)
 	client, err := ssh.Dial("tcp", addr, sshConfig)
 	if err != nil {
 		return nil, fmt.Errorf("failed to dial:%v", err)
 	} else if client == nil {
-		return nil, fmt.Errorf("get k8s k8s failure")
+		return nil, fmt.Errorf("get ssh client failed, %v", err)
 	}
 	return client, nil
 }
