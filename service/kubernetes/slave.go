@@ -16,39 +16,24 @@ import (
 	"k8s.io/klog"
 )
 
-type status struct {
-	node   string
-	stage  string
-	LogRaw []byte
-	event  []string
-}
-
-func NewStatus(host string) *status {
-	return &status{
-		node:   host,
-		LogRaw: make([]byte, 0),
-		event:  make([]string, 0),
-	}
-}
-
+// InstallSlave batch join slave to  k8s
 type InstallSlave struct {
 	*models.KubernetesSlave
-	status []*status
 }
 
+// Export job interface implement
 func (i InstallSlave) Export(job *work.Job) error {
 	klog.Infof("export install k8s slave job: %v", job)
-	for _, s := range i.status {
-		job.Checkin(fmt.Sprintf("node: %s, stage: %s", s.node, s.stage))
-	}
 	return nil
 }
 
+// Log job interface implement
 func (i InstallSlave) Log(job *work.Job, next work.NextMiddlewareFunc) error {
 	klog.Infof("Starting job:%s, jobID: %s, install k8s slave  ", job.Name, job.ID)
 	return next()
 }
 
+// ConsumeJob job interface implement
 func (i InstallSlave) ConsumeJob(job *work.Job) error {
 	if job.Args == nil {
 		klog.Errorf("jobID:%s, job.Arg is nil", job.ID)
@@ -60,13 +45,17 @@ func (i InstallSlave) ConsumeJob(job *work.Job) error {
 	return k.joinNodes()
 }
 
+// Install install slave by master config [hostIP, port root, password]
 func (i *InstallSlave) Install() app.ServiceResponse {
 	err := i.install()
+
 	return app.ServiceResponse{
 		Error:  err,
 		Data:   i,
 		Status: http.StatusCreated,
+		Code:   -1,
 	}
+
 }
 
 func (i *InstallSlave) install() error {
@@ -74,7 +63,7 @@ func (i *InstallSlave) install() error {
 		return err
 	}
 
-	if err := i.setJoinCommand();err != nil{
+	if err := i.setJoinCommand(); err != nil {
 		return err
 	}
 
@@ -97,11 +86,11 @@ func handCommandResult(result []byte) string {
 }
 
 func (i *InstallSlave) getVersion(host models.Host) error {
-	client, err := ssh.GetSshClient(host)
+	client, err := ssh.GetClient(host)
 	if err != nil {
 		return err
 	}
-	b, err := ssh.SSHExecCmd(client, "kubectl version --short |grep Server")
+	b, err := ssh.ExecCmd(client, "kubectl version --short |grep Server")
 	if err != nil {
 		return err
 	}
@@ -110,13 +99,13 @@ func (i *InstallSlave) getVersion(host models.Host) error {
 	}
 	version := strings.Split(string(b), " ")[2]
 	version = strings.Trim(version, "\n")
-	version = strings.Trim(version,"v")
+	version = strings.Trim(version, "v")
 	klog.Info("find master version is ", version)
 	i.Version = version
 	return nil
 }
 
-func (i *InstallSlave) setJoinCommand() error{
+func (i *InstallSlave) setJoinCommand() error {
 	joinCommand, err := getJoinNodeCommand(i.Master)
 	if err != nil {
 		return err
@@ -130,27 +119,25 @@ func (i *InstallSlave) setJoinCommand() error{
 func (i *InstallSlave) joinNodes() (err error) {
 	var errorList []error
 	for _, item := range i.Nodes {
-		s := NewStatus(item.IP)
-		err := s.joinNode(item, i.Version, i.JoinSlaveCommand)
+		err := joinNode(item, i.Version, i.JoinSlaveCommand)
 		if err != nil {
 			errorList = append(errorList, err)
 		}
-		i.status = append(i.status, s)
 	}
-	//return fmt.Errorf(errors.NewAggregate(errorList).Error())
+	//return fmt.Error(errors.NewAggregate(errorList).Error())
 	return e.MergeError(errorList)
 }
 
 func getJoinNodeCommand(host models.Host) ([]byte, error) {
-	client, err := ssh.GetSshClient(host)
+	client, err := ssh.GetClient(host)
 	if err != nil {
 		return nil, err
 	}
-	return ssh.SSHExecCmd(client, "kubeadm token create --print-join-command")
+	return ssh.ExecCmd(client, "kubeadm token create --print-join-command")
 }
 
-func (s *status) joinNode(host models.Host, version, joinCmd string) (err error) {
-	client, err := ssh.GetSshClient(host)
+func joinNode(host models.Host, version, joinCmd string) (err error) {
+	client, err := ssh.GetClient(host)
 	if err != nil {
 		return
 	}

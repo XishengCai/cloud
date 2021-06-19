@@ -20,19 +20,21 @@ const (
 	installKubeletTpl         = "./template/install_kubeadm.sh"
 	installK8sMasterScriptTpl = "./template/install_k8s_master.sh"
 	calicoYamlTpl             = "./template/calico.yaml"
-	ciliumLinuxTpl               = "./template/cilium_linux.sh"
+	ciliumLinuxTpl            = "./template/cilium_linux.sh"
+	flannelTpl                = "./template/flannel.yaml"
 )
 
-const(
-	calico = "calico"
-	cilium = "cilium"
+const (
+	calico  = "calico"
+	cilium  = "cilium"
 	flannel = "flannel"
 )
 
 var (
 	networkPlugin = map[string]string{
-		calico: calicoYamlTpl,
-		cilium: ciliumLinuxTpl,
+		calico:  calicoYamlTpl,
+		cilium:  ciliumLinuxTpl,
+		flannel: flannelTpl,
 	}
 )
 
@@ -40,7 +42,6 @@ var (
 // ssh to nodes, run shell script
 type InstallKuber struct {
 	*models.Kubernetes
-	status []*status
 }
 
 // ConsumeJob worker will call
@@ -56,22 +57,16 @@ func (i InstallKuber) ConsumeJob(job *work.Job) error {
 	return k.install()
 }
 
+// Export check job
 func (i InstallKuber) Export(job *work.Job) error {
 	klog.Infof("export install k8s master job: %v", job.Name)
 	return nil
 }
 
+// Log job interface implement
 func (i InstallKuber) Log(job *work.Job, next work.NextMiddlewareFunc) error {
 	klog.Infof("Starting job:%s, jobID: %s, install k8s master ", job.Name, job.ID)
 	return next()
-}
-
-func (i InstallKuber) checkInfo() error{
-	if i.NetWorkPlug != cilium && i.NetWorkPlug != calico {
-		return fmt.Errorf("networkPlugin only can calico or cilium")
-	}
-
-	return nil
 }
 
 // Install export to API interface
@@ -88,7 +83,7 @@ func (i InstallKuber) Install() error {
 
 // InstallMaster install k8s master
 func (i *InstallKuber) install() error {
-	client, err := ssh.GetSshClient(i.PrimaryMaster)
+	client, err := ssh.GetClient(i.PrimaryMaster)
 	if err != nil {
 		return err
 	}
@@ -114,33 +109,37 @@ func (i *InstallKuber) install() error {
 	klog.Infof("joinMasterCommand: %s", i.JoinMasterCommand)
 	var errs []error
 	for _, item := range i.BackendMasters {
-		s := NewStatus(item.IP)
-		err = s.joinNode(item, i.Version, i.JoinMasterCommand)
+		err = joinNode(item, i.Version, i.JoinMasterCommand)
 		if err != nil {
 			errs = append(errs, err)
 		}
-		i.status = append(i.status, s)
 	}
 	return e.MergeError(errs)
 }
 
 // installMaster kube init by kubeadm_config, or join k8s as master role
 func (i *InstallKuber) installMaster(host models.Host) (err error) {
-	client, err := ssh.GetSshClient(host)
+	client, err := ssh.GetClient(host)
 	if err != nil {
 		return err
 	}
 	networkPluginTpl := networkPlugin[i.NetWorkPlug]
-	if err := scpData(client, i, []string{installKubeletTpl, installK8sMasterScriptTpl,networkPluginTpl}); err != nil {
+
+	var installNetPluginCmd string
+	if i.NetWorkPlug == calico {
+		installNetPluginCmd = "kubectl apply -f /root/calico.yaml"
+	} else {
+		installNetPluginCmd = "sh cilium_linux.sh"
+	}
+	if err := scpData(client, i, []string{installKubeletTpl, installK8sMasterScriptTpl, networkPluginTpl}); err != nil {
 		return err
 	}
 
 	commands := []string{
 		fmt.Sprintf(`sh %s`, targetFile(installKubeletTpl)),
 		fmt.Sprintf(`sh %s`, targetFile(installK8sMasterScriptTpl)),
-		//fmt.Sprintf(`kubectl create -f %s`, targetFile(calicoYamlTpl)),
 		fmt.Sprintf(`cat %s`, "/root/.kube/config"),
-		fmt.Sprintf(`sh %s`, targetFile(networkPluginTpl)),
+		installNetPluginCmd,
 	}
 	if err := executeCmd(client, commands); err != nil {
 		return err
@@ -149,11 +148,11 @@ func (i *InstallKuber) installMaster(host models.Host) (err error) {
 }
 
 func getJoinMasterCommand(client *ssh2.Client) (string, error) {
-	jointNodeCmd, err := ssh.SSHExecCmd(client, "kubeadm token create --print-join-command")
+	jointNodeCmd, err := ssh.ExecCmd(client, "kubeadm token create --print-join-command")
 	if err != nil {
 		return "", err
 	}
-	result, err := ssh.SSHExecCmd(client, "kubeadm init phase upload-certs --upload-certs | awk 'END {print}'")
+	result, err := ssh.ExecCmd(client, "kubeadm init phase upload-certs --upload-certs | awk 'END {print}'")
 	if err != nil {
 		return "", err
 	}
@@ -196,9 +195,9 @@ func scpData(client *ssh2.Client, data interface{}, temp []string) error {
 func executeCmd(client *ssh2.Client, commands []string) error {
 	for _, cmd := range commands {
 		klog.Infof("exec cmd %s", cmd)
-		b, err := ssh.SSHExecCmd(client, cmd)
+		b, err := ssh.ExecCmd(client, cmd)
 		if err != nil {
-			klog.Errorf("SSHExecCmd failed, %v", err)
+			klog.Errorf("ExecCmd failed, %v", err)
 			return err
 		}
 		klog.Infof("resp:  %s", string(b))

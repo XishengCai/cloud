@@ -22,7 +22,6 @@ type KubernetesSlave struct {
 	JoinSlaveCommand string `form:"joinSlaveCommand"`
 }
 
-
-type Version struct{
+type Version struct {
 	Version string `form:"version,default=1.17.2"`
 }

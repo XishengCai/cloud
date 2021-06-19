@@ -2,16 +2,21 @@ package ssh
 
 import (
 	"fmt"
-	"github.com/pkg/sftp"
-	"golang.org/x/crypto/ssh"
 	"io/ioutil"
 	"log"
 	"net"
 	"os"
+	"path/filepath"
 	"time"
+
+	"k8s.io/klog"
+
+	"github.com/pkg/sftp"
+	"golang.org/x/crypto/ssh"
 )
 
-func GetSftpConnectByPassword(user, password, host string, port int) (*sftp.Client, error) {
+// GetSftpClientByPassword get sftp client
+func GetSftpClientByPassword(user, password, host string, port int) (*sftp.Client, error) {
 	var (
 		auth         []ssh.AuthMethod
 		addr         string
@@ -20,6 +25,7 @@ func GetSftpConnectByPassword(user, password, host string, port int) (*sftp.Clie
 		sftpClient   *sftp.Client
 		err          error
 	)
+
 	// get auth method
 	auth = make([]ssh.AuthMethod, 0)
 	auth = append(auth, ssh.Password(password))
@@ -33,7 +39,7 @@ func GetSftpConnectByPassword(user, password, host string, port int) (*sftp.Clie
 		},
 	}
 
-	// connet to ssh
+	// connect to ssh
 	addr = fmt.Sprintf("%s:%d", host, port)
 
 	if sshClient, err = ssh.Dial("tcp", addr, clientConfig); err != nil {
@@ -48,19 +54,26 @@ func GetSftpConnectByPassword(user, password, host string, port int) (*sftp.Clie
 	return sftpClient, nil
 }
 
+// CopyFileToRemote copy file to remote host
 func CopyFileToRemote(sftpClient *sftp.Client, localFilePath string, remoteFilePath string) {
-	defer sftpClient.Close()
-	srcFile, err := os.Open(localFilePath)
+	defer func() {
+		_ = sftpClient.Close()
+	}()
+	srcFile, err := os.Open(filepath.Clean(localFilePath))
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer srcFile.Close()
+	defer func() {
+		_ = srcFile.Close()
+	}()
 
 	dstFile, err := sftpClient.Create(remoteFilePath) //创建文件夹
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer dstFile.Close()
+	defer func() {
+		_ = dstFile.Close()
+	}()
 
 	buf := make([]byte, 1024)
 	for {
@@ -68,35 +81,41 @@ func CopyFileToRemote(sftpClient *sftp.Client, localFilePath string, remoteFileP
 		if n == 0 {
 			break
 		}
-		_,_ = dstFile.Write(buf)
+		_, _ = dstFile.Write(buf)
 	}
 
-	fmt.Println("copy file to remote server finished!")
+	klog.Info("copy file to remote server finished!")
 }
 
+// CopyRemoteToLocal copy remote file to local
 func CopyRemoteToLocal(sftpClient *sftp.Client, localFilePath string, remoteFilePath string) {
 	var err error
 	srcFile, err := sftpClient.Open(remoteFilePath)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer srcFile.Close()
+	defer func() {
+		_ = srcFile.Close()
+	}()
 
 	dstFile, err := os.Create(localFilePath)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer dstFile.Close()
+	defer func() {
+		_ = dstFile.Close()
+	}()
 
 	if _, err = srcFile.WriteTo(dstFile); err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println("copy file from remote server finished!")
+	klog.Infof("copy file from remote server finished!")
 }
 
+// ScpFile copy file local file to dest
 func ScpFile(path, dest string, client *ssh.Client) error {
-	b, err := ioutil.ReadFile(path)
+	b, err := ioutil.ReadFile(filepath.Clean(path))
 	if err != nil {
 		return err
 	}

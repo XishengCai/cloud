@@ -46,5 +46,5 @@ func InstallKubernetesSlave(ctx *gin.Context) {
 		return
 	}
 	klog.Infof("InstallKubernetes nodes parameter: %+v", k)
-	app.HandleDataAndError(ctx,http.StatusCreated,k.Install())
+	app.HandleDataAndError(ctx, k.Install())
 }

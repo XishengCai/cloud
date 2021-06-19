@@ -1,14 +1,16 @@
 package main
 
 import (
+	"fmt"
+	"net/http"
+
 	"cloud/pkg/client/mongodb"
 	"cloud/pkg/setting"
 	"cloud/routers"
 	"cloud/service/kubernetes"
-	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"k8s.io/klog"
-	"net/http"
 )
 
 func init() {

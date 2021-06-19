@@ -4,6 +4,7 @@ import (
 	"cloud/models"
 	"cloud/pkg/ssh"
 	"fmt"
+
 	"k8s.io/klog"
 )
 
@@ -13,7 +14,7 @@ const (
 )
 
 func InstallDocker(host models.Host) (err error) {
-	client, err := ssh.GetSshClient(host)
+	client, err := ssh.GetClient(host)
 	if err != nil {
 		return fmt.Errorf("nodes: %s, %v", host.IP, err)
 	}
@@ -23,7 +24,7 @@ func InstallDocker(host models.Host) (err error) {
 		return fmt.Errorf("nodes: %s, %v", host.IP, err)
 	}
 
-	b, err := ssh.SSHExecCmd(client, "sh /root/install_docker.sh")
+	b, err := ssh.ExecCmd(client, "sh /root/install_docker.sh")
 	if err != nil {
 		return fmt.Errorf("nodes: %s, %v", host.IP, err)
 	}

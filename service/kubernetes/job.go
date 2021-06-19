@@ -2,8 +2,10 @@ package kubernetes
 
 import (
 	"encoding/json"
+
 	"github.com/gocraft/work"
 	"github.com/gomodule/redigo/redis"
+
 	"k8s.io/klog"
 )
 

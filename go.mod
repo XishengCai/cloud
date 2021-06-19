@@ -4,6 +4,12 @@ go 1.15
 
 require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
+	github.com/alibabacloud-go/darabonba-env v1.0.0
+	github.com/alibabacloud-go/darabonba-openapi v0.1.5
+	github.com/alibabacloud-go/ecs-20140526/v2 v2.0.2
+	github.com/alibabacloud-go/tea v1.1.16
+	github.com/alibabacloud-go/tea-console v1.0.0
+	github.com/alibabacloud-go/tea-utils v1.3.9
 	github.com/braintree/manners v0.0.0-20160418043613-82a8879fc5fd // indirect
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-delve/delve v1.6.1 // indirect

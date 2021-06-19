@@ -5,7 +5,7 @@ set -e
 download(){
   curl -LO https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz
   sudo tar xzvfC cilium-linux-amd64.tar.gz /usr/local/bin
-  rm cilium-linux-amd64.tar.gz
+  rm -rf cilium-linux-amd64.tar.gz
 }
 
 installCilium(){
@@ -35,7 +35,7 @@ downloadHubbleClient(){
 main(){
   download
   installCilium
-  enableHubble
+#  enableHubble
 }
 
 main

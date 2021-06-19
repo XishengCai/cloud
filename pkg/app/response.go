@@ -10,10 +10,6 @@ type Gin struct {
 	C *gin.Context
 }
 
-const (
-	RequestResList string = "requestResList"
-)
-
 type ServiceResponser interface {
 	checkError() error
 	getResp() interface{}
@@ -27,15 +23,15 @@ type ServiceResponse struct {
 	Status int
 }
 
-func (r ServiceResponse) checkError() error{
+func (r ServiceResponse) checkError() error {
 	return r.Error
 }
 
-func (r ServiceResponse) getResp() interface{}{
+func (r ServiceResponse) getResp() interface{} {
 	return r.Data
 }
 
-func (r ServiceResponse) httpStatus() int{
+func (r ServiceResponse) httpStatus() int {
 	return r.Status
 }
 
@@ -67,7 +63,6 @@ type GitData struct {
 // Response setting gin.JSON
 func (g *Gin) Response(httpCode int, msg string, data interface{}) {
 	g.C.JSON(httpCode, Response{
-		Status: httpCode,
 		ResMsg: msg,
 		Data:   data,
 	})
@@ -95,7 +90,6 @@ func NewResponse(data interface{}) Response {
 	}
 
 	return Response{
-		Status: 0,
 		ResMsg: "Success",
 		Data:   data,
 	}
@@ -105,17 +99,6 @@ func NewResponseWithStatus(err error, status int) Response {
 	return Response{
 		ResMsg: err.Error(),
 		Status: status,
-	}
-}
-
-func NewResponseDateItemWithStatus(err error, status int) Response {
-	return Response{
-		ResMsg: err.Error(),
-		Status: status,
-		Data: Data{
-			Total: 0,
-			Items: []interface{}{},
-		},
 	}
 }
 
@@ -132,30 +115,10 @@ func HandleError(ctx *gin.Context, errCode int, err error) {
 }
 
 // HandleDataAndError 失败事件code
-func HandleDataAndError(ctx *gin.Context, eventCode int, resp ServiceResponser) {
+func HandleDataAndError(ctx *gin.Context, resp ServiceResponser) {
 	if resp.checkError() != nil {
-		ctx.JSON(http.StatusOK, NewResponseWithStatus(resp.checkError(), eventCode))
+		ctx.JSON(http.StatusOK, NewResponse(resp.checkError()))
 		return
 	}
-	ctx.JSON(resp.httpStatus(), NewResponse(resp.getResp()))
-}
-
-func HandleDataItemAndError(ctx *gin.Context, eventCode int, data interface{}, err error) {
-	if err != nil {
-		ctx.JSON(http.StatusOK, NewResponseDateItemWithStatus(err, eventCode))
-		return
-	}
-	ctx.JSON(http.StatusOK, NewResponse(data))
-}
-
-// HandleBatchOperationResult handle batch operation result
-func HandleBatchOperationResult(ctx *gin.Context, errCode int, bor BatchOperationResp) {
-	if bor != nil {
-		ctx.JSON(http.StatusOK, Response{
-			Status: errCode,
-			Data:   bor,
-		})
-		return
-	}
-	ctx.JSON(http.StatusOK, NewResponse(nil))
+	ctx.JSON(resp.httpStatus(), resp)
 }
